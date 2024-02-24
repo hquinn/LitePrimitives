@@ -1,5 +1,8 @@
 # LitePrimitives
 
+![NuGet](https://img.shields.io/nuget/v/LitePrimitives)
+![NuGet](https://img.shields.io/nuget/dt/LitePrimitives)
+
 A small list of primitive types to help with modern .NET development.
 
 ## What LitePrimitives supports
