@@ -10,6 +10,8 @@ public static class ErrorAssertHelper
         string expectedTitle,
         string expectedDescription,
         string expectedCode,
+        string expectedHelpLink,
+        IDictionary<string, object?> context,
         Severity expectedSeverity,
         string expectedPropertyName,
         string expectedPropertyPath,
@@ -20,6 +22,8 @@ public static class ErrorAssertHelper
         actualError.Title.Should().Be(expectedTitle);
         actualError.Description.Should().Be(expectedDescription);
         actualError.Code.Should().Be(expectedCode);
+        actualError.HelpLink.Should().Be(expectedHelpLink);
+        actualError.Context.Should().BeEquivalentTo(context);
         actualError.Severity.Should().Be(expectedSeverity);
         actualError.PropertyName.Should().Be(expectedPropertyName);
         actualError.PropertyPath.Should().Be(expectedPropertyPath);
@@ -31,6 +35,7 @@ public static class ErrorAssertHelper
         string expectedTitle,
         string expectedDescription,
         string expectedCode,
+        string expectedHelpLink,
         Severity expectedSeverity)
     {
         using var _ = new AssertionScope();
@@ -38,6 +43,7 @@ public static class ErrorAssertHelper
         actualError.Title.Should().Be(expectedTitle);
         actualError.Description.Should().Be(expectedDescription);
         actualError.Code.Should().Be(expectedCode);
+        actualError.HelpLink.Should().Be(expectedHelpLink);
         actualError.Severity.Should().Be(expectedSeverity);
     }
     
@@ -46,6 +52,7 @@ public static class ErrorAssertHelper
         string expectedTitle,
         string expectedDescription,
         string expectedCode,
+        string expectedHelpLink,
         Severity expectedSeverity,
         Exception expectedException)
     {
@@ -54,6 +61,7 @@ public static class ErrorAssertHelper
         actualError.Title.Should().Be(expectedTitle);
         actualError.Description.Should().Be(expectedDescription);
         actualError.Code.Should().Be(expectedCode);
+        actualError.HelpLink.Should().Be(expectedHelpLink);
         actualError.Severity.Should().Be(expectedSeverity);
         actualError.Exception.Should().BeEquivalentTo(expectedException);
     }

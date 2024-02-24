@@ -24,4 +24,9 @@ public interface IError
     ///     Represents the Severity of the Error. Usually will be set to Error.
     /// </summary>
     public Severity Severity { get; }
+
+    /// <summary>
+    ///     Represents a URL to a help page with more information about the Error.
+    /// </summary>
+    public string? HelpLink { get; }
 }

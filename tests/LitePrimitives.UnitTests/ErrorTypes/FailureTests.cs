@@ -10,6 +10,7 @@ public class FailureTests
             Title = ErrorConstants.Title,
             Description = ErrorConstants.Description,
             Code = ErrorConstants.Code,
+            HelpLink = ErrorConstants.HelpLink,
             Severity = ErrorConstants.Severity,
         };
         
@@ -17,6 +18,7 @@ public class FailureTests
             ErrorConstants.Title,
             ErrorConstants.Description,
             ErrorConstants.Code,
+            ErrorConstants.HelpLink,
             ErrorConstants.Severity);
     }
     
@@ -27,12 +29,14 @@ public class FailureTests
             ErrorConstants.Title,
             ErrorConstants.Description,
             ErrorConstants.Code,
+            ErrorConstants.HelpLink,
             ErrorConstants.Severity);
         
         sut.ShouldBeenCreatedWith(
             ErrorConstants.Title,
             ErrorConstants.Description,
             ErrorConstants.Code,
+            ErrorConstants.HelpLink,
             ErrorConstants.Severity);
     }
 }

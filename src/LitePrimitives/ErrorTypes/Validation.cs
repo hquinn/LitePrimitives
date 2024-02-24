@@ -25,6 +25,8 @@ public readonly record struct Validation : IError
         string propertyName,
         string propertyPath,
         object? attemptedValue,
+        IDictionary<string, object?>? context = null,
+        string? helpLink = null,
         Severity severity = Severity.Error)
     {
         Title = title;
@@ -33,6 +35,9 @@ public readonly record struct Validation : IError
         PropertyName = propertyName;
         PropertyPath = propertyPath;
         AttemptedValue = attemptedValue;
+        if (context is not null)
+            Context = context;
+        HelpLink = helpLink;
         Severity = severity;
     }
 
@@ -50,6 +55,16 @@ public readonly record struct Validation : IError
     ///     <inheritdoc />
     /// </summary>
     public required string Code { get; init; }
+
+    /// <summary>
+    ///     Additional data to be used by the consumer of the Error.
+    /// </summary>
+    public IDictionary<string, object?> Context { get; init; } = new Dictionary<string, object?>();
+
+    /// <summary>
+    ///     <inheritdoc />
+    /// </summary>
+    public required string? HelpLink { get; init; } = null;
 
     /// <summary>
     ///     <inheritdoc />

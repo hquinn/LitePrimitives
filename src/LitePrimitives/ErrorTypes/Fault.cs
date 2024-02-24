@@ -21,13 +21,15 @@ public readonly record struct Fault : IError
     public Fault(
         string title, 
         string description, 
-        string code, 
-        Exception exception)
+        string code,
+        Exception exception,
+        string? helpLink = null)
     {
         Title = title;
         Description = description;
         Code = code;
         Exception = exception;
+        HelpLink = helpLink;
     }
     
     /// <summary>
@@ -44,6 +46,11 @@ public readonly record struct Fault : IError
     ///     <inheritdoc />
     /// </summary>
     public required string Code { get; init; }
+
+    /// <summary>
+    ///     <inheritdoc />
+    /// </summary>
+    public required string? HelpLink { get; init; } = null;
 
     /// <summary>
     ///     Represents the Severity of the Error. This will be set to Fault.

@@ -6,8 +6,10 @@ public static class ErrorConstants
     public const string Description = "Description";
     public const string Code = "Code";
     public const Severity Severity = LitePrimitives.Severity.Info;
+    public const string HelpLink = "testurl";
     public const string PropertyName = "Foo";
     public const string PropertyPath = "Foo";
     public const string AttemptedValue = "Bar";
     public static readonly Exception Exception = new("Test");
+    public static readonly IDictionary<string, object?> Context = new Dictionary<string, object?> { { "Key", "Value" } };
 }

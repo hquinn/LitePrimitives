@@ -22,11 +22,13 @@ public readonly record struct Failure : IError
         string title, 
         string description, 
         string code,
+        string? helpLink = null,
         Severity severity = Severity.Error)
     {
         Title = title;
         Description = description;
         Code = code;
+        HelpLink = helpLink;
         Severity = severity;
     }
     
@@ -44,6 +46,11 @@ public readonly record struct Failure : IError
     ///     <inheritdoc />
     /// </summary>
     public required string Code { get; init; }
+
+    /// <summary>
+    ///     <inheritdoc />
+    /// </summary>
+    public required string? HelpLink { get; init; } = null;
     
     /// <summary>
     ///     <inheritdoc />
