@@ -3,14 +3,20 @@ using System.Diagnostics.CodeAnalysis;
 namespace LitePrimitives;
 
 /// <summary>
-///     Represents a Fault.
+///     Represents an error type where exceptional errors occur.
 /// </summary>
 public readonly record struct Fault : IError
 {
+    /// <summary>
+    ///     Parameterless constructor, to be used with the object initialization syntax.
+    /// </summary>
     public Fault()
     {
     }
     
+    /// <summary>
+    ///     Constructor which sets all required fields.
+    /// </summary>
     [SetsRequiredMembers]
     public Fault(
         string title, 
@@ -42,10 +48,7 @@ public readonly record struct Fault : IError
     /// <summary>
     ///     Represents the Severity of the Error. This will be set to Fault.
     /// </summary>
-    public Severity Severity
-    {
-        get { return Severity.Fault; }
-    }
+    public Severity Severity => Severity.Fault;
 
     /// <summary>
     ///     Represents the Exception of the Error.

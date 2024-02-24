@@ -1,5 +1,8 @@
 namespace LitePrimitives;
 
+/// <summary>
+///     Collection of extension methods for OnRight on the Either type.
+/// </summary>
 public static class Either_OnRightExtensions
 {
     /// <summary>

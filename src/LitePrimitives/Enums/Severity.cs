@@ -5,8 +5,20 @@ namespace LitePrimitives;
 /// </summary>
 public enum Severity
 {
+    /// <summary>
+    ///     Indicates that the Severity of the error is at Info
+    /// </summary>
     Info,
+    /// <summary>
+    ///     Indicates that the Severity of the error is at Warning
+    /// </summary>
     Warning,
+    /// <summary>
+    ///     Indicates that the Severity of the error is at Error
+    /// </summary>
     Error,
+    /// <summary>
+    ///     Indicates that the Severity of the error is at Fault
+    /// </summary>
     Fault,
 }

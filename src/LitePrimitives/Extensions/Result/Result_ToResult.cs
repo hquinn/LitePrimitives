@@ -1,5 +1,8 @@
 namespace LitePrimitives;
 
+/// <summary>
+///     Collection of extension methods for ToResult on the Result type.
+/// </summary>
 public static class Result_ToResult
 {
 	/// <summary>

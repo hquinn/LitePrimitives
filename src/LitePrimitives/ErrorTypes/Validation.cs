@@ -7,10 +7,16 @@ namespace LitePrimitives;
 /// </summary>
 public readonly record struct Validation : IError
 {
+    /// <summary>
+    ///     Parameterless constructor, to be used with the object initialization syntax.
+    /// </summary>
     public Validation()
     {
     }
     
+    /// <summary>
+    ///     Constructor which sets all required fields.
+    /// </summary>
     [SetsRequiredMembers]
     public Validation(
         string title, 

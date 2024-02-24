@@ -1,5 +1,8 @@
 namespace LitePrimitives;
 
+/// <summary>
+///     Collection of extension methods for ToTask on the Result type.
+/// </summary>
 public static class Result_ToTask
 {
 	/// <summary>

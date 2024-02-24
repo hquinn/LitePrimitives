@@ -2,12 +2,21 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace LitePrimitives;
 
+/// <summary>
+///     Represents the standard error type.
+/// </summary>
 public readonly record struct Failure : IError
 {
+    /// <summary>
+    ///     Parameterless constructor, to be used with the object initialization syntax.
+    /// </summary>
     public Failure()
     {
     }
     
+    /// <summary>
+    ///     Constructor which sets all required fields.
+    /// </summary>
     [SetsRequiredMembers]
     public Failure(
         string title, 

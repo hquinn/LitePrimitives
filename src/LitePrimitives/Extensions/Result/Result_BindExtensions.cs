@@ -1,5 +1,8 @@
 namespace LitePrimitives;
 
+/// <summary>
+///     Collection of extension methods for Bind on the Result type.
+/// </summary>
 public static class Result_BindExtensions
 {
 	/// <summary>

@@ -1,5 +1,8 @@
 namespace LitePrimitives;
 
+/// <summary>
+///     Collection of extension methods for ToTask on the Either type.
+/// </summary>
 public static class Either_ToTaskExtensions
 {
    /// <summary>

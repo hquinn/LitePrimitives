@@ -1,5 +1,8 @@
 namespace LitePrimitives;
 
+/// <summary>
+///     Collection of extension methods for Map on the Result type.
+/// </summary>
 public static class Result_MapExtensions
 {
 	/// <summary>

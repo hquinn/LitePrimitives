@@ -1,5 +1,8 @@
 namespace LitePrimitives;
 
+/// <summary>
+///     Collection of extension methods for Map on the Option type.
+/// </summary>
 public static class Option_MapExtensions
 {
     /// <summary>

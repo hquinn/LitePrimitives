@@ -1,5 +1,8 @@
 namespace LitePrimitives;
 
+/// <summary>
+///     Collection of extension methods for BindRight on the Either type.
+/// </summary>
 public static class Either_BindRightExtensions
 {
     /// <summary>

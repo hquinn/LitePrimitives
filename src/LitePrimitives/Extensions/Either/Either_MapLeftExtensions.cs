@@ -1,5 +1,8 @@
 namespace LitePrimitives;
 
+/// <summary>
+///     Collection of extension methods for MapLeft on the Either type.
+/// </summary>
 public static class Either_MapLeftExtensions
 {
     /// <summary>

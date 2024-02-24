@@ -1,5 +1,8 @@
 namespace LitePrimitives;
 
+/// <summary>
+///     Collection of extension methods for OnSome on the Option type.
+/// </summary>
 public static class Option_OnSomeExtensions
 {
     /// <summary>
