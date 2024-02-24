@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <LangVersion>latest</LangVersion>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+        <Product>$(SolutionName)</Product>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\src\LitePrimitives\LitePrimitives.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="AutoFixture.AutoNSubstitute" Version="5.0.0-preview0007" PrivateAssets="all" />
+      <PackageReference Include="AutoFixture.Xunit2" Version="5.0.0-preview0007" PrivateAssets="all" />
+      <PackageReference Include="FluentAssertions" Version="7.0.0-alpha.3" PrivateAssets="all" />
+      <PackageReference Include="NSubstitute" Version="5.1.0" PrivateAssets="all" />
+    </ItemGroup>
+
+</Project>

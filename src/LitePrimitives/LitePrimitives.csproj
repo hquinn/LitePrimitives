@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <LangVersion>latest</LangVersion>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+        <Product>$(SolutionName)</Product>
+        <PackageId>$(SolutionName)</PackageId>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Title>$(SolutionName)</Title>
+        <Authors>Hayden Quinn</Authors>
+        <Description>A small list of primitive types to help with modern .NET development.</Description>
+        <PackageProjectUrl>https://github.com/hquinn/LitePrimitives</PackageProjectUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <Copyright>Copyright (c) Hayden Quinn. All rights reserved.</Copyright>
+        <RepositoryUrl>https://github.com/hquinn/LitePrimitives</RepositoryUrl>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    </PropertyGroup>
+</Project>
