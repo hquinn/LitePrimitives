@@ -5,9 +5,11 @@
         <Nullable>enable</Nullable>
         <LangVersion>latest</LangVersion>
         <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <Product>$(SolutionName)</Product>
         <PackageId>$(SolutionName)</PackageId>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Version>1.1.0</Version>
         <Title>$(SolutionName)</Title>
         <Authors>Hayden Quinn</Authors>
         <Description>A small list of primitive types to help with modern .NET development.</Description>
