@@ -7,8 +7,8 @@ namespace LitePrimitives;
 public static class EitherMapExtensions
 {
     /// <summary>
-    ///      Performs transformation into <see cref="EitherTOutputFirst, TInputLast"/> when it's in the First state,
-    ///      otherwise returns <see cref="Task"/> of type <see cref="EitherTOutputFirst, TInputLast"/> in the appropriate state.
+    ///      Performs transformation into <see cref="Either{TOutputFirst, TInputLast}"/> when it's in the First state,
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TOutputFirst, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputFirst"/>.</param>
@@ -17,7 +17,7 @@ public static class EitherMapExtensions
     /// <typeparam name="TOutputFirst">The type of the transformed First output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="transform"/> if in the First state,
-    ///      otherwise returns <see cref="EitherTOutputFirst, TInputLast"/> in the appropriate state.
+    ///      otherwise returns <see cref="Either{TOutputFirst, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TOutputFirst, TInputLast>> MapFirstAsync<TInputFirst, TInputLast, TOutputFirst>(
         this Task<Either<TInputFirst, TInputLast>> input,
@@ -29,8 +29,8 @@ public static class EitherMapExtensions
     }
 
     /// <summary>
-    ///      Performs transformation into <see cref="EitherTInputFirst, TOutputLast"/> when it's in the Last state,
-    ///      otherwise returns <see cref="Task"/> of type <see cref="EitherTInputFirst, TOutputLast"/> in the appropriate state.
+    ///      Performs transformation into <see cref="Either{TInputFirst, TOutputLast}"/> when it's in the Last state,
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TOutputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputLast"/>.</param>
@@ -39,7 +39,7 @@ public static class EitherMapExtensions
     /// <typeparam name="TOutputLast">The type of the transformed Last output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="transform"/> if in the Last state,
-    ///      otherwise returns <see cref="EitherTInputFirst, TOutputLast"/> in the appropriate state.
+    ///      otherwise returns <see cref="Either{TInputFirst, TOutputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TOutputLast>> MapLastAsync<TInputFirst, TInputLast, TOutputLast>(
         this Task<Either<TInputFirst, TInputLast>> input,
@@ -51,8 +51,8 @@ public static class EitherMapExtensions
     }
 
     /// <summary>
-    ///      Performs transformation into <see cref="EitherTOutputFirst, TInputSecond, TInputLast"/> when it's in the First state,
-    ///      otherwise returns <see cref="Task"/> of type <see cref="EitherTOutputFirst, TInputSecond, TInputLast"/> in the appropriate state.
+    ///      Performs transformation into <see cref="Either{TOutputFirst, TInputSecond, TInputLast}"/> when it's in the First state,
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TOutputFirst, TInputSecond, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputFirst"/>.</param>
@@ -62,7 +62,7 @@ public static class EitherMapExtensions
     /// <typeparam name="TOutputFirst">The type of the transformed First output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="transform"/> if in the First state,
-    ///      otherwise returns <see cref="EitherTOutputFirst, TInputSecond, TInputLast"/> in the appropriate state.
+    ///      otherwise returns <see cref="Either{TOutputFirst, TInputSecond, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TOutputFirst, TInputSecond, TInputLast>> MapFirstAsync<TInputFirst, TInputSecond, TInputLast, TOutputFirst>(
         this Task<Either<TInputFirst, TInputSecond, TInputLast>> input,
@@ -74,8 +74,8 @@ public static class EitherMapExtensions
     }
 
     /// <summary>
-    ///      Performs transformation into <see cref="EitherTInputFirst, TOutputSecond, TInputLast"/> when it's in the Second state,
-    ///      otherwise returns <see cref="Task"/> of type <see cref="EitherTInputFirst, TOutputSecond, TInputLast"/> in the appropriate state.
+    ///      Performs transformation into <see cref="Either{TInputFirst, TOutputSecond, TInputLast}"/> when it's in the Second state,
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TOutputSecond, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputSecond"/>.</param>
@@ -85,7 +85,7 @@ public static class EitherMapExtensions
     /// <typeparam name="TOutputSecond">The type of the transformed Second output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="transform"/> if in the Second state,
-    ///      otherwise returns <see cref="EitherTInputFirst, TOutputSecond, TInputLast"/> in the appropriate state.
+    ///      otherwise returns <see cref="Either{TInputFirst, TOutputSecond, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TOutputSecond, TInputLast>> MapSecondAsync<TInputFirst, TInputSecond, TInputLast, TOutputSecond>(
         this Task<Either<TInputFirst, TInputSecond, TInputLast>> input,
@@ -97,8 +97,8 @@ public static class EitherMapExtensions
     }
 
     /// <summary>
-    ///      Performs transformation into <see cref="EitherTInputFirst, TInputSecond, TOutputLast"/> when it's in the Last state,
-    ///      otherwise returns <see cref="Task"/> of type <see cref="EitherTInputFirst, TInputSecond, TOutputLast"/> in the appropriate state.
+    ///      Performs transformation into <see cref="Either{TInputFirst, TInputSecond, TOutputLast}"/> when it's in the Last state,
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TOutputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputLast"/>.</param>
@@ -108,7 +108,7 @@ public static class EitherMapExtensions
     /// <typeparam name="TOutputLast">The type of the transformed Last output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="transform"/> if in the Last state,
-    ///      otherwise returns <see cref="EitherTInputFirst, TInputSecond, TOutputLast"/> in the appropriate state.
+    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TOutputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TInputSecond, TOutputLast>> MapLastAsync<TInputFirst, TInputSecond, TInputLast, TOutputLast>(
         this Task<Either<TInputFirst, TInputSecond, TInputLast>> input,
@@ -120,8 +120,8 @@ public static class EitherMapExtensions
     }
 
     /// <summary>
-    ///      Performs transformation into <see cref="EitherTOutputFirst, TInputSecond, TInputThird, TInputLast"/> when it's in the First state,
-    ///      otherwise returns <see cref="Task"/> of type <see cref="EitherTOutputFirst, TInputSecond, TInputThird, TInputLast"/> in the appropriate state.
+    ///      Performs transformation into <see cref="Either{TOutputFirst, TInputSecond, TInputThird, TInputLast}"/> when it's in the First state,
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TOutputFirst, TInputSecond, TInputThird, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputFirst"/>.</param>
@@ -132,7 +132,7 @@ public static class EitherMapExtensions
     /// <typeparam name="TOutputFirst">The type of the transformed First output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="transform"/> if in the First state,
-    ///      otherwise returns <see cref="EitherTOutputFirst, TInputSecond, TInputThird, TInputLast"/> in the appropriate state.
+    ///      otherwise returns <see cref="Either{TOutputFirst, TInputSecond, TInputThird, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TOutputFirst, TInputSecond, TInputThird, TInputLast>> MapFirstAsync<TInputFirst, TInputSecond, TInputThird, TInputLast, TOutputFirst>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputLast>> input,
@@ -144,8 +144,8 @@ public static class EitherMapExtensions
     }
 
     /// <summary>
-    ///      Performs transformation into <see cref="EitherTInputFirst, TOutputSecond, TInputThird, TInputLast"/> when it's in the Second state,
-    ///      otherwise returns <see cref="Task"/> of type <see cref="EitherTInputFirst, TOutputSecond, TInputThird, TInputLast"/> in the appropriate state.
+    ///      Performs transformation into <see cref="Either{TInputFirst, TOutputSecond, TInputThird, TInputLast}"/> when it's in the Second state,
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TOutputSecond, TInputThird, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputSecond"/>.</param>
@@ -156,7 +156,7 @@ public static class EitherMapExtensions
     /// <typeparam name="TOutputSecond">The type of the transformed Second output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="transform"/> if in the Second state,
-    ///      otherwise returns <see cref="EitherTInputFirst, TOutputSecond, TInputThird, TInputLast"/> in the appropriate state.
+    ///      otherwise returns <see cref="Either{TInputFirst, TOutputSecond, TInputThird, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TOutputSecond, TInputThird, TInputLast>> MapSecondAsync<TInputFirst, TInputSecond, TInputThird, TInputLast, TOutputSecond>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputLast>> input,
@@ -168,8 +168,8 @@ public static class EitherMapExtensions
     }
 
     /// <summary>
-    ///      Performs transformation into <see cref="EitherTInputFirst, TInputSecond, TOutputThird, TInputLast"/> when it's in the Third state,
-    ///      otherwise returns <see cref="Task"/> of type <see cref="EitherTInputFirst, TInputSecond, TOutputThird, TInputLast"/> in the appropriate state.
+    ///      Performs transformation into <see cref="Either{TInputFirst, TInputSecond, TOutputThird, TInputLast}"/> when it's in the Third state,
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TOutputThird, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputThird"/>.</param>
@@ -180,7 +180,7 @@ public static class EitherMapExtensions
     /// <typeparam name="TOutputThird">The type of the transformed Third output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="transform"/> if in the Third state,
-    ///      otherwise returns <see cref="EitherTInputFirst, TInputSecond, TOutputThird, TInputLast"/> in the appropriate state.
+    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TOutputThird, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TInputSecond, TOutputThird, TInputLast>> MapThirdAsync<TInputFirst, TInputSecond, TInputThird, TInputLast, TOutputThird>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputLast>> input,
@@ -192,8 +192,8 @@ public static class EitherMapExtensions
     }
 
     /// <summary>
-    ///      Performs transformation into <see cref="EitherTInputFirst, TInputSecond, TInputThird, TOutputLast"/> when it's in the Last state,
-    ///      otherwise returns <see cref="Task"/> of type <see cref="EitherTInputFirst, TInputSecond, TInputThird, TOutputLast"/> in the appropriate state.
+    ///      Performs transformation into <see cref="Either{TInputFirst, TInputSecond, TInputThird, TOutputLast}"/> when it's in the Last state,
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TInputThird, TOutputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputLast"/>.</param>
@@ -204,7 +204,7 @@ public static class EitherMapExtensions
     /// <typeparam name="TOutputLast">The type of the transformed Last output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="transform"/> if in the Last state,
-    ///      otherwise returns <see cref="EitherTInputFirst, TInputSecond, TInputThird, TOutputLast"/> in the appropriate state.
+    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TInputThird, TOutputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TInputSecond, TInputThird, TOutputLast>> MapLastAsync<TInputFirst, TInputSecond, TInputThird, TInputLast, TOutputLast>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputLast>> input,
@@ -216,8 +216,8 @@ public static class EitherMapExtensions
     }
 
     /// <summary>
-    ///      Performs transformation into <see cref="EitherTOutputFirst, TInputSecond, TInputThird, TInputFourth, TInputLast"/> when it's in the First state,
-    ///      otherwise returns <see cref="Task"/> of type <see cref="EitherTOutputFirst, TInputSecond, TInputThird, TInputFourth, TInputLast"/> in the appropriate state.
+    ///      Performs transformation into <see cref="Either{TOutputFirst, TInputSecond, TInputThird, TInputFourth, TInputLast}"/> when it's in the First state,
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TOutputFirst, TInputSecond, TInputThird, TInputFourth, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputFirst"/>.</param>
@@ -229,7 +229,7 @@ public static class EitherMapExtensions
     /// <typeparam name="TOutputFirst">The type of the transformed First output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="transform"/> if in the First state,
-    ///      otherwise returns <see cref="EitherTOutputFirst, TInputSecond, TInputThird, TInputFourth, TInputLast"/> in the appropriate state.
+    ///      otherwise returns <see cref="Either{TOutputFirst, TInputSecond, TInputThird, TInputFourth, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TOutputFirst, TInputSecond, TInputThird, TInputFourth, TInputLast>> MapFirstAsync<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputLast, TOutputFirst>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputLast>> input,
@@ -241,8 +241,8 @@ public static class EitherMapExtensions
     }
 
     /// <summary>
-    ///      Performs transformation into <see cref="EitherTInputFirst, TOutputSecond, TInputThird, TInputFourth, TInputLast"/> when it's in the Second state,
-    ///      otherwise returns <see cref="Task"/> of type <see cref="EitherTInputFirst, TOutputSecond, TInputThird, TInputFourth, TInputLast"/> in the appropriate state.
+    ///      Performs transformation into <see cref="Either{TInputFirst, TOutputSecond, TInputThird, TInputFourth, TInputLast}"/> when it's in the Second state,
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TOutputSecond, TInputThird, TInputFourth, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputSecond"/>.</param>
@@ -254,7 +254,7 @@ public static class EitherMapExtensions
     /// <typeparam name="TOutputSecond">The type of the transformed Second output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="transform"/> if in the Second state,
-    ///      otherwise returns <see cref="EitherTInputFirst, TOutputSecond, TInputThird, TInputFourth, TInputLast"/> in the appropriate state.
+    ///      otherwise returns <see cref="Either{TInputFirst, TOutputSecond, TInputThird, TInputFourth, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TOutputSecond, TInputThird, TInputFourth, TInputLast>> MapSecondAsync<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputLast, TOutputSecond>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputLast>> input,
@@ -266,8 +266,8 @@ public static class EitherMapExtensions
     }
 
     /// <summary>
-    ///      Performs transformation into <see cref="EitherTInputFirst, TInputSecond, TOutputThird, TInputFourth, TInputLast"/> when it's in the Third state,
-    ///      otherwise returns <see cref="Task"/> of type <see cref="EitherTInputFirst, TInputSecond, TOutputThird, TInputFourth, TInputLast"/> in the appropriate state.
+    ///      Performs transformation into <see cref="Either{TInputFirst, TInputSecond, TOutputThird, TInputFourth, TInputLast}"/> when it's in the Third state,
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TOutputThird, TInputFourth, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputThird"/>.</param>
@@ -279,7 +279,7 @@ public static class EitherMapExtensions
     /// <typeparam name="TOutputThird">The type of the transformed Third output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="transform"/> if in the Third state,
-    ///      otherwise returns <see cref="EitherTInputFirst, TInputSecond, TOutputThird, TInputFourth, TInputLast"/> in the appropriate state.
+    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TOutputThird, TInputFourth, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TInputSecond, TOutputThird, TInputFourth, TInputLast>> MapThirdAsync<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputLast, TOutputThird>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputLast>> input,
@@ -291,8 +291,8 @@ public static class EitherMapExtensions
     }
 
     /// <summary>
-    ///      Performs transformation into <see cref="EitherTInputFirst, TInputSecond, TInputThird, TOutputFourth, TInputLast"/> when it's in the Fourth state,
-    ///      otherwise returns <see cref="Task"/> of type <see cref="EitherTInputFirst, TInputSecond, TInputThird, TOutputFourth, TInputLast"/> in the appropriate state.
+    ///      Performs transformation into <see cref="Either{TInputFirst, TInputSecond, TInputThird, TOutputFourth, TInputLast}"/> when it's in the Fourth state,
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TInputThird, TOutputFourth, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputFourth"/>.</param>
@@ -304,7 +304,7 @@ public static class EitherMapExtensions
     /// <typeparam name="TOutputFourth">The type of the transformed Fourth output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="transform"/> if in the Fourth state,
-    ///      otherwise returns <see cref="EitherTInputFirst, TInputSecond, TInputThird, TOutputFourth, TInputLast"/> in the appropriate state.
+    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TInputThird, TOutputFourth, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TInputSecond, TInputThird, TOutputFourth, TInputLast>> MapFourthAsync<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputLast, TOutputFourth>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputLast>> input,
@@ -316,8 +316,8 @@ public static class EitherMapExtensions
     }
 
     /// <summary>
-    ///      Performs transformation into <see cref="EitherTInputFirst, TInputSecond, TInputThird, TInputFourth, TOutputLast"/> when it's in the Last state,
-    ///      otherwise returns <see cref="Task"/> of type <see cref="EitherTInputFirst, TInputSecond, TInputThird, TInputFourth, TOutputLast"/> in the appropriate state.
+    ///      Performs transformation into <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TOutputLast}"/> when it's in the Last state,
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TOutputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputLast"/>.</param>
@@ -329,7 +329,7 @@ public static class EitherMapExtensions
     /// <typeparam name="TOutputLast">The type of the transformed Last output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="transform"/> if in the Last state,
-    ///      otherwise returns <see cref="EitherTInputFirst, TInputSecond, TInputThird, TInputFourth, TOutputLast"/> in the appropriate state.
+    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TOutputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TOutputLast>> MapLastAsync<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputLast, TOutputLast>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputLast>> input,
@@ -341,8 +341,8 @@ public static class EitherMapExtensions
     }
 
     /// <summary>
-    ///      Performs transformation into <see cref="EitherTOutputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputLast"/> when it's in the First state,
-    ///      otherwise returns <see cref="Task"/> of type <see cref="EitherTOutputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputLast"/> in the appropriate state.
+    ///      Performs transformation into <see cref="Either{TOutputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputLast}"/> when it's in the First state,
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TOutputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputFirst"/>.</param>
@@ -355,7 +355,7 @@ public static class EitherMapExtensions
     /// <typeparam name="TOutputFirst">The type of the transformed First output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="transform"/> if in the First state,
-    ///      otherwise returns <see cref="EitherTOutputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputLast"/> in the appropriate state.
+    ///      otherwise returns <see cref="Either{TOutputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TOutputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputLast>> MapFirstAsync<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputLast, TOutputFirst>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputLast>> input,
@@ -367,8 +367,8 @@ public static class EitherMapExtensions
     }
 
     /// <summary>
-    ///      Performs transformation into <see cref="EitherTInputFirst, TOutputSecond, TInputThird, TInputFourth, TInputFifth, TInputLast"/> when it's in the Second state,
-    ///      otherwise returns <see cref="Task"/> of type <see cref="EitherTInputFirst, TOutputSecond, TInputThird, TInputFourth, TInputFifth, TInputLast"/> in the appropriate state.
+    ///      Performs transformation into <see cref="Either{TInputFirst, TOutputSecond, TInputThird, TInputFourth, TInputFifth, TInputLast}"/> when it's in the Second state,
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TOutputSecond, TInputThird, TInputFourth, TInputFifth, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputSecond"/>.</param>
@@ -381,7 +381,7 @@ public static class EitherMapExtensions
     /// <typeparam name="TOutputSecond">The type of the transformed Second output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="transform"/> if in the Second state,
-    ///      otherwise returns <see cref="EitherTInputFirst, TOutputSecond, TInputThird, TInputFourth, TInputFifth, TInputLast"/> in the appropriate state.
+    ///      otherwise returns <see cref="Either{TInputFirst, TOutputSecond, TInputThird, TInputFourth, TInputFifth, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TOutputSecond, TInputThird, TInputFourth, TInputFifth, TInputLast>> MapSecondAsync<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputLast, TOutputSecond>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputLast>> input,
@@ -393,8 +393,8 @@ public static class EitherMapExtensions
     }
 
     /// <summary>
-    ///      Performs transformation into <see cref="EitherTInputFirst, TInputSecond, TOutputThird, TInputFourth, TInputFifth, TInputLast"/> when it's in the Third state,
-    ///      otherwise returns <see cref="Task"/> of type <see cref="EitherTInputFirst, TInputSecond, TOutputThird, TInputFourth, TInputFifth, TInputLast"/> in the appropriate state.
+    ///      Performs transformation into <see cref="Either{TInputFirst, TInputSecond, TOutputThird, TInputFourth, TInputFifth, TInputLast}"/> when it's in the Third state,
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TOutputThird, TInputFourth, TInputFifth, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputThird"/>.</param>
@@ -407,7 +407,7 @@ public static class EitherMapExtensions
     /// <typeparam name="TOutputThird">The type of the transformed Third output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="transform"/> if in the Third state,
-    ///      otherwise returns <see cref="EitherTInputFirst, TInputSecond, TOutputThird, TInputFourth, TInputFifth, TInputLast"/> in the appropriate state.
+    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TOutputThird, TInputFourth, TInputFifth, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TInputSecond, TOutputThird, TInputFourth, TInputFifth, TInputLast>> MapThirdAsync<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputLast, TOutputThird>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputLast>> input,
@@ -419,8 +419,8 @@ public static class EitherMapExtensions
     }
 
     /// <summary>
-    ///      Performs transformation into <see cref="EitherTInputFirst, TInputSecond, TInputThird, TOutputFourth, TInputFifth, TInputLast"/> when it's in the Fourth state,
-    ///      otherwise returns <see cref="Task"/> of type <see cref="EitherTInputFirst, TInputSecond, TInputThird, TOutputFourth, TInputFifth, TInputLast"/> in the appropriate state.
+    ///      Performs transformation into <see cref="Either{TInputFirst, TInputSecond, TInputThird, TOutputFourth, TInputFifth, TInputLast}"/> when it's in the Fourth state,
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TInputThird, TOutputFourth, TInputFifth, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputFourth"/>.</param>
@@ -433,7 +433,7 @@ public static class EitherMapExtensions
     /// <typeparam name="TOutputFourth">The type of the transformed Fourth output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="transform"/> if in the Fourth state,
-    ///      otherwise returns <see cref="EitherTInputFirst, TInputSecond, TInputThird, TOutputFourth, TInputFifth, TInputLast"/> in the appropriate state.
+    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TInputThird, TOutputFourth, TInputFifth, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TInputSecond, TInputThird, TOutputFourth, TInputFifth, TInputLast>> MapFourthAsync<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputLast, TOutputFourth>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputLast>> input,
@@ -445,8 +445,8 @@ public static class EitherMapExtensions
     }
 
     /// <summary>
-    ///      Performs transformation into <see cref="EitherTInputFirst, TInputSecond, TInputThird, TInputFourth, TOutputFifth, TInputLast"/> when it's in the Fifth state,
-    ///      otherwise returns <see cref="Task"/> of type <see cref="EitherTInputFirst, TInputSecond, TInputThird, TInputFourth, TOutputFifth, TInputLast"/> in the appropriate state.
+    ///      Performs transformation into <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TOutputFifth, TInputLast}"/> when it's in the Fifth state,
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TOutputFifth, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputFifth"/>.</param>
@@ -459,7 +459,7 @@ public static class EitherMapExtensions
     /// <typeparam name="TOutputFifth">The type of the transformed Fifth output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="transform"/> if in the Fifth state,
-    ///      otherwise returns <see cref="EitherTInputFirst, TInputSecond, TInputThird, TInputFourth, TOutputFifth, TInputLast"/> in the appropriate state.
+    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TOutputFifth, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TOutputFifth, TInputLast>> MapFifthAsync<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputLast, TOutputFifth>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputLast>> input,
@@ -471,8 +471,8 @@ public static class EitherMapExtensions
     }
 
     /// <summary>
-    ///      Performs transformation into <see cref="EitherTInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TOutputLast"/> when it's in the Last state,
-    ///      otherwise returns <see cref="Task"/> of type <see cref="EitherTInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TOutputLast"/> in the appropriate state.
+    ///      Performs transformation into <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TOutputLast}"/> when it's in the Last state,
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TOutputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputLast"/>.</param>
@@ -485,7 +485,7 @@ public static class EitherMapExtensions
     /// <typeparam name="TOutputLast">The type of the transformed Last output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="transform"/> if in the Last state,
-    ///      otherwise returns <see cref="EitherTInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TOutputLast"/> in the appropriate state.
+    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TOutputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TOutputLast>> MapLastAsync<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputLast, TOutputLast>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputLast>> input,
@@ -497,8 +497,8 @@ public static class EitherMapExtensions
     }
 
     /// <summary>
-    ///      Performs transformation into <see cref="EitherTOutputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast"/> when it's in the First state,
-    ///      otherwise returns <see cref="Task"/> of type <see cref="EitherTOutputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast"/> in the appropriate state.
+    ///      Performs transformation into <see cref="Either{TOutputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast}"/> when it's in the First state,
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TOutputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputFirst"/>.</param>
@@ -512,7 +512,7 @@ public static class EitherMapExtensions
     /// <typeparam name="TOutputFirst">The type of the transformed First output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="transform"/> if in the First state,
-    ///      otherwise returns <see cref="EitherTOutputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast"/> in the appropriate state.
+    ///      otherwise returns <see cref="Either{TOutputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TOutputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast>> MapFirstAsync<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast, TOutputFirst>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast>> input,
@@ -524,8 +524,8 @@ public static class EitherMapExtensions
     }
 
     /// <summary>
-    ///      Performs transformation into <see cref="EitherTInputFirst, TOutputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast"/> when it's in the Second state,
-    ///      otherwise returns <see cref="Task"/> of type <see cref="EitherTInputFirst, TOutputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast"/> in the appropriate state.
+    ///      Performs transformation into <see cref="Either{TInputFirst, TOutputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast}"/> when it's in the Second state,
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TOutputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputSecond"/>.</param>
@@ -539,7 +539,7 @@ public static class EitherMapExtensions
     /// <typeparam name="TOutputSecond">The type of the transformed Second output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="transform"/> if in the Second state,
-    ///      otherwise returns <see cref="EitherTInputFirst, TOutputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast"/> in the appropriate state.
+    ///      otherwise returns <see cref="Either{TInputFirst, TOutputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TOutputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast>> MapSecondAsync<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast, TOutputSecond>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast>> input,
@@ -551,8 +551,8 @@ public static class EitherMapExtensions
     }
 
     /// <summary>
-    ///      Performs transformation into <see cref="EitherTInputFirst, TInputSecond, TOutputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast"/> when it's in the Third state,
-    ///      otherwise returns <see cref="Task"/> of type <see cref="EitherTInputFirst, TInputSecond, TOutputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast"/> in the appropriate state.
+    ///      Performs transformation into <see cref="Either{TInputFirst, TInputSecond, TOutputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast}"/> when it's in the Third state,
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TOutputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputThird"/>.</param>
@@ -566,7 +566,7 @@ public static class EitherMapExtensions
     /// <typeparam name="TOutputThird">The type of the transformed Third output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="transform"/> if in the Third state,
-    ///      otherwise returns <see cref="EitherTInputFirst, TInputSecond, TOutputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast"/> in the appropriate state.
+    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TOutputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TInputSecond, TOutputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast>> MapThirdAsync<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast, TOutputThird>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast>> input,
@@ -578,8 +578,8 @@ public static class EitherMapExtensions
     }
 
     /// <summary>
-    ///      Performs transformation into <see cref="EitherTInputFirst, TInputSecond, TInputThird, TOutputFourth, TInputFifth, TInputSixth, TInputLast"/> when it's in the Fourth state,
-    ///      otherwise returns <see cref="Task"/> of type <see cref="EitherTInputFirst, TInputSecond, TInputThird, TOutputFourth, TInputFifth, TInputSixth, TInputLast"/> in the appropriate state.
+    ///      Performs transformation into <see cref="Either{TInputFirst, TInputSecond, TInputThird, TOutputFourth, TInputFifth, TInputSixth, TInputLast}"/> when it's in the Fourth state,
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TInputThird, TOutputFourth, TInputFifth, TInputSixth, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputFourth"/>.</param>
@@ -593,7 +593,7 @@ public static class EitherMapExtensions
     /// <typeparam name="TOutputFourth">The type of the transformed Fourth output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="transform"/> if in the Fourth state,
-    ///      otherwise returns <see cref="EitherTInputFirst, TInputSecond, TInputThird, TOutputFourth, TInputFifth, TInputSixth, TInputLast"/> in the appropriate state.
+    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TInputThird, TOutputFourth, TInputFifth, TInputSixth, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TInputSecond, TInputThird, TOutputFourth, TInputFifth, TInputSixth, TInputLast>> MapFourthAsync<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast, TOutputFourth>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast>> input,
@@ -605,8 +605,8 @@ public static class EitherMapExtensions
     }
 
     /// <summary>
-    ///      Performs transformation into <see cref="EitherTInputFirst, TInputSecond, TInputThird, TInputFourth, TOutputFifth, TInputSixth, TInputLast"/> when it's in the Fifth state,
-    ///      otherwise returns <see cref="Task"/> of type <see cref="EitherTInputFirst, TInputSecond, TInputThird, TInputFourth, TOutputFifth, TInputSixth, TInputLast"/> in the appropriate state.
+    ///      Performs transformation into <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TOutputFifth, TInputSixth, TInputLast}"/> when it's in the Fifth state,
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TOutputFifth, TInputSixth, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputFifth"/>.</param>
@@ -620,7 +620,7 @@ public static class EitherMapExtensions
     /// <typeparam name="TOutputFifth">The type of the transformed Fifth output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="transform"/> if in the Fifth state,
-    ///      otherwise returns <see cref="EitherTInputFirst, TInputSecond, TInputThird, TInputFourth, TOutputFifth, TInputSixth, TInputLast"/> in the appropriate state.
+    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TOutputFifth, TInputSixth, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TOutputFifth, TInputSixth, TInputLast>> MapFifthAsync<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast, TOutputFifth>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast>> input,
@@ -632,8 +632,8 @@ public static class EitherMapExtensions
     }
 
     /// <summary>
-    ///      Performs transformation into <see cref="EitherTInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TOutputSixth, TInputLast"/> when it's in the Sixth state,
-    ///      otherwise returns <see cref="Task"/> of type <see cref="EitherTInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TOutputSixth, TInputLast"/> in the appropriate state.
+    ///      Performs transformation into <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TOutputSixth, TInputLast}"/> when it's in the Sixth state,
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TOutputSixth, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputSixth"/>.</param>
@@ -647,7 +647,7 @@ public static class EitherMapExtensions
     /// <typeparam name="TOutputSixth">The type of the transformed Sixth output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="transform"/> if in the Sixth state,
-    ///      otherwise returns <see cref="EitherTInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TOutputSixth, TInputLast"/> in the appropriate state.
+    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TOutputSixth, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TOutputSixth, TInputLast>> MapSixthAsync<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast, TOutputSixth>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast>> input,
@@ -659,8 +659,8 @@ public static class EitherMapExtensions
     }
 
     /// <summary>
-    ///      Performs transformation into <see cref="EitherTInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TOutputLast"/> when it's in the Last state,
-    ///      otherwise returns <see cref="Task"/> of type <see cref="EitherTInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TOutputLast"/> in the appropriate state.
+    ///      Performs transformation into <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TOutputLast}"/> when it's in the Last state,
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TOutputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputLast"/>.</param>
@@ -674,7 +674,7 @@ public static class EitherMapExtensions
     /// <typeparam name="TOutputLast">The type of the transformed Last output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="transform"/> if in the Last state,
-    ///      otherwise returns <see cref="EitherTInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TOutputLast"/> in the appropriate state.
+    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TOutputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TOutputLast>> MapLastAsync<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast, TOutputLast>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast>> input,
@@ -686,8 +686,8 @@ public static class EitherMapExtensions
     }
 
     /// <summary>
-    ///      Performs transformation into <see cref="EitherTOutputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast"/> when it's in the First state,
-    ///      otherwise returns <see cref="Task"/> of type <see cref="EitherTOutputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast"/> in the appropriate state.
+    ///      Performs transformation into <see cref="Either{TOutputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast}"/> when it's in the First state,
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TOutputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputFirst"/>.</param>
@@ -702,7 +702,7 @@ public static class EitherMapExtensions
     /// <typeparam name="TOutputFirst">The type of the transformed First output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="transform"/> if in the First state,
-    ///      otherwise returns <see cref="EitherTOutputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast"/> in the appropriate state.
+    ///      otherwise returns <see cref="Either{TOutputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TOutputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast>> MapFirstAsync<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast, TOutputFirst>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast>> input,
@@ -714,8 +714,8 @@ public static class EitherMapExtensions
     }
 
     /// <summary>
-    ///      Performs transformation into <see cref="EitherTInputFirst, TOutputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast"/> when it's in the Second state,
-    ///      otherwise returns <see cref="Task"/> of type <see cref="EitherTInputFirst, TOutputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast"/> in the appropriate state.
+    ///      Performs transformation into <see cref="Either{TInputFirst, TOutputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast}"/> when it's in the Second state,
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TOutputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputSecond"/>.</param>
@@ -730,7 +730,7 @@ public static class EitherMapExtensions
     /// <typeparam name="TOutputSecond">The type of the transformed Second output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="transform"/> if in the Second state,
-    ///      otherwise returns <see cref="EitherTInputFirst, TOutputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast"/> in the appropriate state.
+    ///      otherwise returns <see cref="Either{TInputFirst, TOutputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TOutputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast>> MapSecondAsync<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast, TOutputSecond>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast>> input,
@@ -742,8 +742,8 @@ public static class EitherMapExtensions
     }
 
     /// <summary>
-    ///      Performs transformation into <see cref="EitherTInputFirst, TInputSecond, TOutputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast"/> when it's in the Third state,
-    ///      otherwise returns <see cref="Task"/> of type <see cref="EitherTInputFirst, TInputSecond, TOutputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast"/> in the appropriate state.
+    ///      Performs transformation into <see cref="Either{TInputFirst, TInputSecond, TOutputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast}"/> when it's in the Third state,
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TOutputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputThird"/>.</param>
@@ -758,7 +758,7 @@ public static class EitherMapExtensions
     /// <typeparam name="TOutputThird">The type of the transformed Third output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="transform"/> if in the Third state,
-    ///      otherwise returns <see cref="EitherTInputFirst, TInputSecond, TOutputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast"/> in the appropriate state.
+    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TOutputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TInputSecond, TOutputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast>> MapThirdAsync<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast, TOutputThird>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast>> input,
@@ -770,8 +770,8 @@ public static class EitherMapExtensions
     }
 
     /// <summary>
-    ///      Performs transformation into <see cref="EitherTInputFirst, TInputSecond, TInputThird, TOutputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast"/> when it's in the Fourth state,
-    ///      otherwise returns <see cref="Task"/> of type <see cref="EitherTInputFirst, TInputSecond, TInputThird, TOutputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast"/> in the appropriate state.
+    ///      Performs transformation into <see cref="Either{TInputFirst, TInputSecond, TInputThird, TOutputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast}"/> when it's in the Fourth state,
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TInputThird, TOutputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputFourth"/>.</param>
@@ -786,7 +786,7 @@ public static class EitherMapExtensions
     /// <typeparam name="TOutputFourth">The type of the transformed Fourth output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="transform"/> if in the Fourth state,
-    ///      otherwise returns <see cref="EitherTInputFirst, TInputSecond, TInputThird, TOutputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast"/> in the appropriate state.
+    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TInputThird, TOutputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TInputSecond, TInputThird, TOutputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast>> MapFourthAsync<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast, TOutputFourth>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast>> input,
@@ -798,8 +798,8 @@ public static class EitherMapExtensions
     }
 
     /// <summary>
-    ///      Performs transformation into <see cref="EitherTInputFirst, TInputSecond, TInputThird, TInputFourth, TOutputFifth, TInputSixth, TInputSeventh, TInputLast"/> when it's in the Fifth state,
-    ///      otherwise returns <see cref="Task"/> of type <see cref="EitherTInputFirst, TInputSecond, TInputThird, TInputFourth, TOutputFifth, TInputSixth, TInputSeventh, TInputLast"/> in the appropriate state.
+    ///      Performs transformation into <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TOutputFifth, TInputSixth, TInputSeventh, TInputLast}"/> when it's in the Fifth state,
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TOutputFifth, TInputSixth, TInputSeventh, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputFifth"/>.</param>
@@ -814,7 +814,7 @@ public static class EitherMapExtensions
     /// <typeparam name="TOutputFifth">The type of the transformed Fifth output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="transform"/> if in the Fifth state,
-    ///      otherwise returns <see cref="EitherTInputFirst, TInputSecond, TInputThird, TInputFourth, TOutputFifth, TInputSixth, TInputSeventh, TInputLast"/> in the appropriate state.
+    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TOutputFifth, TInputSixth, TInputSeventh, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TOutputFifth, TInputSixth, TInputSeventh, TInputLast>> MapFifthAsync<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast, TOutputFifth>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast>> input,
@@ -826,8 +826,8 @@ public static class EitherMapExtensions
     }
 
     /// <summary>
-    ///      Performs transformation into <see cref="EitherTInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TOutputSixth, TInputSeventh, TInputLast"/> when it's in the Sixth state,
-    ///      otherwise returns <see cref="Task"/> of type <see cref="EitherTInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TOutputSixth, TInputSeventh, TInputLast"/> in the appropriate state.
+    ///      Performs transformation into <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TOutputSixth, TInputSeventh, TInputLast}"/> when it's in the Sixth state,
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TOutputSixth, TInputSeventh, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputSixth"/>.</param>
@@ -842,7 +842,7 @@ public static class EitherMapExtensions
     /// <typeparam name="TOutputSixth">The type of the transformed Sixth output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="transform"/> if in the Sixth state,
-    ///      otherwise returns <see cref="EitherTInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TOutputSixth, TInputSeventh, TInputLast"/> in the appropriate state.
+    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TOutputSixth, TInputSeventh, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TOutputSixth, TInputSeventh, TInputLast>> MapSixthAsync<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast, TOutputSixth>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast>> input,
@@ -854,8 +854,8 @@ public static class EitherMapExtensions
     }
 
     /// <summary>
-    ///      Performs transformation into <see cref="EitherTInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TOutputSeventh, TInputLast"/> when it's in the Seventh state,
-    ///      otherwise returns <see cref="Task"/> of type <see cref="EitherTInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TOutputSeventh, TInputLast"/> in the appropriate state.
+    ///      Performs transformation into <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TOutputSeventh, TInputLast}"/> when it's in the Seventh state,
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TOutputSeventh, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputSeventh"/>.</param>
@@ -870,7 +870,7 @@ public static class EitherMapExtensions
     /// <typeparam name="TOutputSeventh">The type of the transformed Seventh output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="transform"/> if in the Seventh state,
-    ///      otherwise returns <see cref="EitherTInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TOutputSeventh, TInputLast"/> in the appropriate state.
+    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TOutputSeventh, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TOutputSeventh, TInputLast>> MapSeventhAsync<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast, TOutputSeventh>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast>> input,
@@ -882,8 +882,8 @@ public static class EitherMapExtensions
     }
 
     /// <summary>
-    ///      Performs transformation into <see cref="EitherTInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TOutputLast"/> when it's in the Last state,
-    ///      otherwise returns <see cref="Task"/> of type <see cref="EitherTInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TOutputLast"/> in the appropriate state.
+    ///      Performs transformation into <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TOutputLast}"/> when it's in the Last state,
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TOutputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputLast"/>.</param>
@@ -898,7 +898,7 @@ public static class EitherMapExtensions
     /// <typeparam name="TOutputLast">The type of the transformed Last output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="transform"/> if in the Last state,
-    ///      otherwise returns <see cref="EitherTInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TOutputLast"/> in the appropriate state.
+    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TOutputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TOutputLast>> MapLastAsync<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast, TOutputLast>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast>> input,
