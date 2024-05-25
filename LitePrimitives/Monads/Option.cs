@@ -270,17 +270,11 @@ public readonly struct Option<TValue>
     /// </summary>
     /// <param name="value">The value to construct the <see cref="Option{TValue}"/> type from.</param>
     /// <returns>The <see cref="Option{TValue}"/> type in the Some state.</returns>
-    public static Option<TValue> Some(TValue value)
-    {
-        return new Option<TValue>(value);
-    }
+    public static Option<TValue> Some(TValue value) => new(value);
 
     /// <summary>
     ///     Constructs <see cref="Option{TValue}"/> in the None state.
     /// </summary>
     /// <returns>The <see cref="Option{TValue}"/> type in the None state.</returns>
-    public static Option<TValue> None()
-    {
-        return new Option<TValue>();
-    }
+    public static Option<TValue> None() => new();
 }

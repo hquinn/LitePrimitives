@@ -8,7 +8,7 @@ public static class EitherBindExtensions
 {
     /// <summary>
     ///      Returns the result of <paramref name="bindFunc"/> if in the First state,
-    ///      otherwise returns <see cref="Either{TOutputFirst, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TOutputFirst, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to bind.</param>
     /// <param name="bindFunc">The func to apply if in the First state.</param>
@@ -17,7 +17,7 @@ public static class EitherBindExtensions
     /// <typeparam name="TOutputFirst">The type of the First output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="bindFunc"/> if <paramref name="input"/> in the First state,
-    ///      otherwise returns <see cref="Either{TOutputFirst, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TOutputFirst, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TOutputFirst, TInputLast>> BindFirstAsync<TInputFirst, TInputLast, TOutputFirst>(
         this Task<Either<TInputFirst, TInputLast>> input,
@@ -30,7 +30,7 @@ public static class EitherBindExtensions
 
     /// <summary>
     ///      Returns the result of <paramref name="bindFunc"/> if in the Last state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TOutputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TOutputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to bind.</param>
     /// <param name="bindFunc">The func to apply if in the Last state.</param>
@@ -39,7 +39,7 @@ public static class EitherBindExtensions
     /// <typeparam name="TOutputLast">The type of the Last output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="bindFunc"/> if <paramref name="input"/> in the Last state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TOutputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TOutputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TOutputLast>> BindLastAsync<TInputFirst, TInputLast, TOutputLast>(
         this Task<Either<TInputFirst, TInputLast>> input,
@@ -52,7 +52,7 @@ public static class EitherBindExtensions
 
     /// <summary>
     ///      Returns the result of <paramref name="bindFunc"/> if in the First state,
-    ///      otherwise returns <see cref="Either{TOutputFirst, TInputSecond, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TOutputFirst, TInputSecond, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to bind.</param>
     /// <param name="bindFunc">The func to apply if in the First state.</param>
@@ -62,7 +62,7 @@ public static class EitherBindExtensions
     /// <typeparam name="TOutputFirst">The type of the First output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="bindFunc"/> if <paramref name="input"/> in the First state,
-    ///      otherwise returns <see cref="Either{TOutputFirst, TInputSecond, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TOutputFirst, TInputSecond, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TOutputFirst, TInputSecond, TInputLast>> BindFirstAsync<TInputFirst, TInputSecond, TInputLast, TOutputFirst>(
         this Task<Either<TInputFirst, TInputSecond, TInputLast>> input,
@@ -75,7 +75,7 @@ public static class EitherBindExtensions
 
     /// <summary>
     ///      Returns the result of <paramref name="bindFunc"/> if in the Second state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TOutputSecond, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TOutputSecond, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to bind.</param>
     /// <param name="bindFunc">The func to apply if in the Second state.</param>
@@ -85,7 +85,7 @@ public static class EitherBindExtensions
     /// <typeparam name="TOutputSecond">The type of the Second output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="bindFunc"/> if <paramref name="input"/> in the Second state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TOutputSecond, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TOutputSecond, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TOutputSecond, TInputLast>> BindSecondAsync<TInputFirst, TInputSecond, TInputLast, TOutputSecond>(
         this Task<Either<TInputFirst, TInputSecond, TInputLast>> input,
@@ -98,7 +98,7 @@ public static class EitherBindExtensions
 
     /// <summary>
     ///      Returns the result of <paramref name="bindFunc"/> if in the Last state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TOutputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TOutputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to bind.</param>
     /// <param name="bindFunc">The func to apply if in the Last state.</param>
@@ -108,7 +108,7 @@ public static class EitherBindExtensions
     /// <typeparam name="TOutputLast">The type of the Last output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="bindFunc"/> if <paramref name="input"/> in the Last state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TOutputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TOutputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TInputSecond, TOutputLast>> BindLastAsync<TInputFirst, TInputSecond, TInputLast, TOutputLast>(
         this Task<Either<TInputFirst, TInputSecond, TInputLast>> input,
@@ -121,7 +121,7 @@ public static class EitherBindExtensions
 
     /// <summary>
     ///      Returns the result of <paramref name="bindFunc"/> if in the First state,
-    ///      otherwise returns <see cref="Either{TOutputFirst, TInputSecond, TInputThird, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TOutputFirst, TInputSecond, TInputThird, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to bind.</param>
     /// <param name="bindFunc">The func to apply if in the First state.</param>
@@ -132,7 +132,7 @@ public static class EitherBindExtensions
     /// <typeparam name="TOutputFirst">The type of the First output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="bindFunc"/> if <paramref name="input"/> in the First state,
-    ///      otherwise returns <see cref="Either{TOutputFirst, TInputSecond, TInputThird, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TOutputFirst, TInputSecond, TInputThird, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TOutputFirst, TInputSecond, TInputThird, TInputLast>> BindFirstAsync<TInputFirst, TInputSecond, TInputThird, TInputLast, TOutputFirst>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputLast>> input,
@@ -145,7 +145,7 @@ public static class EitherBindExtensions
 
     /// <summary>
     ///      Returns the result of <paramref name="bindFunc"/> if in the Second state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TOutputSecond, TInputThird, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TOutputSecond, TInputThird, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to bind.</param>
     /// <param name="bindFunc">The func to apply if in the Second state.</param>
@@ -156,7 +156,7 @@ public static class EitherBindExtensions
     /// <typeparam name="TOutputSecond">The type of the Second output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="bindFunc"/> if <paramref name="input"/> in the Second state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TOutputSecond, TInputThird, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TOutputSecond, TInputThird, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TOutputSecond, TInputThird, TInputLast>> BindSecondAsync<TInputFirst, TInputSecond, TInputThird, TInputLast, TOutputSecond>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputLast>> input,
@@ -169,7 +169,7 @@ public static class EitherBindExtensions
 
     /// <summary>
     ///      Returns the result of <paramref name="bindFunc"/> if in the Third state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TOutputThird, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TOutputThird, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to bind.</param>
     /// <param name="bindFunc">The func to apply if in the Third state.</param>
@@ -180,7 +180,7 @@ public static class EitherBindExtensions
     /// <typeparam name="TOutputThird">The type of the Third output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="bindFunc"/> if <paramref name="input"/> in the Third state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TOutputThird, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TOutputThird, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TInputSecond, TOutputThird, TInputLast>> BindThirdAsync<TInputFirst, TInputSecond, TInputThird, TInputLast, TOutputThird>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputLast>> input,
@@ -193,7 +193,7 @@ public static class EitherBindExtensions
 
     /// <summary>
     ///      Returns the result of <paramref name="bindFunc"/> if in the Last state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TInputThird, TOutputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TInputThird, TOutputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to bind.</param>
     /// <param name="bindFunc">The func to apply if in the Last state.</param>
@@ -204,7 +204,7 @@ public static class EitherBindExtensions
     /// <typeparam name="TOutputLast">The type of the Last output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="bindFunc"/> if <paramref name="input"/> in the Last state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TInputThird, TOutputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TInputThird, TOutputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TInputSecond, TInputThird, TOutputLast>> BindLastAsync<TInputFirst, TInputSecond, TInputThird, TInputLast, TOutputLast>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputLast>> input,
@@ -217,7 +217,7 @@ public static class EitherBindExtensions
 
     /// <summary>
     ///      Returns the result of <paramref name="bindFunc"/> if in the First state,
-    ///      otherwise returns <see cref="Either{TOutputFirst, TInputSecond, TInputThird, TInputFourth, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TOutputFirst, TInputSecond, TInputThird, TInputFourth, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to bind.</param>
     /// <param name="bindFunc">The func to apply if in the First state.</param>
@@ -229,7 +229,7 @@ public static class EitherBindExtensions
     /// <typeparam name="TOutputFirst">The type of the First output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="bindFunc"/> if <paramref name="input"/> in the First state,
-    ///      otherwise returns <see cref="Either{TOutputFirst, TInputSecond, TInputThird, TInputFourth, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TOutputFirst, TInputSecond, TInputThird, TInputFourth, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TOutputFirst, TInputSecond, TInputThird, TInputFourth, TInputLast>> BindFirstAsync<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputLast, TOutputFirst>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputLast>> input,
@@ -242,7 +242,7 @@ public static class EitherBindExtensions
 
     /// <summary>
     ///      Returns the result of <paramref name="bindFunc"/> if in the Second state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TOutputSecond, TInputThird, TInputFourth, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TOutputSecond, TInputThird, TInputFourth, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to bind.</param>
     /// <param name="bindFunc">The func to apply if in the Second state.</param>
@@ -254,7 +254,7 @@ public static class EitherBindExtensions
     /// <typeparam name="TOutputSecond">The type of the Second output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="bindFunc"/> if <paramref name="input"/> in the Second state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TOutputSecond, TInputThird, TInputFourth, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TOutputSecond, TInputThird, TInputFourth, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TOutputSecond, TInputThird, TInputFourth, TInputLast>> BindSecondAsync<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputLast, TOutputSecond>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputLast>> input,
@@ -267,7 +267,7 @@ public static class EitherBindExtensions
 
     /// <summary>
     ///      Returns the result of <paramref name="bindFunc"/> if in the Third state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TOutputThird, TInputFourth, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TOutputThird, TInputFourth, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to bind.</param>
     /// <param name="bindFunc">The func to apply if in the Third state.</param>
@@ -279,7 +279,7 @@ public static class EitherBindExtensions
     /// <typeparam name="TOutputThird">The type of the Third output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="bindFunc"/> if <paramref name="input"/> in the Third state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TOutputThird, TInputFourth, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TOutputThird, TInputFourth, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TInputSecond, TOutputThird, TInputFourth, TInputLast>> BindThirdAsync<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputLast, TOutputThird>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputLast>> input,
@@ -292,7 +292,7 @@ public static class EitherBindExtensions
 
     /// <summary>
     ///      Returns the result of <paramref name="bindFunc"/> if in the Fourth state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TInputThird, TOutputFourth, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TInputThird, TOutputFourth, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to bind.</param>
     /// <param name="bindFunc">The func to apply if in the Fourth state.</param>
@@ -304,7 +304,7 @@ public static class EitherBindExtensions
     /// <typeparam name="TOutputFourth">The type of the Fourth output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="bindFunc"/> if <paramref name="input"/> in the Fourth state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TInputThird, TOutputFourth, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TInputThird, TOutputFourth, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TInputSecond, TInputThird, TOutputFourth, TInputLast>> BindFourthAsync<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputLast, TOutputFourth>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputLast>> input,
@@ -317,7 +317,7 @@ public static class EitherBindExtensions
 
     /// <summary>
     ///      Returns the result of <paramref name="bindFunc"/> if in the Last state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TOutputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TOutputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to bind.</param>
     /// <param name="bindFunc">The func to apply if in the Last state.</param>
@@ -329,7 +329,7 @@ public static class EitherBindExtensions
     /// <typeparam name="TOutputLast">The type of the Last output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="bindFunc"/> if <paramref name="input"/> in the Last state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TOutputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TOutputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TOutputLast>> BindLastAsync<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputLast, TOutputLast>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputLast>> input,
@@ -342,7 +342,7 @@ public static class EitherBindExtensions
 
     /// <summary>
     ///      Returns the result of <paramref name="bindFunc"/> if in the First state,
-    ///      otherwise returns <see cref="Either{TOutputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TOutputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to bind.</param>
     /// <param name="bindFunc">The func to apply if in the First state.</param>
@@ -355,7 +355,7 @@ public static class EitherBindExtensions
     /// <typeparam name="TOutputFirst">The type of the First output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="bindFunc"/> if <paramref name="input"/> in the First state,
-    ///      otherwise returns <see cref="Either{TOutputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TOutputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TOutputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputLast>> BindFirstAsync<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputLast, TOutputFirst>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputLast>> input,
@@ -368,7 +368,7 @@ public static class EitherBindExtensions
 
     /// <summary>
     ///      Returns the result of <paramref name="bindFunc"/> if in the Second state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TOutputSecond, TInputThird, TInputFourth, TInputFifth, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TOutputSecond, TInputThird, TInputFourth, TInputFifth, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to bind.</param>
     /// <param name="bindFunc">The func to apply if in the Second state.</param>
@@ -381,7 +381,7 @@ public static class EitherBindExtensions
     /// <typeparam name="TOutputSecond">The type of the Second output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="bindFunc"/> if <paramref name="input"/> in the Second state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TOutputSecond, TInputThird, TInputFourth, TInputFifth, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TOutputSecond, TInputThird, TInputFourth, TInputFifth, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TOutputSecond, TInputThird, TInputFourth, TInputFifth, TInputLast>> BindSecondAsync<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputLast, TOutputSecond>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputLast>> input,
@@ -394,7 +394,7 @@ public static class EitherBindExtensions
 
     /// <summary>
     ///      Returns the result of <paramref name="bindFunc"/> if in the Third state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TOutputThird, TInputFourth, TInputFifth, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TOutputThird, TInputFourth, TInputFifth, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to bind.</param>
     /// <param name="bindFunc">The func to apply if in the Third state.</param>
@@ -407,7 +407,7 @@ public static class EitherBindExtensions
     /// <typeparam name="TOutputThird">The type of the Third output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="bindFunc"/> if <paramref name="input"/> in the Third state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TOutputThird, TInputFourth, TInputFifth, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TOutputThird, TInputFourth, TInputFifth, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TInputSecond, TOutputThird, TInputFourth, TInputFifth, TInputLast>> BindThirdAsync<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputLast, TOutputThird>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputLast>> input,
@@ -420,7 +420,7 @@ public static class EitherBindExtensions
 
     /// <summary>
     ///      Returns the result of <paramref name="bindFunc"/> if in the Fourth state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TInputThird, TOutputFourth, TInputFifth, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TInputThird, TOutputFourth, TInputFifth, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to bind.</param>
     /// <param name="bindFunc">The func to apply if in the Fourth state.</param>
@@ -433,7 +433,7 @@ public static class EitherBindExtensions
     /// <typeparam name="TOutputFourth">The type of the Fourth output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="bindFunc"/> if <paramref name="input"/> in the Fourth state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TInputThird, TOutputFourth, TInputFifth, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TInputThird, TOutputFourth, TInputFifth, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TInputSecond, TInputThird, TOutputFourth, TInputFifth, TInputLast>> BindFourthAsync<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputLast, TOutputFourth>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputLast>> input,
@@ -446,7 +446,7 @@ public static class EitherBindExtensions
 
     /// <summary>
     ///      Returns the result of <paramref name="bindFunc"/> if in the Fifth state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TOutputFifth, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TOutputFifth, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to bind.</param>
     /// <param name="bindFunc">The func to apply if in the Fifth state.</param>
@@ -459,7 +459,7 @@ public static class EitherBindExtensions
     /// <typeparam name="TOutputFifth">The type of the Fifth output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="bindFunc"/> if <paramref name="input"/> in the Fifth state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TOutputFifth, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TOutputFifth, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TOutputFifth, TInputLast>> BindFifthAsync<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputLast, TOutputFifth>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputLast>> input,
@@ -472,7 +472,7 @@ public static class EitherBindExtensions
 
     /// <summary>
     ///      Returns the result of <paramref name="bindFunc"/> if in the Last state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TOutputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TOutputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to bind.</param>
     /// <param name="bindFunc">The func to apply if in the Last state.</param>
@@ -485,7 +485,7 @@ public static class EitherBindExtensions
     /// <typeparam name="TOutputLast">The type of the Last output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="bindFunc"/> if <paramref name="input"/> in the Last state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TOutputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TOutputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TOutputLast>> BindLastAsync<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputLast, TOutputLast>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputLast>> input,
@@ -498,7 +498,7 @@ public static class EitherBindExtensions
 
     /// <summary>
     ///      Returns the result of <paramref name="bindFunc"/> if in the First state,
-    ///      otherwise returns <see cref="Either{TOutputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TOutputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to bind.</param>
     /// <param name="bindFunc">The func to apply if in the First state.</param>
@@ -512,7 +512,7 @@ public static class EitherBindExtensions
     /// <typeparam name="TOutputFirst">The type of the First output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="bindFunc"/> if <paramref name="input"/> in the First state,
-    ///      otherwise returns <see cref="Either{TOutputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TOutputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TOutputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast>> BindFirstAsync<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast, TOutputFirst>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast>> input,
@@ -525,7 +525,7 @@ public static class EitherBindExtensions
 
     /// <summary>
     ///      Returns the result of <paramref name="bindFunc"/> if in the Second state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TOutputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TOutputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to bind.</param>
     /// <param name="bindFunc">The func to apply if in the Second state.</param>
@@ -539,7 +539,7 @@ public static class EitherBindExtensions
     /// <typeparam name="TOutputSecond">The type of the Second output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="bindFunc"/> if <paramref name="input"/> in the Second state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TOutputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TOutputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TOutputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast>> BindSecondAsync<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast, TOutputSecond>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast>> input,
@@ -552,7 +552,7 @@ public static class EitherBindExtensions
 
     /// <summary>
     ///      Returns the result of <paramref name="bindFunc"/> if in the Third state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TOutputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TOutputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to bind.</param>
     /// <param name="bindFunc">The func to apply if in the Third state.</param>
@@ -566,7 +566,7 @@ public static class EitherBindExtensions
     /// <typeparam name="TOutputThird">The type of the Third output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="bindFunc"/> if <paramref name="input"/> in the Third state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TOutputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TOutputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TInputSecond, TOutputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast>> BindThirdAsync<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast, TOutputThird>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast>> input,
@@ -579,7 +579,7 @@ public static class EitherBindExtensions
 
     /// <summary>
     ///      Returns the result of <paramref name="bindFunc"/> if in the Fourth state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TInputThird, TOutputFourth, TInputFifth, TInputSixth, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TInputThird, TOutputFourth, TInputFifth, TInputSixth, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to bind.</param>
     /// <param name="bindFunc">The func to apply if in the Fourth state.</param>
@@ -593,7 +593,7 @@ public static class EitherBindExtensions
     /// <typeparam name="TOutputFourth">The type of the Fourth output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="bindFunc"/> if <paramref name="input"/> in the Fourth state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TInputThird, TOutputFourth, TInputFifth, TInputSixth, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TInputThird, TOutputFourth, TInputFifth, TInputSixth, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TInputSecond, TInputThird, TOutputFourth, TInputFifth, TInputSixth, TInputLast>> BindFourthAsync<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast, TOutputFourth>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast>> input,
@@ -606,7 +606,7 @@ public static class EitherBindExtensions
 
     /// <summary>
     ///      Returns the result of <paramref name="bindFunc"/> if in the Fifth state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TOutputFifth, TInputSixth, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TOutputFifth, TInputSixth, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to bind.</param>
     /// <param name="bindFunc">The func to apply if in the Fifth state.</param>
@@ -620,7 +620,7 @@ public static class EitherBindExtensions
     /// <typeparam name="TOutputFifth">The type of the Fifth output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="bindFunc"/> if <paramref name="input"/> in the Fifth state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TOutputFifth, TInputSixth, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TOutputFifth, TInputSixth, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TOutputFifth, TInputSixth, TInputLast>> BindFifthAsync<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast, TOutputFifth>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast>> input,
@@ -633,7 +633,7 @@ public static class EitherBindExtensions
 
     /// <summary>
     ///      Returns the result of <paramref name="bindFunc"/> if in the Sixth state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TOutputSixth, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TOutputSixth, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to bind.</param>
     /// <param name="bindFunc">The func to apply if in the Sixth state.</param>
@@ -647,7 +647,7 @@ public static class EitherBindExtensions
     /// <typeparam name="TOutputSixth">The type of the Sixth output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="bindFunc"/> if <paramref name="input"/> in the Sixth state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TOutputSixth, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TOutputSixth, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TOutputSixth, TInputLast>> BindSixthAsync<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast, TOutputSixth>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast>> input,
@@ -660,7 +660,7 @@ public static class EitherBindExtensions
 
     /// <summary>
     ///      Returns the result of <paramref name="bindFunc"/> if in the Last state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TOutputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TOutputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to bind.</param>
     /// <param name="bindFunc">The func to apply if in the Last state.</param>
@@ -674,7 +674,7 @@ public static class EitherBindExtensions
     /// <typeparam name="TOutputLast">The type of the Last output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="bindFunc"/> if <paramref name="input"/> in the Last state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TOutputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TOutputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TOutputLast>> BindLastAsync<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast, TOutputLast>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputLast>> input,
@@ -687,7 +687,7 @@ public static class EitherBindExtensions
 
     /// <summary>
     ///      Returns the result of <paramref name="bindFunc"/> if in the First state,
-    ///      otherwise returns <see cref="Either{TOutputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TOutputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to bind.</param>
     /// <param name="bindFunc">The func to apply if in the First state.</param>
@@ -702,7 +702,7 @@ public static class EitherBindExtensions
     /// <typeparam name="TOutputFirst">The type of the First output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="bindFunc"/> if <paramref name="input"/> in the First state,
-    ///      otherwise returns <see cref="Either{TOutputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TOutputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TOutputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast>> BindFirstAsync<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast, TOutputFirst>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast>> input,
@@ -715,7 +715,7 @@ public static class EitherBindExtensions
 
     /// <summary>
     ///      Returns the result of <paramref name="bindFunc"/> if in the Second state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TOutputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TOutputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to bind.</param>
     /// <param name="bindFunc">The func to apply if in the Second state.</param>
@@ -730,7 +730,7 @@ public static class EitherBindExtensions
     /// <typeparam name="TOutputSecond">The type of the Second output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="bindFunc"/> if <paramref name="input"/> in the Second state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TOutputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TOutputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TOutputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast>> BindSecondAsync<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast, TOutputSecond>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast>> input,
@@ -743,7 +743,7 @@ public static class EitherBindExtensions
 
     /// <summary>
     ///      Returns the result of <paramref name="bindFunc"/> if in the Third state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TOutputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TOutputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to bind.</param>
     /// <param name="bindFunc">The func to apply if in the Third state.</param>
@@ -758,7 +758,7 @@ public static class EitherBindExtensions
     /// <typeparam name="TOutputThird">The type of the Third output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="bindFunc"/> if <paramref name="input"/> in the Third state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TOutputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TOutputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TInputSecond, TOutputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast>> BindThirdAsync<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast, TOutputThird>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast>> input,
@@ -771,7 +771,7 @@ public static class EitherBindExtensions
 
     /// <summary>
     ///      Returns the result of <paramref name="bindFunc"/> if in the Fourth state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TInputThird, TOutputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TInputThird, TOutputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to bind.</param>
     /// <param name="bindFunc">The func to apply if in the Fourth state.</param>
@@ -786,7 +786,7 @@ public static class EitherBindExtensions
     /// <typeparam name="TOutputFourth">The type of the Fourth output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="bindFunc"/> if <paramref name="input"/> in the Fourth state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TInputThird, TOutputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TInputThird, TOutputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TInputSecond, TInputThird, TOutputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast>> BindFourthAsync<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast, TOutputFourth>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast>> input,
@@ -799,7 +799,7 @@ public static class EitherBindExtensions
 
     /// <summary>
     ///      Returns the result of <paramref name="bindFunc"/> if in the Fifth state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TOutputFifth, TInputSixth, TInputSeventh, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TOutputFifth, TInputSixth, TInputSeventh, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to bind.</param>
     /// <param name="bindFunc">The func to apply if in the Fifth state.</param>
@@ -814,7 +814,7 @@ public static class EitherBindExtensions
     /// <typeparam name="TOutputFifth">The type of the Fifth output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="bindFunc"/> if <paramref name="input"/> in the Fifth state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TOutputFifth, TInputSixth, TInputSeventh, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TOutputFifth, TInputSixth, TInputSeventh, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TOutputFifth, TInputSixth, TInputSeventh, TInputLast>> BindFifthAsync<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast, TOutputFifth>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast>> input,
@@ -827,7 +827,7 @@ public static class EitherBindExtensions
 
     /// <summary>
     ///      Returns the result of <paramref name="bindFunc"/> if in the Sixth state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TOutputSixth, TInputSeventh, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TOutputSixth, TInputSeventh, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to bind.</param>
     /// <param name="bindFunc">The func to apply if in the Sixth state.</param>
@@ -842,7 +842,7 @@ public static class EitherBindExtensions
     /// <typeparam name="TOutputSixth">The type of the Sixth output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="bindFunc"/> if <paramref name="input"/> in the Sixth state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TOutputSixth, TInputSeventh, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TOutputSixth, TInputSeventh, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TOutputSixth, TInputSeventh, TInputLast>> BindSixthAsync<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast, TOutputSixth>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast>> input,
@@ -855,7 +855,7 @@ public static class EitherBindExtensions
 
     /// <summary>
     ///      Returns the result of <paramref name="bindFunc"/> if in the Seventh state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TOutputSeventh, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TOutputSeventh, TInputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to bind.</param>
     /// <param name="bindFunc">The func to apply if in the Seventh state.</param>
@@ -870,7 +870,7 @@ public static class EitherBindExtensions
     /// <typeparam name="TOutputSeventh">The type of the Seventh output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="bindFunc"/> if <paramref name="input"/> in the Seventh state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TOutputSeventh, TInputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TOutputSeventh, TInputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TOutputSeventh, TInputLast>> BindSeventhAsync<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast, TOutputSeventh>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast>> input,
@@ -883,7 +883,7 @@ public static class EitherBindExtensions
 
     /// <summary>
     ///      Returns the result of <paramref name="bindFunc"/> if in the Last state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TOutputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TOutputLast}"/> in the appropriate state.
     /// </summary>
     /// <param name="input">The asynchronous input to bind.</param>
     /// <param name="bindFunc">The func to apply if in the Last state.</param>
@@ -898,7 +898,7 @@ public static class EitherBindExtensions
     /// <typeparam name="TOutputLast">The type of the Last output.</typeparam>
     /// <returns>
     ///      The result of <paramref name="bindFunc"/> if <paramref name="input"/> in the Last state,
-    ///      otherwise returns <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TOutputLast}"/> in the appropriate state.
+    ///      otherwise returns <see cref="Task"/> of type <see cref="Either{TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TOutputLast}"/> in the appropriate state.
     /// </returns>
     public static async Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TOutputLast>> BindLastAsync<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast, TOutputLast>(
         this Task<Either<TInputFirst, TInputSecond, TInputThird, TInputFourth, TInputFifth, TInputSixth, TInputSeventh, TInputLast>> input,

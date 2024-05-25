@@ -1,5 +1,3 @@
-
-
 using LitePrimitives.InternalStates;
 // ReSharper disable once CheckNamespace
 
