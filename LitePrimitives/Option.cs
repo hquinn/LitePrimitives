@@ -86,6 +86,26 @@ public readonly struct Option<TValue>
     }
     
     /// <summary>
+    ///     Returns the return type of <paramref name="bindFunc"/> if in the Some state,
+    ///     otherwise returns <see cref="Task"/> of type <see cref="Option{TOutput}"/> in the None state.
+    /// </summary>
+    /// <param name="bindFunc">The asynchronous func to apply if in the Some state.</param>
+    /// <typeparam name="TOutput">The type of the output.</typeparam>
+    /// <returns>
+    ///     The result of <paramref name="bindFunc"/> if in the Some state,
+    ///     otherwise returns <see cref="Task"/> of type <see cref="Option{TOutput}"/> in the None state.
+    /// </returns>
+    public async Task<Option<TOutput>> BindAsync<TOutput>(Func<TValue, Task<Option<TOutput>>> bindFunc)
+    {
+        return _state switch
+        {
+            OptionState.Some => await bindFunc(_value!),
+            OptionState.None => Option<TOutput>.None(),
+            _ => throw new InvalidOperationException("Invalid state.")
+        };
+    }
+    
+    /// <summary>
     ///     Performs transformation into <see cref="Option{TOutput}"/> when it's in a Some state,
     ///     otherwise returns <see cref="Option{TOutput}"/> in the None state.
     /// </summary>
