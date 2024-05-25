@@ -24,8 +24,6 @@ public static class OptionBindExtensions
     {
         var option = await input;
         
-        return await option.MatchAsync(
-            some: async value => await bindFunc(value),
-            none: () => Option<TOutput>.None().ToTask());
+        return await option.BindAsync(bindFunc);
     }
 }

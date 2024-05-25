@@ -24,8 +24,6 @@ public static class OptionMapExtensions
     {
         var option = await input;
         
-        return await option.MatchAsync(
-            some: async value => (await transform(value)).ToOption(),
-            none: () => Option<TOutput>.None().ToTask());
+        return await option.MapAsync(transform);
     }
 }
