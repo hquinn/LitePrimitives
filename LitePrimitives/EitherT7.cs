@@ -1,6 +1,7 @@
-// ReSharper disable once CheckNamespace
 
-using LitePrimitives.Enums;
+
+using LitePrimitives.InternalStates;
+// ReSharper disable once CheckNamespace
 
 namespace LitePrimitives;
 
