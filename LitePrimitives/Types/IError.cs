@@ -17,6 +17,11 @@ public interface IError
     string Message { get; }
     
     /// <summary>
+    /// The severity of the error.
+    /// </summary>
+    Severity Severity { get; }
+    
+    /// <summary>
     /// The metadata of the error.
     /// </summary>
     Dictionary<string, object> Metadata { get; }
