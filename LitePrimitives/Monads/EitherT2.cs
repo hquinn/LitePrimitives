@@ -367,12 +367,18 @@ public readonly struct Either<TFirst, TLast>
     /// </summary>
     /// <param name="first">The value to construct the <see cref="Either{TFirst, TLast}"/> type from.</param>
     /// <returns>The <see cref="Either{TFirst, TLast}"/> type in the First state.</returns>
-    public static Either<TFirst, TLast> First(TFirst first) => new(first);
+    public static Either<TFirst, TLast> First(TFirst first)
+    {
+        return new Either<TFirst, TLast>(first);
+    }
 
     /// <summary>
     ///      Constructs <see cref="Either{TFirst, TLast}"/> from a <typeparamref name="TLast"/> in the Last state.
     /// </summary>
     /// <param name="last">The value to construct the <see cref="Either{TFirst, TLast}"/> type from.</param>
     /// <returns>The <see cref="Either{TFirst, TLast}"/> type in the Last state.</returns>
-    public static Either<TFirst, TLast> Last(TLast last) => new(last);
+    public static Either<TFirst, TLast> Last(TLast last)
+    {
+        return new Either<TFirst, TLast>(last);
+    }
 }
