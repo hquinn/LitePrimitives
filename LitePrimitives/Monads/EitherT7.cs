@@ -76,6 +76,41 @@ public readonly struct Either<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, 
     }
 
     /// <summary>
+    ///     Returns true if the <see cref="Either{TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TLast}"/> is in the First state.
+    /// </summary>
+    public bool IsFirst => _state == EitherState.First;
+
+    /// <summary>
+    ///     Returns true if the <see cref="Either{TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TLast}"/> is in the Second state.
+    /// </summary>
+    public bool IsSecond => _state == EitherState.Second;
+
+    /// <summary>
+    ///     Returns true if the <see cref="Either{TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TLast}"/> is in the Third state.
+    /// </summary>
+    public bool IsThird => _state == EitherState.Third;
+
+    /// <summary>
+    ///     Returns true if the <see cref="Either{TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TLast}"/> is in the Fourth state.
+    /// </summary>
+    public bool IsFourth => _state == EitherState.Fourth;
+
+    /// <summary>
+    ///     Returns true if the <see cref="Either{TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TLast}"/> is in the Fifth state.
+    /// </summary>
+    public bool IsFifth => _state == EitherState.Fifth;
+
+    /// <summary>
+    ///     Returns true if the <see cref="Either{TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TLast}"/> is in the Sixth state.
+    /// </summary>
+    public bool IsSixth => _state == EitherState.Sixth;
+
+    /// <summary>
+    ///     Returns true if the <see cref="Either{TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TLast}"/> is in the Last state.
+    /// </summary>
+    public bool IsLast => _state == EitherState.Last;
+
+    /// <summary>
     ///     Outputs the following:
     ///     - <paramref name="first"/> if in the First state.
     ///     - <paramref name="second"/> if in the Second state.
@@ -1304,6 +1339,290 @@ public readonly struct Either<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, 
             await action(_last!);
         }
 
+        return this;
+    }
+
+    /// <summary>
+    ///      Performs the relevant action based on the current state.
+    /// </summary>
+    /// <param name="first">The action to perform if in the First state.</param>
+    /// <param name="second">The action to perform if in the Second state.</param>
+    /// <param name="third">The action to perform if in the Third state.</param>
+    /// <param name="fourth">The action to perform if in the Fourth state.</param>
+    /// <param name="fifth">The action to perform if in the Fifth state.</param>
+    /// <param name="sixth">The action to perform if in the Sixth state.</param>
+    /// <param name="last">The action to perform if in the Last state.</param>
+    /// <returns>The current object after possibly performing the action.</returns>
+    public Either<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TLast> Perform(
+        Action<TFirst>? first = null,
+        Action<TSecond>? second = null,
+        Action<TThird>? third = null,
+        Action<TFourth>? fourth = null,
+        Action<TFifth>? fifth = null,
+        Action<TSixth>? sixth = null,
+        Action<TLast>? last = null)
+    {
+        switch (_state)
+        {
+            case EitherState.First:
+                if (first is not null)
+                {
+                    first(_first!);
+                }
+                break;
+            case EitherState.Second:
+                if (second is not null)
+                {
+                    second(_second!);
+                }
+                break;
+            case EitherState.Third:
+                if (third is not null)
+                {
+                    third(_third!);
+                }
+                break;
+            case EitherState.Fourth:
+                if (fourth is not null)
+                {
+                    fourth(_fourth!);
+                }
+                break;
+            case EitherState.Fifth:
+                if (fifth is not null)
+                {
+                    fifth(_fifth!);
+                }
+                break;
+            case EitherState.Sixth:
+                if (sixth is not null)
+                {
+                    sixth(_sixth!);
+                }
+                break;
+            case EitherState.Last:
+                if (last is not null)
+                {
+                    last(_last!);
+                }
+                break;
+            default:
+                throw new InvalidOperationException("Invalid state.");
+        }
+        
+        return this;
+    }
+
+    /// <summary>
+    ///      Performs the relevant action based on the current state.
+    /// </summary>
+    /// <param name="first">The action to perform if in the First state.</param>
+    /// <param name="second">The action to perform if in the Second state.</param>
+    /// <param name="third">The action to perform if in the Third state.</param>
+    /// <param name="fourth">The action to perform if in the Fourth state.</param>
+    /// <param name="fifth">The action to perform if in the Fifth state.</param>
+    /// <param name="sixth">The action to perform if in the Sixth state.</param>
+    /// <param name="last">The action to perform if in the Last state.</param>
+    /// <returns>The current object after possibly performing the action.</returns>
+    public Either<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TLast> Perform(
+        Func<TFirst, Unit>? first = null,
+        Func<TSecond, Unit>? second = null,
+        Func<TThird, Unit>? third = null,
+        Func<TFourth, Unit>? fourth = null,
+        Func<TFifth, Unit>? fifth = null,
+        Func<TSixth, Unit>? sixth = null,
+        Func<TLast, Unit>? last = null)
+    {
+        switch (_state)
+        {
+            case EitherState.First:
+                if (first is not null)
+                {
+                    first(_first!);
+                }
+                break;
+            case EitherState.Second:
+                if (second is not null)
+                {
+                    second(_second!);
+                }
+                break;
+            case EitherState.Third:
+                if (third is not null)
+                {
+                    third(_third!);
+                }
+                break;
+            case EitherState.Fourth:
+                if (fourth is not null)
+                {
+                    fourth(_fourth!);
+                }
+                break;
+            case EitherState.Fifth:
+                if (fifth is not null)
+                {
+                    fifth(_fifth!);
+                }
+                break;
+            case EitherState.Sixth:
+                if (sixth is not null)
+                {
+                    sixth(_sixth!);
+                }
+                break;
+            case EitherState.Last:
+                if (last is not null)
+                {
+                    last(_last!);
+                }
+                break;
+            default:
+                throw new InvalidOperationException("Invalid state.");
+        }
+        
+        return this;
+    }
+
+    /// <summary>
+    ///      Performs the relevant action based on the current state.
+    /// </summary>
+    /// <param name="first">The asynchronous action to perform if in the First state.</param>
+    /// <param name="second">The asynchronous action to perform if in the Second state.</param>
+    /// <param name="third">The asynchronous action to perform if in the Third state.</param>
+    /// <param name="fourth">The asynchronous action to perform if in the Fourth state.</param>
+    /// <param name="fifth">The asynchronous action to perform if in the Fifth state.</param>
+    /// <param name="sixth">The asynchronous action to perform if in the Sixth state.</param>
+    /// <param name="last">The asynchronous action to perform if in the Last state.</param>
+    /// <returns>The current object after possibly performing the action.</returns>
+    public async Task<Either<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TLast>> PerformAsync(
+        Func<TFirst, Task>? first = null,
+        Func<TSecond, Task>? second = null,
+        Func<TThird, Task>? third = null,
+        Func<TFourth, Task>? fourth = null,
+        Func<TFifth, Task>? fifth = null,
+        Func<TSixth, Task>? sixth = null,
+        Func<TLast, Task>? last = null)
+    {
+        switch (_state)
+        {
+            case EitherState.First:
+                if (first is not null)
+                {
+                    await first(_first!);
+                }
+                break;
+            case EitherState.Second:
+                if (second is not null)
+                {
+                    await second(_second!);
+                }
+                break;
+            case EitherState.Third:
+                if (third is not null)
+                {
+                    await third(_third!);
+                }
+                break;
+            case EitherState.Fourth:
+                if (fourth is not null)
+                {
+                    await fourth(_fourth!);
+                }
+                break;
+            case EitherState.Fifth:
+                if (fifth is not null)
+                {
+                    await fifth(_fifth!);
+                }
+                break;
+            case EitherState.Sixth:
+                if (sixth is not null)
+                {
+                    await sixth(_sixth!);
+                }
+                break;
+            case EitherState.Last:
+                if (last is not null)
+                {
+                    await last(_last!);
+                }
+                break;
+            default:
+                throw new InvalidOperationException("Invalid state.");
+        }
+        
+        return this;
+    }
+
+    /// <summary>
+    ///      Performs the relevant action based on the current state.
+    /// </summary>
+    /// <param name="first">The asynchronous action to perform if in the First state.</param>
+    /// <param name="second">The asynchronous action to perform if in the Second state.</param>
+    /// <param name="third">The asynchronous action to perform if in the Third state.</param>
+    /// <param name="fourth">The asynchronous action to perform if in the Fourth state.</param>
+    /// <param name="fifth">The asynchronous action to perform if in the Fifth state.</param>
+    /// <param name="sixth">The asynchronous action to perform if in the Sixth state.</param>
+    /// <param name="last">The asynchronous action to perform if in the Last state.</param>
+    /// <returns>The current object after possibly performing the action.</returns>
+    public async Task<Either<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TLast>> PerformAsync(
+        Func<TFirst, Task<Unit>>? first = null,
+        Func<TSecond, Task<Unit>>? second = null,
+        Func<TThird, Task<Unit>>? third = null,
+        Func<TFourth, Task<Unit>>? fourth = null,
+        Func<TFifth, Task<Unit>>? fifth = null,
+        Func<TSixth, Task<Unit>>? sixth = null,
+        Func<TLast, Task<Unit>>? last = null)
+    {
+        switch (_state)
+        {
+            case EitherState.First:
+                if (first is not null)
+                {
+                    await first(_first!);
+                }
+                break;
+            case EitherState.Second:
+                if (second is not null)
+                {
+                    await second(_second!);
+                }
+                break;
+            case EitherState.Third:
+                if (third is not null)
+                {
+                    await third(_third!);
+                }
+                break;
+            case EitherState.Fourth:
+                if (fourth is not null)
+                {
+                    await fourth(_fourth!);
+                }
+                break;
+            case EitherState.Fifth:
+                if (fifth is not null)
+                {
+                    await fifth(_fifth!);
+                }
+                break;
+            case EitherState.Sixth:
+                if (sixth is not null)
+                {
+                    await sixth(_sixth!);
+                }
+                break;
+            case EitherState.Last:
+                if (last is not null)
+                {
+                    await last(_last!);
+                }
+                break;
+            default:
+                throw new InvalidOperationException("Invalid state.");
+        }
+        
         return this;
     }
 

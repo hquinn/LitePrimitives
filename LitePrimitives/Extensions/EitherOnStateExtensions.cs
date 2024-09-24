@@ -39,13 +39,13 @@ public static class EitherOnStateExtensions
         await either.OnFirstAsync(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the First state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TLast">The type of the Last <paramref name="input"/>.</typeparam>
     /// <returns>The <paramref name="input"/> after possibly performing the <paramref name="action"/>.</returns>
     public static async Task<Either<TFirst, TLast>> OnFirstAsync<TFirst, TLast>(
@@ -56,13 +56,13 @@ public static class EitherOnStateExtensions
         either.OnFirst(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the First state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TLast">The type of the Last <paramref name="input"/>.</typeparam>
     /// <returns>The <paramref name="input"/> after possibly performing the <paramref name="action"/>.</returns>
     public static async Task<Either<TFirst, TLast>> OnFirstAsync<TFirst, TLast>(
@@ -107,13 +107,13 @@ public static class EitherOnStateExtensions
         await either.OnLastAsync(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Last state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TLast">The type of the Last <paramref name="input"/>.</typeparam>
     /// <returns>The <paramref name="input"/> after possibly performing the <paramref name="action"/>.</returns>
     public static async Task<Either<TFirst, TLast>> OnLastAsync<TFirst, TLast>(
@@ -124,13 +124,13 @@ public static class EitherOnStateExtensions
         either.OnLast(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Last state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TLast">The type of the Last <paramref name="input"/>.</typeparam>
     /// <returns>The <paramref name="input"/> after possibly performing the <paramref name="action"/>.</returns>
     public static async Task<Either<TFirst, TLast>> OnLastAsync<TFirst, TLast>(
@@ -177,13 +177,13 @@ public static class EitherOnStateExtensions
         await either.OnFirstAsync(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the First state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TLast">The type of the Last <paramref name="input"/>.</typeparam>
     /// <returns>The <paramref name="input"/> after possibly performing the <paramref name="action"/>.</returns>
@@ -195,13 +195,13 @@ public static class EitherOnStateExtensions
         either.OnFirst(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the First state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TLast">The type of the Last <paramref name="input"/>.</typeparam>
     /// <returns>The <paramref name="input"/> after possibly performing the <paramref name="action"/>.</returns>
@@ -249,13 +249,13 @@ public static class EitherOnStateExtensions
         await either.OnSecondAsync(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Second state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TLast">The type of the Last <paramref name="input"/>.</typeparam>
     /// <returns>The <paramref name="input"/> after possibly performing the <paramref name="action"/>.</returns>
@@ -267,13 +267,13 @@ public static class EitherOnStateExtensions
         either.OnSecond(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Second state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TLast">The type of the Last <paramref name="input"/>.</typeparam>
     /// <returns>The <paramref name="input"/> after possibly performing the <paramref name="action"/>.</returns>
@@ -321,13 +321,13 @@ public static class EitherOnStateExtensions
         await either.OnLastAsync(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Last state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TLast">The type of the Last <paramref name="input"/>.</typeparam>
     /// <returns>The <paramref name="input"/> after possibly performing the <paramref name="action"/>.</returns>
@@ -339,13 +339,13 @@ public static class EitherOnStateExtensions
         either.OnLast(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Last state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TLast">The type of the Last <paramref name="input"/>.</typeparam>
     /// <returns>The <paramref name="input"/> after possibly performing the <paramref name="action"/>.</returns>
@@ -395,13 +395,13 @@ public static class EitherOnStateExtensions
         await either.OnFirstAsync(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the First state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TLast">The type of the Last <paramref name="input"/>.</typeparam>
@@ -414,13 +414,13 @@ public static class EitherOnStateExtensions
         either.OnFirst(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the First state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TLast">The type of the Last <paramref name="input"/>.</typeparam>
@@ -471,13 +471,13 @@ public static class EitherOnStateExtensions
         await either.OnSecondAsync(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Second state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TLast">The type of the Last <paramref name="input"/>.</typeparam>
@@ -490,13 +490,13 @@ public static class EitherOnStateExtensions
         either.OnSecond(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Second state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TLast">The type of the Last <paramref name="input"/>.</typeparam>
@@ -547,13 +547,13 @@ public static class EitherOnStateExtensions
         await either.OnThirdAsync(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Third state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TLast">The type of the Last <paramref name="input"/>.</typeparam>
@@ -566,13 +566,13 @@ public static class EitherOnStateExtensions
         either.OnThird(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Third state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TLast">The type of the Last <paramref name="input"/>.</typeparam>
@@ -623,13 +623,13 @@ public static class EitherOnStateExtensions
         await either.OnLastAsync(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Last state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TLast">The type of the Last <paramref name="input"/>.</typeparam>
@@ -642,13 +642,13 @@ public static class EitherOnStateExtensions
         either.OnLast(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Last state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TLast">The type of the Last <paramref name="input"/>.</typeparam>
@@ -701,13 +701,13 @@ public static class EitherOnStateExtensions
         await either.OnFirstAsync(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the First state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -721,13 +721,13 @@ public static class EitherOnStateExtensions
         either.OnFirst(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the First state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -781,13 +781,13 @@ public static class EitherOnStateExtensions
         await either.OnSecondAsync(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Second state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -801,13 +801,13 @@ public static class EitherOnStateExtensions
         either.OnSecond(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Second state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -861,13 +861,13 @@ public static class EitherOnStateExtensions
         await either.OnThirdAsync(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Third state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -881,13 +881,13 @@ public static class EitherOnStateExtensions
         either.OnThird(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Third state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -941,13 +941,13 @@ public static class EitherOnStateExtensions
         await either.OnFourthAsync(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Fourth state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -961,13 +961,13 @@ public static class EitherOnStateExtensions
         either.OnFourth(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Fourth state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -1021,13 +1021,13 @@ public static class EitherOnStateExtensions
         await either.OnLastAsync(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Last state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -1041,13 +1041,13 @@ public static class EitherOnStateExtensions
         either.OnLast(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Last state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -1103,13 +1103,13 @@ public static class EitherOnStateExtensions
         await either.OnFirstAsync(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the First state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -1124,13 +1124,13 @@ public static class EitherOnStateExtensions
         either.OnFirst(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the First state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -1187,13 +1187,13 @@ public static class EitherOnStateExtensions
         await either.OnSecondAsync(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Second state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -1208,13 +1208,13 @@ public static class EitherOnStateExtensions
         either.OnSecond(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Second state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -1271,13 +1271,13 @@ public static class EitherOnStateExtensions
         await either.OnThirdAsync(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Third state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -1292,13 +1292,13 @@ public static class EitherOnStateExtensions
         either.OnThird(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Third state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -1355,13 +1355,13 @@ public static class EitherOnStateExtensions
         await either.OnFourthAsync(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Fourth state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -1376,13 +1376,13 @@ public static class EitherOnStateExtensions
         either.OnFourth(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Fourth state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -1439,13 +1439,13 @@ public static class EitherOnStateExtensions
         await either.OnFifthAsync(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Fifth state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -1460,13 +1460,13 @@ public static class EitherOnStateExtensions
         either.OnFifth(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Fifth state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -1523,13 +1523,13 @@ public static class EitherOnStateExtensions
         await either.OnLastAsync(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Last state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -1544,13 +1544,13 @@ public static class EitherOnStateExtensions
         either.OnLast(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Last state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -1609,13 +1609,13 @@ public static class EitherOnStateExtensions
         await either.OnFirstAsync(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the First state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -1631,13 +1631,13 @@ public static class EitherOnStateExtensions
         either.OnFirst(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the First state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -1697,13 +1697,13 @@ public static class EitherOnStateExtensions
         await either.OnSecondAsync(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Second state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -1719,13 +1719,13 @@ public static class EitherOnStateExtensions
         either.OnSecond(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Second state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -1785,13 +1785,13 @@ public static class EitherOnStateExtensions
         await either.OnThirdAsync(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Third state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -1807,13 +1807,13 @@ public static class EitherOnStateExtensions
         either.OnThird(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Third state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -1873,13 +1873,13 @@ public static class EitherOnStateExtensions
         await either.OnFourthAsync(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Fourth state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -1895,13 +1895,13 @@ public static class EitherOnStateExtensions
         either.OnFourth(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Fourth state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -1961,13 +1961,13 @@ public static class EitherOnStateExtensions
         await either.OnFifthAsync(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Fifth state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -1983,13 +1983,13 @@ public static class EitherOnStateExtensions
         either.OnFifth(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Fifth state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -2049,13 +2049,13 @@ public static class EitherOnStateExtensions
         await either.OnSixthAsync(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Sixth state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -2071,13 +2071,13 @@ public static class EitherOnStateExtensions
         either.OnSixth(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Sixth state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -2137,13 +2137,13 @@ public static class EitherOnStateExtensions
         await either.OnLastAsync(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Last state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -2159,13 +2159,13 @@ public static class EitherOnStateExtensions
         either.OnLast(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Last state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -2227,13 +2227,13 @@ public static class EitherOnStateExtensions
         await either.OnFirstAsync(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the First state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -2250,13 +2250,13 @@ public static class EitherOnStateExtensions
         either.OnFirst(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the First state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -2319,13 +2319,13 @@ public static class EitherOnStateExtensions
         await either.OnSecondAsync(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Second state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -2342,13 +2342,13 @@ public static class EitherOnStateExtensions
         either.OnSecond(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Second state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -2411,13 +2411,13 @@ public static class EitherOnStateExtensions
         await either.OnThirdAsync(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Third state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -2434,13 +2434,13 @@ public static class EitherOnStateExtensions
         either.OnThird(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Third state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -2503,13 +2503,13 @@ public static class EitherOnStateExtensions
         await either.OnFourthAsync(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Fourth state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -2526,13 +2526,13 @@ public static class EitherOnStateExtensions
         either.OnFourth(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Fourth state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -2595,13 +2595,13 @@ public static class EitherOnStateExtensions
         await either.OnFifthAsync(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Fifth state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -2618,13 +2618,13 @@ public static class EitherOnStateExtensions
         either.OnFifth(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Fifth state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -2687,13 +2687,13 @@ public static class EitherOnStateExtensions
         await either.OnSixthAsync(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Sixth state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -2710,13 +2710,13 @@ public static class EitherOnStateExtensions
         either.OnSixth(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Sixth state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -2779,13 +2779,13 @@ public static class EitherOnStateExtensions
         await either.OnSeventhAsync(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Seventh state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -2802,13 +2802,13 @@ public static class EitherOnStateExtensions
         either.OnSeventh(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Seventh state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -2871,13 +2871,13 @@ public static class EitherOnStateExtensions
         await either.OnLastAsync(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Last state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -2894,13 +2894,13 @@ public static class EitherOnStateExtensions
         either.OnLast(action);
         return either;
     }
-    
+
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Last state.
     /// </summary>
     /// <param name="input">The asynchronous input to perform action on.</param>
     /// <param name="action">The action to perform.</param>
-        /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TFourth">The type of the Fourth <paramref name="input"/>.</typeparam>

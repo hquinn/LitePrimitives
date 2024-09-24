@@ -28,6 +28,16 @@ public readonly struct Result<TValue>
         _value = value;
         _state = ResultState.Success;
     }
+
+    /// <summary>
+    ///     Returns true if the <see cref="Result{TValue}"/> is in the Success state.
+    /// </summary>
+    public bool IsSuccess => _state == ResultState.Success;
+
+    /// <summary>
+    ///     Returns true if the <see cref="Result{TValue}"/> is in the Failure state.
+    /// </summary>
+    public bool IsFailure => _state == ResultState.Failure;
     
     /// <summary>
     ///     Outputs the following:
@@ -274,6 +284,130 @@ public readonly struct Result<TValue>
             await action(_errors!);
         }
 
+        return this;
+    }
+
+    /// <summary>
+    ///      Performs the relevant action based on the current state.
+    /// </summary>
+    /// <param name="success">The action to perform if in the Success state.</param>
+    /// <param name="failure">The action to perform if in the Failure state.</param>
+    /// <returns>The current object after possibly performing the action.</returns>
+    public Result<TValue> Perform(
+        Action<TValue>? success = null,
+        Action<IError[]>? failure = null)
+    {
+        switch (_state)
+        {
+            case ResultState.Success:
+                if (success is not null)
+                {
+                    success(_value!);
+                }
+                break;
+            case ResultState.Failure:
+                if (failure is not null)
+                {
+                    failure(_errors!);
+                }
+                break;
+            default:
+                throw new InvalidOperationException("Invalid state.");
+        }
+        
+        return this;
+    }
+
+    /// <summary>
+    ///      Performs the relevant action based on the current state.
+    /// </summary>
+    /// <param name="success">The action to perform if in the Success state.</param>
+    /// <param name="failure">The action to perform if in the Failure state.</param>
+    /// <returns>The current object after possibly performing the action.</returns>
+    public Result<TValue> Perform(
+        Func<TValue, Unit>? success = null,
+        Func<IError[], Unit>? failure = null)
+    {
+        switch (_state)
+        {
+            case ResultState.Success:
+                if (success is not null)
+                {
+                    success(_value!);
+                }
+                break;
+            case ResultState.Failure:
+                if (failure is not null)
+                {
+                    failure(_errors!);
+                }
+                break;
+            default:
+                throw new InvalidOperationException("Invalid state.");
+        }
+        
+        return this;
+    }
+
+    /// <summary>
+    ///      Performs the relevant action based on the current state.
+    /// </summary>
+    /// <param name="success">The asynchronous action to perform if in the Success state.</param>
+    /// <param name="failure">The asynchronous action to perform if in the Failure state.</param>
+    /// <returns>The current object after possibly performing the action.</returns>
+    public async Task<Result<TValue>> PerformAsync(
+        Func<TValue, Task>? success = null,
+        Func<IError[], Task>? failure = null)
+    {
+        switch (_state)
+        {
+            case ResultState.Success:
+                if (success is not null)
+                {
+                    await success(_value!);
+                }
+                break;
+            case ResultState.Failure:
+                if (failure is not null)
+                {
+                    await failure(_errors!);
+                }
+                break;
+            default:
+                throw new InvalidOperationException("Invalid state.");
+        }
+        
+        return this;
+    }
+
+    /// <summary>
+    ///      Performs the relevant action based on the current state.
+    /// </summary>
+    /// <param name="success">The asynchronous action to perform if in the Success state.</param>
+    /// <param name="failure">The asynchronous action to perform if in the Failure state.</param>
+    /// <returns>The current object after possibly performing the action.</returns>
+    public async Task<Result<TValue>> PerformAsync(
+        Func<TValue, Task<Unit>>? success = null,
+        Func<IError[], Task<Unit>>? failure = null)
+    {
+        switch (_state)
+        {
+            case ResultState.Success:
+                if (success is not null)
+                {
+                    await success(_value!);
+                }
+                break;
+            case ResultState.Failure:
+                if (failure is not null)
+                {
+                    await failure(_errors!);
+                }
+                break;
+            default:
+                throw new InvalidOperationException("Invalid state.");
+        }
+        
         return this;
     }
 

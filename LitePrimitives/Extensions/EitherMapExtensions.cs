@@ -34,7 +34,7 @@ public static class EitherMapExtensions
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputFirst"/>.</param>
-        /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputLast">The type of the Last <paramref name="input"/>.</typeparam>
     /// <typeparam name="TOutputFirst">The type of the transformed First output.</typeparam>
     /// <returns>
@@ -78,7 +78,7 @@ public static class EitherMapExtensions
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputLast"/>.</param>
-        /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputLast">The type of the Last <paramref name="input"/>.</typeparam>
     /// <typeparam name="TOutputLast">The type of the transformed Last output.</typeparam>
     /// <returns>
@@ -123,7 +123,7 @@ public static class EitherMapExtensions
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputFirst"/>.</param>
-        /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputLast">The type of the Last <paramref name="input"/>.</typeparam>
     /// <typeparam name="TOutputFirst">The type of the transformed First output.</typeparam>
@@ -169,7 +169,7 @@ public static class EitherMapExtensions
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputSecond"/>.</param>
-        /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputLast">The type of the Last <paramref name="input"/>.</typeparam>
     /// <typeparam name="TOutputSecond">The type of the transformed Second output.</typeparam>
@@ -215,7 +215,7 @@ public static class EitherMapExtensions
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputLast"/>.</param>
-        /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputLast">The type of the Last <paramref name="input"/>.</typeparam>
     /// <typeparam name="TOutputLast">The type of the transformed Last output.</typeparam>
@@ -262,7 +262,7 @@ public static class EitherMapExtensions
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputFirst"/>.</param>
-        /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputLast">The type of the Last <paramref name="input"/>.</typeparam>
@@ -310,7 +310,7 @@ public static class EitherMapExtensions
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputSecond"/>.</param>
-        /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputLast">The type of the Last <paramref name="input"/>.</typeparam>
@@ -358,7 +358,7 @@ public static class EitherMapExtensions
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputThird"/>.</param>
-        /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputLast">The type of the Last <paramref name="input"/>.</typeparam>
@@ -406,7 +406,7 @@ public static class EitherMapExtensions
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputLast"/>.</param>
-        /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputLast">The type of the Last <paramref name="input"/>.</typeparam>
@@ -455,7 +455,7 @@ public static class EitherMapExtensions
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputFirst"/>.</param>
-        /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -505,7 +505,7 @@ public static class EitherMapExtensions
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputSecond"/>.</param>
-        /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -555,7 +555,7 @@ public static class EitherMapExtensions
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputThird"/>.</param>
-        /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -605,7 +605,7 @@ public static class EitherMapExtensions
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputFourth"/>.</param>
-        /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -655,7 +655,7 @@ public static class EitherMapExtensions
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputLast"/>.</param>
-        /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -706,7 +706,7 @@ public static class EitherMapExtensions
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputFirst"/>.</param>
-        /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -758,7 +758,7 @@ public static class EitherMapExtensions
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputSecond"/>.</param>
-        /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -810,7 +810,7 @@ public static class EitherMapExtensions
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputThird"/>.</param>
-        /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -862,7 +862,7 @@ public static class EitherMapExtensions
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputFourth"/>.</param>
-        /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -914,7 +914,7 @@ public static class EitherMapExtensions
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputFifth"/>.</param>
-        /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -966,7 +966,7 @@ public static class EitherMapExtensions
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputLast"/>.</param>
-        /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -1019,7 +1019,7 @@ public static class EitherMapExtensions
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputFirst"/>.</param>
-        /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -1073,7 +1073,7 @@ public static class EitherMapExtensions
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputSecond"/>.</param>
-        /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -1127,7 +1127,7 @@ public static class EitherMapExtensions
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputThird"/>.</param>
-        /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -1181,7 +1181,7 @@ public static class EitherMapExtensions
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputFourth"/>.</param>
-        /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -1235,7 +1235,7 @@ public static class EitherMapExtensions
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputFifth"/>.</param>
-        /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -1289,7 +1289,7 @@ public static class EitherMapExtensions
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputSixth"/>.</param>
-        /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -1343,7 +1343,7 @@ public static class EitherMapExtensions
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputLast"/>.</param>
-        /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -1398,7 +1398,7 @@ public static class EitherMapExtensions
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputFirst"/>.</param>
-        /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -1454,7 +1454,7 @@ public static class EitherMapExtensions
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputSecond"/>.</param>
-        /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -1510,7 +1510,7 @@ public static class EitherMapExtensions
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputThird"/>.</param>
-        /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -1566,7 +1566,7 @@ public static class EitherMapExtensions
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputFourth"/>.</param>
-        /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -1622,7 +1622,7 @@ public static class EitherMapExtensions
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputFifth"/>.</param>
-        /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -1678,7 +1678,7 @@ public static class EitherMapExtensions
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputSixth"/>.</param>
-        /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -1734,7 +1734,7 @@ public static class EitherMapExtensions
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputSeventh"/>.</param>
-        /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
@@ -1790,7 +1790,7 @@ public static class EitherMapExtensions
     /// </summary>
     /// <param name="input">The asynchronous input to transform.</param>
     /// <param name="transform">The function to transform to <typeparamref name="TOutputLast"/>.</param>
-        /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
+    /// <typeparam name="TInputFirst">The type of the First <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputSecond">The type of the Second <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputThird">The type of the Third <paramref name="input"/>.</typeparam>
     /// <typeparam name="TInputFourth">The type of the Fourth <paramref name="input"/>.</typeparam>
