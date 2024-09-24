@@ -427,6 +427,36 @@ public readonly struct Option<TValue>
             _ => throw new InvalidOperationException("Invalid state.")
         };
     }
+    
+    /// <summary>
+    ///      Returns the <paramref name="fallback"/> if in the None state.
+    /// </summary>
+    /// <param name="fallback">The fallback value.</param>
+    /// <returns>Returns the <paramref name="fallback"/> if in the None state.</returns>
+    public Option<TValue> FallbackTo(Func<Option<TValue>> fallback)
+    {
+        return _state switch
+        {
+            OptionState.Some => this,
+            OptionState.None => fallback(),
+            _ => throw new InvalidOperationException("Invalid state.")
+        };
+    }
+    
+    /// <summary>
+    ///      Returns the <paramref name="fallback"/> if in the None state.
+    /// </summary>
+    /// <param name="fallback">The fallback value.</param>
+    /// <returns>Returns the <paramref name="fallback"/> if in the None state.</returns>
+    public async Task<Option<TValue>> FallbackTo(Func<Task<Option<TValue>>> fallback)
+    {
+        return _state switch
+        {
+            OptionState.Some => this,
+            OptionState.None => await fallback(),
+            _ => throw new InvalidOperationException("Invalid state.")
+        };
+    }
 
     /// <summary>
     ///     Constructs <see cref="Option{TValue}"/> from a <typeparamref name="TValue"/> in the Some state.
