@@ -40,6 +40,11 @@ public readonly struct Result<TValue>
     public bool IsFailure => _state == ResultState.Failure;
     
     /// <summary>
+    ///     Returns the underlying value of the result. Will return null if in the Failure state.
+    /// </summary>
+    public TValue? Value => _value;
+    
+    /// <summary>
     ///     Outputs the following:
     ///     - <paramref name="success"/> if in the Success state.
     ///     - <paramref name="failure"/> if in the Failure state.
