@@ -384,6 +384,67 @@ public readonly struct Result<TValue>
         
         return this;
     }
+    /// <summary>
+    ///      Performs the relevant action based on the current state.
+    /// </summary>
+    /// <param name="success">The action to perform if in the Success state.</param>
+    /// <param name="failure">The asynchronous action to perform if in the Failure state.</param>
+    /// <returns>The current object after possibly performing the action.</returns>
+    public async Task<Result<TValue>> PerformAsync(
+        Action<TValue>? success = null,
+        Func<IError[], Task>? failure = null)
+    {
+        switch (_state)
+        {
+            case ResultState.Success:
+                if (success is not null)
+                {
+                    success(_value!);
+                }
+                break;
+            case ResultState.Failure:
+                if (failure is not null)
+                {
+                    await failure(_errors!);
+                }
+                break;
+            default:
+                throw new InvalidOperationException("Invalid state.");
+        }
+        
+        return this;
+    }
+
+    /// <summary>
+    ///      Performs the relevant action based on the current state.
+    /// </summary>
+    /// <param name="success">The asynchronous action to perform if in the Success state.</param>
+    /// <param name="failure">The action to perform if in the Failure state.</param>
+    /// <returns>The current object after possibly performing the action.</returns>
+    public async Task<Result<TValue>> PerformAsync(
+        Func<TValue, Task>? success = null,
+        Action<IError[]>? failure = null)
+    {
+        switch (_state)
+        {
+            case ResultState.Success:
+                if (success is not null)
+                {
+                    await success(_value!);
+                }
+                break;
+            case ResultState.Failure:
+                if (failure is not null)
+                {
+                    failure(_errors!);
+                }
+                break;
+            default:
+                throw new InvalidOperationException("Invalid state.");
+        }
+        
+        return this;
+    }
 
     /// <summary>
     ///      Performs the relevant action based on the current state.
@@ -416,6 +477,128 @@ public readonly struct Result<TValue>
         return this;
     }
 
+    /// <summary>
+    ///      Performs the relevant action based on the current state.
+    /// </summary>
+    /// <param name="success">The action to perform if in the Success state.</param>
+    /// <param name="failure">The asynchronous action to perform if in the Failure state.</param>
+    /// <returns>The current object after possibly performing the action.</returns>
+    public async Task<Result<TValue>> PerformAsync(
+        Func<TValue, Unit>? success = null,
+        Func<IError[], Task<Unit>>? failure = null)
+    {
+        switch (_state)
+        {
+            case ResultState.Success:
+                if (success is not null)
+                {
+                    success(_value!);
+                }
+                break;
+            case ResultState.Failure:
+                if (failure is not null)
+                {
+                    await failure(_errors!);
+                }
+                break;
+            default:
+                throw new InvalidOperationException("Invalid state.");
+        }
+        
+        return this;
+    }
+
+    /// <summary>
+    ///      Performs the relevant action based on the current state.
+    /// </summary>
+    /// <param name="success">The asynchronous action to perform if in the Success state.</param>
+    /// <param name="failure">The asynchronous action to perform if in the Failure state.</param>
+    /// <returns>The current object after possibly performing the action.</returns>
+    public async Task<Result<TValue>> PerformAsync(
+        Func<TValue, Task<Unit>>? success = null,
+        Func<IError[], Unit>? failure = null)
+    {
+        switch (_state)
+        {
+            case ResultState.Success:
+                if (success is not null)
+                {
+                    await success(_value!);
+                }
+                break;
+            case ResultState.Failure:
+                if (failure is not null)
+                {
+                    failure(_errors!);
+                }
+                break;
+            default:
+                throw new InvalidOperationException("Invalid state.");
+        }
+        
+        return this;
+    }
+    
+    /// <summary>
+    ///      Returns the <paramref name="fallback"/> if in the Failure state.
+    /// </summary>
+    /// <param name="fallback">The fallback value.</param>
+    /// <returns>Returns the <paramref name="fallback"/> if in the Failure state.</returns>
+    public Result<TValue> FallbackTo(Result<TValue> fallback)
+    {
+        return _state switch
+        {
+            ResultState.Success => this,
+            ResultState.Failure => fallback,
+            _ => throw new InvalidOperationException("Invalid state.")
+        };
+    }
+    
+    /// <summary>
+    ///      Returns the <paramref name="fallback"/> if in the Failure state.
+    /// </summary>
+    /// <param name="fallback">The fallback value.</param>
+    /// <returns>Returns the <paramref name="fallback"/> if in the Failure state.</returns>
+    public async Task<Result<TValue>> FallbackToAsync(Task<Result<TValue>> fallback)
+    {
+        return _state switch
+        {
+            ResultState.Success => this,
+            ResultState.Failure => await fallback,
+            _ => throw new InvalidOperationException("Invalid state.")
+        };
+    }
+    
+    /// <summary>
+    ///      Returns the <paramref name="fallback"/> if in the Failure state.
+    /// </summary>
+    /// <param name="fallback">The fallback value.</param>
+    /// <returns>Returns the <paramref name="fallback"/> if in the Failure state.</returns>
+    public Result<TValue> FallbackTo(Func<Result<TValue>> fallback)
+    {
+        return _state switch
+        {
+            ResultState.Success => this,
+            ResultState.Failure => fallback(),
+            _ => throw new InvalidOperationException("Invalid state.")
+        };
+    }
+    
+    /// <summary>
+    ///      Returns the <paramref name="fallback"/> if in the Failure state.
+    /// </summary>
+    /// <param name="fallback">The fallback value.</param>
+    /// <returns>Returns the <paramref name="fallback"/> if in the Failure state.</returns>
+    public async Task<Result<TValue>> FallbackToAsync(Func<Task<Result<TValue>>> fallback)
+    {
+        return _state switch
+        {
+            ResultState.Success => this,
+            ResultState.Failure => await fallback(),
+            _ => throw new InvalidOperationException("Invalid state.")
+        };
+    }
+    
     /// <summary>
     ///      Constructs <see cref="Result{TValue}"/> from a <typeparamref name="TValue"/> in the Success state.
     /// </summary>

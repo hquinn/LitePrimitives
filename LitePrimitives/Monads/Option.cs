@@ -370,6 +370,68 @@ public readonly struct Option<TValue>
     /// <summary>
     ///      Performs the relevant action based on the current state.
     /// </summary>
+    /// <param name="some">The action to perform if in the Some state.</param>
+    /// <param name="none">The asynchronous action to perform if in the None state.</param>
+    /// <returns>The current object after possibly performing the action.</returns>
+    public async Task<Option<TValue>> PerformAsync(
+        Action<TValue>? some = null,
+        Func<Task>? none = null)
+    {
+        switch (_state)
+        {
+            case OptionState.Some:
+                if (some is not null)
+                {
+                    some(_value!);
+                }
+                break;
+            case OptionState.None:
+                if (none is not null)
+                {
+                    await none();
+                }
+                break;
+            default:
+                throw new InvalidOperationException("Invalid state.");
+        }
+        
+        return this;
+    }
+
+    /// <summary>
+    ///      Performs the relevant action based on the current state.
+    /// </summary>
+    /// <param name="some">The asynchronous action to perform if in the Some state.</param>
+    /// <param name="none">The action to perform if in the None state.</param>
+    /// <returns>The current object after possibly performing the action.</returns>
+    public async Task<Option<TValue>> PerformAsync(
+        Func<TValue, Task>? some = null,
+        Action? none = null)
+    {
+        switch (_state)
+        {
+            case OptionState.Some:
+                if (some is not null)
+                {
+                    await some(_value!);
+                }
+                break;
+            case OptionState.None:
+                if (none is not null)
+                {
+                    none();
+                }
+                break;
+            default:
+                throw new InvalidOperationException("Invalid state.");
+        }
+        
+        return this;
+    }
+
+    /// <summary>
+    ///      Performs the relevant action based on the current state.
+    /// </summary>
     /// <param name="some">The asynchronous action to perform if in the Some state.</param>
     /// <param name="none">The asynchronous action to perform if in the None state.</param>
     /// <returns>The current object after possibly performing the action.</returns>
@@ -389,6 +451,68 @@ public readonly struct Option<TValue>
                 if (none is not null)
                 {
                     await none();
+                }
+                break;
+            default:
+                throw new InvalidOperationException("Invalid state.");
+        }
+        
+        return this;
+    }
+
+    /// <summary>
+    ///      Performs the relevant action based on the current state.
+    /// </summary>
+    /// <param name="some">The action to perform if in the Some state.</param>
+    /// <param name="none">The asynchronous action to perform if in the None state.</param>
+    /// <returns>The current object after possibly performing the action.</returns>
+    public async Task<Option<TValue>> PerformAsync(
+        Func<TValue, Unit>? some = null,
+        Func<Task<Unit>>? none = null)
+    {
+        switch (_state)
+        {
+            case OptionState.Some:
+                if (some is not null)
+                {
+                    some(_value!);
+                }
+                break;
+            case OptionState.None:
+                if (none is not null)
+                {
+                    await none();
+                }
+                break;
+            default:
+                throw new InvalidOperationException("Invalid state.");
+        }
+        
+        return this;
+    }
+
+    /// <summary>
+    ///      Performs the relevant action based on the current state.
+    /// </summary>
+    /// <param name="some">The asynchronous action to perform if in the Some state.</param>
+    /// <param name="none">The action to perform if in the None state.</param>
+    /// <returns>The current object after possibly performing the action.</returns>
+    public async Task<Option<TValue>> PerformAsync(
+        Func<TValue, Task<Unit>>? some = null,
+        Func<Unit>? none = null)
+    {
+        switch (_state)
+        {
+            case OptionState.Some:
+                if (some is not null)
+                {
+                    await some(_value!);
+                }
+                break;
+            case OptionState.None:
+                if (none is not null)
+                {
+                    none();
                 }
                 break;
             default:
@@ -418,7 +542,7 @@ public readonly struct Option<TValue>
     /// </summary>
     /// <param name="fallback">The fallback value.</param>
     /// <returns>Returns the <paramref name="fallback"/> if in the None state.</returns>
-    public async Task<Option<TValue>> FallbackTo(Task<Option<TValue>> fallback)
+    public async Task<Option<TValue>> FallbackToAsync(Task<Option<TValue>> fallback)
     {
         return _state switch
         {
@@ -448,7 +572,7 @@ public readonly struct Option<TValue>
     /// </summary>
     /// <param name="fallback">The fallback value.</param>
     /// <returns>Returns the <paramref name="fallback"/> if in the None state.</returns>
-    public async Task<Option<TValue>> FallbackTo(Func<Task<Option<TValue>>> fallback)
+    public async Task<Option<TValue>> FallbackToAsync(Func<Task<Option<TValue>>> fallback)
     {
         return _state switch
         {
