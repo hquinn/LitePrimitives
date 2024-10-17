@@ -45,6 +45,11 @@ public readonly struct Result<TValue>
     public TValue? Value => _value;
     
     /// <summary>
+    ///     Returns the underlying errors of the result. Will return null if in the Success state.
+    /// </summary>
+    public IError[]? Errors => _errors;
+    
+    /// <summary>
     ///     Outputs the following:
     ///     - <paramref name="success"/> if in the Success state.
     ///     - <paramref name="failure"/> if in the Failure state.
