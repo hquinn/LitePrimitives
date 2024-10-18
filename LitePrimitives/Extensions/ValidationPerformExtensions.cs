@@ -2,9 +2,9 @@
 namespace LitePrimitives;
 
 /// <summary>
-///     Collection of extension methods for Perform on the Result type.
+///     Collection of extension methods for Perform on the Validation type.
 /// </summary>
-public static class ResultPerformExtensions
+public static class ValidationPerformExtensions
 {
     /// <summary>
     ///      Performs the relevant action based on the current state from the <paramref name="input"/>.
@@ -13,14 +13,14 @@ public static class ResultPerformExtensions
     /// <param name="success">The action to perform if in the Success state.</param>
     /// <param name="failure">The action to perform if in the Failure state.</param>
     /// <returns>The <paramref name="input"/> after possibly performing the action.</returns>
-    public static async Task<Result<TValue>> PerformAsync<TValue>(
-        this Task<Result<TValue>> input,
+    public static async Task<Validation<TValue>> PerformAsync<TValue>(
+        this Task<Validation<TValue>> input,
         Action<TValue>? success = null,
-        Action<IError>? failure = null)
+        Action<IError[]>? failure = null)
     {
-        var result = await input;
+        var validation = await input;
         
-        return result.Perform(
+        return validation.Perform(
             success,
             failure);
     }
@@ -32,14 +32,14 @@ public static class ResultPerformExtensions
     /// <param name="success">The action to perform if in the Success state.</param>
     /// <param name="failure">The action to perform if in the Failure state.</param>
     /// <returns>The <paramref name="input"/> after possibly performing the action.</returns>
-    public static async Task<Result<TValue>> PerformAsync<TValue>(
-        this Task<Result<TValue>> input,
+    public static async Task<Validation<TValue>> PerformAsync<TValue>(
+        this Task<Validation<TValue>> input,
         Func<TValue, Unit>? success = null,
-        Func<IError, Unit>? failure = null)
+        Func<IError[], Unit>? failure = null)
     {
-        var result = await input;
+        var validation = await input;
         
-        return result.Perform(
+        return validation.Perform(
             success,
             failure);
     }
@@ -51,14 +51,14 @@ public static class ResultPerformExtensions
     /// <param name="success">The asynchronous action to perform if in the Success state.</param>
     /// <param name="failure">The asynchronous action to perform if in the Failure state.</param>
     /// <returns>The <paramref name="input"/> after possibly performing the action.</returns>
-    public static async Task<Result<TValue>> PerformAsync<TValue>(
-        this Task<Result<TValue>> input,
+    public static async Task<Validation<TValue>> PerformAsync<TValue>(
+        this Task<Validation<TValue>> input,
         Func<TValue, Task>? success = null,
-        Func<IError, Task>? failure = null)
+        Func<IError[], Task>? failure = null)
     {
-        var result = await input;
+        var validation = await input;
         
-        return await result.PerformAsync(
+        return await validation.PerformAsync(
             success,
             failure);
     }
@@ -70,14 +70,14 @@ public static class ResultPerformExtensions
     /// <param name="success">The action to perform if in the Success state.</param>
     /// <param name="failure">The asynchronous action to perform if in the Failure state.</param>
     /// <returns>The <paramref name="input"/> after possibly performing the action.</returns>
-    public static async Task<Result<TValue>> PerformAsync<TValue>(
-        this Task<Result<TValue>> input,
+    public static async Task<Validation<TValue>> PerformAsync<TValue>(
+        this Task<Validation<TValue>> input,
         Action<TValue>? success = null,
-        Func<IError, Task>? failure = null)
+        Func<IError[], Task>? failure = null)
     {
-        var result = await input;
+        var validation = await input;
         
-        return await result.PerformAsync(
+        return await validation.PerformAsync(
             success,
             failure);
     }
@@ -89,14 +89,14 @@ public static class ResultPerformExtensions
     /// <param name="success">The asynchronous action to perform if in the Success state.</param>
     /// <param name="failure">The action to perform if in the Failure state.</param>
     /// <returns>The <paramref name="input"/> after possibly performing the action.</returns>
-    public static async Task<Result<TValue>> PerformAsync<TValue>(
-        this Task<Result<TValue>> input,
+    public static async Task<Validation<TValue>> PerformAsync<TValue>(
+        this Task<Validation<TValue>> input,
         Func<TValue, Task>? success = null,
-        Action<IError>? failure = null)
+        Action<IError[]>? failure = null)
     {
-        var result = await input;
+        var validation = await input;
         
-        return await result.PerformAsync(
+        return await validation.PerformAsync(
             success,
             failure);
     }
@@ -108,14 +108,14 @@ public static class ResultPerformExtensions
     /// <param name="success">The asynchronous action to perform if in the Success state.</param>
     /// <param name="failure">The asynchronous action to perform if in the Failure state.</param>
     /// <returns>The <paramref name="input"/> after possibly performing the action.</returns>
-    public static async Task<Result<TValue>> PerformAsync<TValue>(
-        this Task<Result<TValue>> input,
+    public static async Task<Validation<TValue>> PerformAsync<TValue>(
+        this Task<Validation<TValue>> input,
         Func<TValue, Task<Unit>>? success = null,
-        Func<IError, Task<Unit>>? failure = null)
+        Func<IError[], Task<Unit>>? failure = null)
     {
-        var result = await input;
+        var validation = await input;
         
-        return await result.PerformAsync(
+        return await validation.PerformAsync(
             success,
             failure);
     }
@@ -127,14 +127,14 @@ public static class ResultPerformExtensions
     /// <param name="success">The action to perform if in the Success state.</param>
     /// <param name="failure">The asynchronous action to perform if in the Failure state.</param>
     /// <returns>The <paramref name="input"/> after possibly performing the action.</returns>
-    public static async Task<Result<TValue>> PerformAsync<TValue>(
-        this Task<Result<TValue>> input,
+    public static async Task<Validation<TValue>> PerformAsync<TValue>(
+        this Task<Validation<TValue>> input,
         Func<TValue, Unit>? success = null,
-        Func<IError, Task<Unit>>? failure = null)
+        Func<IError[], Task<Unit>>? failure = null)
     {
-        var result = await input;
+        var validation = await input;
         
-        return await result.PerformAsync(
+        return await validation.PerformAsync(
             success,
             failure);
     }
@@ -146,14 +146,14 @@ public static class ResultPerformExtensions
     /// <param name="success">The asynchronous action to perform if in the Success state.</param>
     /// <param name="failure">The action to perform if in the Failure state.</param>
     /// <returns>The <paramref name="input"/> after possibly performing the action.</returns>
-    public static async Task<Result<TValue>> PerformAsync<TValue>(
-        this Task<Result<TValue>> input,
+    public static async Task<Validation<TValue>> PerformAsync<TValue>(
+        this Task<Validation<TValue>> input,
         Func<TValue, Task<Unit>>? success = null,
-        Func<IError, Unit>? failure = null)
+        Func<IError[], Unit>? failure = null)
     {
-        var result = await input;
+        var validation = await input;
         
-        return await result.PerformAsync(
+        return await validation.PerformAsync(
             success,
             failure);
     }

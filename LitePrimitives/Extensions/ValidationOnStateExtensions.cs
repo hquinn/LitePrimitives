@@ -2,9 +2,9 @@
 namespace LitePrimitives;
 
 /// <summary>
-///     Collection of extension methods for On State on the Result type.
+///     Collection of extension methods for On State on the Validation type.
 /// </summary>
-public static class ResultOnStateExtensions
+public static class ValidationOnStateExtensions
 {
     /// <summary>
     ///      Performs the <paramref name="action"/> if the <paramref name="input"/> parameter is in the Success state.
@@ -13,13 +13,13 @@ public static class ResultOnStateExtensions
     /// <param name="action">The asynchronous action to perform.</param>
     /// <typeparam name="TValue">The type of the Success <paramref name="input"/>.</typeparam>
     /// <returns>The <paramref name="input"/> after possibly performing the <paramref name="action"/>.</returns>
-    public static async Task<Result<TValue>> OnSuccessAsync<TValue>(
-        this Task<Result<TValue>> input,
+    public static async Task<Validation<TValue>> OnSuccessAsync<TValue>(
+        this Task<Validation<TValue>> input,
         Func<TValue, Task> action)
     {
-        var result = await input;
-        await result.OnSuccessAsync(action);
-        return result;
+        var validation = await input;
+        await validation.OnSuccessAsync(action);
+        return validation;
     }
 
     /// <summary>
@@ -29,13 +29,13 @@ public static class ResultOnStateExtensions
     /// <param name="action">The asynchronous action to perform.</param>
     /// <typeparam name="TValue">The type of the Success <paramref name="input"/>.</typeparam>
     /// <returns>The <paramref name="input"/> after possibly performing the <paramref name="action"/>.</returns>
-    public static async Task<Result<TValue>> OnSuccessAsync<TValue>(
-        this Task<Result<TValue>> input,
+    public static async Task<Validation<TValue>> OnSuccessAsync<TValue>(
+        this Task<Validation<TValue>> input,
         Func<TValue, Task<Unit>> action)
     {
-        var result = await input;
-        await result.OnSuccessAsync(action);
-        return result;
+        var validation = await input;
+        await validation.OnSuccessAsync(action);
+        return validation;
     }
     
     /// <summary>
@@ -45,13 +45,13 @@ public static class ResultOnStateExtensions
     /// <param name="action">The action to perform.</param>
     /// <typeparam name="TValue">The type of the Success <paramref name="input"/>.</typeparam>
     /// <returns>The <paramref name="input"/> after possibly performing the <paramref name="action"/>.</returns>
-    public static async Task<Result<TValue>> OnSuccessAsync<TValue>(
-        this Task<Result<TValue>> input,
+    public static async Task<Validation<TValue>> OnSuccessAsync<TValue>(
+        this Task<Validation<TValue>> input,
         Action<TValue> action)
     {
-        var result = await input;
-        result.OnSuccess(action);
-        return result;
+        var validation = await input;
+        validation.OnSuccess(action);
+        return validation;
     }
 
     /// <summary>
@@ -61,13 +61,13 @@ public static class ResultOnStateExtensions
     /// <param name="action">The action to perform.</param>
     /// <typeparam name="TValue">The type of the Success <paramref name="input"/>.</typeparam>
     /// <returns>The <paramref name="input"/> after possibly performing the <paramref name="action"/>.</returns>
-    public static async Task<Result<TValue>> OnSuccessAsync<TValue>(
-        this Task<Result<TValue>> input,
+    public static async Task<Validation<TValue>> OnSuccessAsync<TValue>(
+        this Task<Validation<TValue>> input,
         Func<TValue, Unit> action)
     {
-        var result = await input;
-        result.OnSuccess(action);
-        return result;
+        var validation = await input;
+        validation.OnSuccess(action);
+        return validation;
     }
     
     /// <summary>
@@ -77,13 +77,13 @@ public static class ResultOnStateExtensions
     /// <param name="action">The asynchronous action to perform.</param>
     /// <typeparam name="TValue">The type of the Success <paramref name="input"/>.</typeparam>
     /// <returns>The <paramref name="input"/> after possibly performing the <paramref name="action"/>.</returns>
-    public static async Task<Result<TValue>> OnFailureAsync<TValue>(
-        this Task<Result<TValue>> input,
-        Func<IError, Task> action)
+    public static async Task<Validation<TValue>> OnFailureAsync<TValue>(
+        this Task<Validation<TValue>> input,
+        Func<IError[], Task> action)
     {
-        var result = await input;
-        await result.OnFailureAsync(action);
-        return result;
+        var validation = await input;
+        await validation.OnFailureAsync(action);
+        return validation;
     }
 
     /// <summary>
@@ -93,13 +93,13 @@ public static class ResultOnStateExtensions
     /// <param name="action">The asynchronous action to perform.</param>
     /// <typeparam name="TValue">The type of the Success <paramref name="input"/>.</typeparam>
     /// <returns>The <paramref name="input"/> after possibly performing the <paramref name="action"/>.</returns>
-    public static async Task<Result<TValue>> OnFailureAsync<TValue>(
-        this Task<Result<TValue>> input,
-        Func<IError, Task<Unit>> action)
+    public static async Task<Validation<TValue>> OnFailureAsync<TValue>(
+        this Task<Validation<TValue>> input,
+        Func<IError[], Task<Unit>> action)
     {
-        var result = await input;
-        await result.OnFailureAsync(action);
-        return result;
+        var validation = await input;
+        await validation.OnFailureAsync(action);
+        return validation;
     }
     
     /// <summary>
@@ -109,13 +109,13 @@ public static class ResultOnStateExtensions
     /// <param name="action">The action to perform.</param>
     /// <typeparam name="TValue">The type of the Success <paramref name="input"/>.</typeparam>
     /// <returns>The <paramref name="input"/> after possibly performing the <paramref name="action"/>.</returns>
-    public static async Task<Result<TValue>> OnFailureAsync<TValue>(
-        this Task<Result<TValue>> input,
-        Action<IError> action)
+    public static async Task<Validation<TValue>> OnFailureAsync<TValue>(
+        this Task<Validation<TValue>> input,
+        Action<IError[]> action)
     {
-        var result = await input;
-        result.OnFailure(action);
-        return result;
+        var validation = await input;
+        validation.OnFailure(action);
+        return validation;
     }
 
     /// <summary>
@@ -125,12 +125,12 @@ public static class ResultOnStateExtensions
     /// <param name="action">The action to perform.</param>
     /// <typeparam name="TValue">The type of the Success <paramref name="input"/>.</typeparam>
     /// <returns>The <paramref name="input"/> after possibly performing the <paramref name="action"/>.</returns>
-    public static async Task<Result<TValue>> OnFailureAsync<TValue>(
-        this Task<Result<TValue>> input,
-        Func<IError, Unit> action)
+    public static async Task<Validation<TValue>> OnFailureAsync<TValue>(
+        this Task<Validation<TValue>> input,
+        Func<IError[], Unit> action)
     {
-        var result = await input;
-        result.OnFailure(action);
-        return result;
+        var validation = await input;
+        validation.OnFailure(action);
+        return validation;
     }
 }
