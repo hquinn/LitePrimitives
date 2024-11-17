@@ -37,6 +37,11 @@ public readonly struct Option<TValue>
     ///     Returns true if the <see cref="Option{TValue}"/> is in the None state.
     /// </summary>
     public bool IsNone => _state == OptionState.None;
+    
+    /// <summary>
+    ///     Returns the underlying value of the option. Will return null if in the None state.
+    /// </summary>
+    public TValue? Value => _value;
 
     /// <summary>
     ///     Outputs the <paramref name="some"/> if in the Some state, otherwise outputs the <paramref name="none"/>.
