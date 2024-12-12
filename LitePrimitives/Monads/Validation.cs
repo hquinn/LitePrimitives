@@ -7,7 +7,7 @@ namespace LitePrimitives;
 ///     Represents a value of one of two possible types (a disjointed union).
 ///     This type can encapsulate either:
 ///     - <typeparamref name="TValue"/> in the Success state.
-///     - <see cref="IError"/> in the Failure state.
+///     - <see cref="Error"/> in the Failure state.
 ///     But not all at once.
 /// </summary>
 /// <typeparam name="TValue">The type of the Success state.</typeparam>
@@ -15,9 +15,9 @@ public readonly struct Validation<TValue>
 {
     private readonly ValidationState _state;
     private readonly TValue? _value;
-    private readonly IError[]? _errors;
+    private readonly Error[]? _errors;
 
-    private Validation(IError[] errors)
+    private Validation(Error[] errors)
     {
         _errors = errors;
         _state = ValidationState.Failure;
@@ -47,7 +47,7 @@ public readonly struct Validation<TValue>
     /// <summary>
     ///     Returns the underlying errors of the validation. Will return null if in the Success state.
     /// </summary>
-    public IError[]? Errors => _errors;
+    public Error[]? Errors => _errors;
     
     /// <summary>
     ///     Outputs the following:
@@ -61,7 +61,7 @@ public readonly struct Validation<TValue>
     /// <returns>The output of the match.</returns>
     public TOutput Match<TOutput>(
         Func<TValue, TOutput> success,
-        Func<IError[], TOutput> failure)
+        Func<Error[], TOutput> failure)
     {
         return _state switch
         {
@@ -83,7 +83,7 @@ public readonly struct Validation<TValue>
     /// <returns>The output of the match.</returns>
     public async Task<TOutput> MatchAsync<TOutput>(
         Func<TValue, Task<TOutput>> success,
-        Func<IError[], Task<TOutput>> failure)
+        Func<Error[], Task<TOutput>> failure)
     {
         return _state switch
         {
@@ -242,7 +242,7 @@ public readonly struct Validation<TValue>
     /// </summary>
     /// <param name="action">The action to perform.</param>
     /// <returns>The current object after possibly performing the <paramref name="action"/>.</returns>
-    public Validation<TValue> OnFailure(Action<IError[]> action)
+    public Validation<TValue> OnFailure(Action<Error[]> action)
     {
         if (_state is ValidationState.Failure)
         {
@@ -257,7 +257,7 @@ public readonly struct Validation<TValue>
     /// </summary>
     /// <param name="action">The action to perform.</param>
     /// <returns>The current object after possibly performing the <paramref name="action"/>.</returns>
-    public Validation<TValue> OnFailure(Func<IError[], Unit> action)
+    public Validation<TValue> OnFailure(Func<Error[], Unit> action)
     {
         if (_state is ValidationState.Failure)
         {
@@ -272,7 +272,7 @@ public readonly struct Validation<TValue>
     /// </summary>
     /// <param name="action">The asynchronous action to perform.</param>
     /// <returns>The current object after possibly performing the <paramref name="action"/>.</returns>
-    public async Task<Validation<TValue>> OnFailureAsync(Func<IError[], Task> action)
+    public async Task<Validation<TValue>> OnFailureAsync(Func<Error[], Task> action)
     {
         if (_state is ValidationState.Failure)
         {
@@ -287,7 +287,7 @@ public readonly struct Validation<TValue>
     /// </summary>
     /// <param name="action">The asynchronous action to perform.</param>
     /// <returns>The current object after possibly performing the <paramref name="action"/>.</returns>
-    public async Task<Validation<TValue>> OnFailureAsync(Func<IError[], Task<Unit>> action)
+    public async Task<Validation<TValue>> OnFailureAsync(Func<Error[], Task<Unit>> action)
     {
         if (_state is ValidationState.Failure)
         {
@@ -305,7 +305,7 @@ public readonly struct Validation<TValue>
     /// <returns>The current object after possibly performing the action.</returns>
     public Validation<TValue> Perform(
         Action<TValue>? success = null,
-        Action<IError[]>? failure = null)
+        Action<Error[]>? failure = null)
     {
         switch (_state)
         {
@@ -336,7 +336,7 @@ public readonly struct Validation<TValue>
     /// <returns>The current object after possibly performing the action.</returns>
     public Validation<TValue> Perform(
         Func<TValue, Unit>? success = null,
-        Func<IError[], Unit>? failure = null)
+        Func<Error[], Unit>? failure = null)
     {
         switch (_state)
         {
@@ -367,7 +367,7 @@ public readonly struct Validation<TValue>
     /// <returns>The current object after possibly performing the action.</returns>
     public async Task<Validation<TValue>> PerformAsync(
         Func<TValue, Task>? success = null,
-        Func<IError[], Task>? failure = null)
+        Func<Error[], Task>? failure = null)
     {
         switch (_state)
         {
@@ -397,7 +397,7 @@ public readonly struct Validation<TValue>
     /// <returns>The current object after possibly performing the action.</returns>
     public async Task<Validation<TValue>> PerformAsync(
         Action<TValue>? success = null,
-        Func<IError[], Task>? failure = null)
+        Func<Error[], Task>? failure = null)
     {
         switch (_state)
         {
@@ -428,7 +428,7 @@ public readonly struct Validation<TValue>
     /// <returns>The current object after possibly performing the action.</returns>
     public async Task<Validation<TValue>> PerformAsync(
         Func<TValue, Task>? success = null,
-        Action<IError[]>? failure = null)
+        Action<Error[]>? failure = null)
     {
         switch (_state)
         {
@@ -459,7 +459,7 @@ public readonly struct Validation<TValue>
     /// <returns>The current object after possibly performing the action.</returns>
     public async Task<Validation<TValue>> PerformAsync(
         Func<TValue, Task<Unit>>? success = null,
-        Func<IError[], Task<Unit>>? failure = null)
+        Func<Error[], Task<Unit>>? failure = null)
     {
         switch (_state)
         {
@@ -490,7 +490,7 @@ public readonly struct Validation<TValue>
     /// <returns>The current object after possibly performing the action.</returns>
     public async Task<Validation<TValue>> PerformAsync(
         Func<TValue, Unit>? success = null,
-        Func<IError[], Task<Unit>>? failure = null)
+        Func<Error[], Task<Unit>>? failure = null)
     {
         switch (_state)
         {
@@ -521,7 +521,7 @@ public readonly struct Validation<TValue>
     /// <returns>The current object after possibly performing the action.</returns>
     public async Task<Validation<TValue>> PerformAsync(
         Func<TValue, Task<Unit>>? success = null,
-        Func<IError[], Unit>? failure = null)
+        Func<Error[], Unit>? failure = null)
     {
         switch (_state)
         {
@@ -612,16 +612,37 @@ public readonly struct Validation<TValue>
     public static Validation<TValue> Success(TValue value) => new(value);
     
     /// <summary>
-    ///      Constructs <see cref="Validation{TValue}"/> from an <see cref="IError"/> in the Failure state.
-    /// </summary>
-    /// <param name="error">The error to construct the <see cref="Validation{TValue}"/> type from.</param>
-    /// <returns>The <see cref="Validation{TValue}"/> type in the Failure state.</returns>
-    public static Validation<TValue> Failure(IError error) => new([error]);
-    
-    /// <summary>
-    ///      Constructs <see cref="Validation{TValue}"/> from an <see cref="IError"/> in the Failure state.
+    ///      Constructs <see cref="Validation{TValue}"/> from an <see cref="Error"/> in the Failure state.
     /// </summary>
     /// <param name="errors">The errors to construct the <see cref="Validation{TValue}"/> type from.</param>
     /// <returns>The <see cref="Validation{TValue}"/> type in the Failure state.</returns>
-    public static Validation<TValue> Failure(IError[] errors) => new(errors);
+    public static Validation<TValue> Failure(Error[] errors) => new(errors);
+    
+    /// <summary>
+    ///      Constructs <see cref="Validation{TValue}"/> from an <see cref="Error"/> in the Failure state.
+    /// </summary>
+    /// <param name="errors">The errors to construct the <see cref="Validation{TValue}"/> type from.</param>
+    /// <returns>The <see cref="Validation{TValue}"/> type in the Failure state.</returns>
+    public static Validation<TValue> Failure(List<Error> errors) => new(errors.ToArray());
+    
+    /// <summary>
+    ///      Implicitly constructs <see cref="Validation{TValue}"/> from a <typeparamref name="TValue"/> in the Success state.
+    /// </summary>
+    /// <param name="value">The value to construct the <see cref="Validation{TValue}"/> type from.</param>
+    /// <returns>The <see cref="Validation{TValue}"/> type in the Success state.</returns>
+    public static implicit operator Validation<TValue>(TValue value) => Success(value);
+    
+    /// <summary>
+    ///      Implicitly constructs <see cref="Validation{TValue}"/> from an <see cref="Error"/> in the Failure state.
+    /// </summary>
+    /// <param name="errors">The errors to construct the <see cref="Validation{TValue}"/> type from.</param>
+    /// <returns>The <see cref="Validation{TValue}"/> type in the Failure state.</returns>
+    public static implicit operator Validation<TValue>(Error[] errors) => Failure(errors);
+    
+    /// <summary>
+    ///      Implicitly constructs <see cref="Validation{TValue}"/> from an <see cref="Error"/> in the Failure state.
+    /// </summary>
+    /// <param name="errors">The errors to construct the <see cref="Validation{TValue}"/> type from.</param>
+    /// <returns>The <see cref="Validation{TValue}"/> type in the Failure state.</returns>
+    public static implicit operator Validation<TValue>(List<Error> errors) => Failure(errors);
 }

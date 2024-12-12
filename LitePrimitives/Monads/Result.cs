@@ -7,7 +7,7 @@ namespace LitePrimitives;
 ///     Represents a value of one of two possible types (a disjointed union).
 ///     This type can encapsulate either:
 ///     - <typeparamref name="TValue"/> in the Success state.
-///     - <see cref="IError"/> in the Failure state.
+///     - <see cref="Error"/> in the Failure state.
 ///     But not all at once.
 /// </summary>
 /// <typeparam name="TValue">The type of the Success state.</typeparam>
@@ -15,9 +15,9 @@ public readonly struct Result<TValue>
 {
     private readonly ResultState _state;
     private readonly TValue? _value;
-    private readonly IError? _error;
+    private readonly Error? _error;
 
-    private Result(IError error)
+    private Result(Error error)
     {
         _error = error;
         _state = ResultState.Failure;
@@ -47,7 +47,7 @@ public readonly struct Result<TValue>
     /// <summary>
     ///     Returns the underlying error of the result. Will return null if in the Success state.
     /// </summary>
-    public IError? Error => _error;
+    public Error? Error => _error;
     
     /// <summary>
     ///     Outputs the following:
@@ -61,12 +61,12 @@ public readonly struct Result<TValue>
     /// <returns>The output of the match.</returns>
     public TOutput Match<TOutput>(
         Func<TValue, TOutput> success,
-        Func<IError, TOutput> failure)
+        Func<Error, TOutput> failure)
     {
         return _state switch
         {
             ResultState.Success => success(_value!),
-            ResultState.Failure => failure(_error!),
+            ResultState.Failure => failure(_error!.Value),
             _ => throw new InvalidOperationException("Invalid state."),
         };
     }
@@ -83,12 +83,12 @@ public readonly struct Result<TValue>
     /// <returns>The output of the match.</returns>
     public async Task<TOutput> MatchAsync<TOutput>(
         Func<TValue, Task<TOutput>> success,
-        Func<IError, Task<TOutput>> failure)
+        Func<Error, Task<TOutput>> failure)
     {
         return _state switch
         {
             ResultState.Success => await success(_value!),
-            ResultState.Failure => await failure(_error!),
+            ResultState.Failure => await failure(_error!.Value),
             _ => throw new InvalidOperationException("Invalid state."),
         };
     }
@@ -109,7 +109,7 @@ public readonly struct Result<TValue>
         return _state switch
         {
             ResultState.Success => bindFunc(_value!),
-            ResultState.Failure => Result<TOutput>.Failure(_error!),
+            ResultState.Failure => Result<TOutput>.Failure(_error!.Value),
             _ => throw new InvalidOperationException("Invalid state."),
         };
     }
@@ -130,7 +130,7 @@ public readonly struct Result<TValue>
         return _state switch
         {
             ResultState.Success => await bindFunc(_value!),
-            ResultState.Failure => Result<TOutput>.Failure(_error!),
+            ResultState.Failure => Result<TOutput>.Failure(_error!.Value),
             _ => throw new InvalidOperationException("Invalid state."),
         };
     }
@@ -151,7 +151,7 @@ public readonly struct Result<TValue>
         return _state switch
         {
             ResultState.Success => Result<TOutput>.Success(transform(_value!)),
-            ResultState.Failure => Result<TOutput>.Failure(_error!),
+            ResultState.Failure => Result<TOutput>.Failure(_error!.Value),
             _ => throw new InvalidOperationException("Invalid state."),
         };
     }
@@ -172,7 +172,7 @@ public readonly struct Result<TValue>
         return _state switch
         {
             ResultState.Success => Result<TOutput>.Success(await transform(_value!)),
-            ResultState.Failure => Result<TOutput>.Failure(_error!),
+            ResultState.Failure => Result<TOutput>.Failure(_error!.Value),
             _ => throw new InvalidOperationException("Invalid state."),
         };
     }
@@ -242,11 +242,11 @@ public readonly struct Result<TValue>
     /// </summary>
     /// <param name="action">The action to perform.</param>
     /// <returns>The current object after possibly performing the <paramref name="action"/>.</returns>
-    public Result<TValue> OnFailure(Action<IError> action)
+    public Result<TValue> OnFailure(Action<Error> action)
     {
         if (_state is ResultState.Failure)
         {
-            action(_error!);
+            action(_error!.Value);
         }
 
         return this;
@@ -257,11 +257,11 @@ public readonly struct Result<TValue>
     /// </summary>
     /// <param name="action">The action to perform.</param>
     /// <returns>The current object after possibly performing the <paramref name="action"/>.</returns>
-    public Result<TValue> OnFailure(Func<IError, Unit> action)
+    public Result<TValue> OnFailure(Func<Error, Unit> action)
     {
         if (_state is ResultState.Failure)
         {
-            action(_error!);
+            action(_error!.Value);
         }
 
         return this;
@@ -272,11 +272,11 @@ public readonly struct Result<TValue>
     /// </summary>
     /// <param name="action">The asynchronous action to perform.</param>
     /// <returns>The current object after possibly performing the <paramref name="action"/>.</returns>
-    public async Task<Result<TValue>> OnFailureAsync(Func<IError, Task> action)
+    public async Task<Result<TValue>> OnFailureAsync(Func<Error, Task> action)
     {
         if (_state is ResultState.Failure)
         {
-            await action(_error!);
+            await action(_error!.Value);
         }
 
         return this;
@@ -287,11 +287,11 @@ public readonly struct Result<TValue>
     /// </summary>
     /// <param name="action">The asynchronous action to perform.</param>
     /// <returns>The current object after possibly performing the <paramref name="action"/>.</returns>
-    public async Task<Result<TValue>> OnFailureAsync(Func<IError, Task<Unit>> action)
+    public async Task<Result<TValue>> OnFailureAsync(Func<Error, Task<Unit>> action)
     {
         if (_state is ResultState.Failure)
         {
-            await action(_error!);
+            await action(_error!.Value);
         }
 
         return this;
@@ -305,7 +305,7 @@ public readonly struct Result<TValue>
     /// <returns>The current object after possibly performing the action.</returns>
     public Result<TValue> Perform(
         Action<TValue>? success = null,
-        Action<IError>? failure = null)
+        Action<Error>? failure = null)
     {
         switch (_state)
         {
@@ -318,7 +318,7 @@ public readonly struct Result<TValue>
             case ResultState.Failure:
                 if (failure is not null)
                 {
-                    failure(_error!);
+                    failure(_error!.Value);
                 }
                 break;
             default:
@@ -336,7 +336,7 @@ public readonly struct Result<TValue>
     /// <returns>The current object after possibly performing the action.</returns>
     public Result<TValue> Perform(
         Func<TValue, Unit>? success = null,
-        Func<IError, Unit>? failure = null)
+        Func<Error, Unit>? failure = null)
     {
         switch (_state)
         {
@@ -349,7 +349,7 @@ public readonly struct Result<TValue>
             case ResultState.Failure:
                 if (failure is not null)
                 {
-                    failure(_error!);
+                    failure(_error!.Value);
                 }
                 break;
             default:
@@ -367,7 +367,7 @@ public readonly struct Result<TValue>
     /// <returns>The current object after possibly performing the action.</returns>
     public async Task<Result<TValue>> PerformAsync(
         Func<TValue, Task>? success = null,
-        Func<IError, Task>? failure = null)
+        Func<Error, Task>? failure = null)
     {
         switch (_state)
         {
@@ -380,7 +380,7 @@ public readonly struct Result<TValue>
             case ResultState.Failure:
                 if (failure is not null)
                 {
-                    await failure(_error!);
+                    await failure(_error!.Value);
                 }
                 break;
             default:
@@ -397,7 +397,7 @@ public readonly struct Result<TValue>
     /// <returns>The current object after possibly performing the action.</returns>
     public async Task<Result<TValue>> PerformAsync(
         Action<TValue>? success = null,
-        Func<IError, Task>? failure = null)
+        Func<Error, Task>? failure = null)
     {
         switch (_state)
         {
@@ -410,7 +410,7 @@ public readonly struct Result<TValue>
             case ResultState.Failure:
                 if (failure is not null)
                 {
-                    await failure(_error!);
+                    await failure(_error!.Value);
                 }
                 break;
             default:
@@ -428,7 +428,7 @@ public readonly struct Result<TValue>
     /// <returns>The current object after possibly performing the action.</returns>
     public async Task<Result<TValue>> PerformAsync(
         Func<TValue, Task>? success = null,
-        Action<IError>? failure = null)
+        Action<Error>? failure = null)
     {
         switch (_state)
         {
@@ -441,7 +441,7 @@ public readonly struct Result<TValue>
             case ResultState.Failure:
                 if (failure is not null)
                 {
-                    failure(_error!);
+                    failure(_error!.Value);
                 }
                 break;
             default:
@@ -459,7 +459,7 @@ public readonly struct Result<TValue>
     /// <returns>The current object after possibly performing the action.</returns>
     public async Task<Result<TValue>> PerformAsync(
         Func<TValue, Task<Unit>>? success = null,
-        Func<IError, Task<Unit>>? failure = null)
+        Func<Error, Task<Unit>>? failure = null)
     {
         switch (_state)
         {
@@ -472,7 +472,7 @@ public readonly struct Result<TValue>
             case ResultState.Failure:
                 if (failure is not null)
                 {
-                    await failure(_error!);
+                    await failure(_error!.Value);
                 }
                 break;
             default:
@@ -490,7 +490,7 @@ public readonly struct Result<TValue>
     /// <returns>The current object after possibly performing the action.</returns>
     public async Task<Result<TValue>> PerformAsync(
         Func<TValue, Unit>? success = null,
-        Func<IError, Task<Unit>>? failure = null)
+        Func<Error, Task<Unit>>? failure = null)
     {
         switch (_state)
         {
@@ -503,7 +503,7 @@ public readonly struct Result<TValue>
             case ResultState.Failure:
                 if (failure is not null)
                 {
-                    await failure(_error!);
+                    await failure(_error!.Value);
                 }
                 break;
             default:
@@ -521,7 +521,7 @@ public readonly struct Result<TValue>
     /// <returns>The current object after possibly performing the action.</returns>
     public async Task<Result<TValue>> PerformAsync(
         Func<TValue, Task<Unit>>? success = null,
-        Func<IError, Unit>? failure = null)
+        Func<Error, Unit>? failure = null)
     {
         switch (_state)
         {
@@ -534,7 +534,7 @@ public readonly struct Result<TValue>
             case ResultState.Failure:
                 if (failure is not null)
                 {
-                    failure(_error!);
+                    failure(_error!.Value);
                 }
                 break;
             default:
@@ -612,9 +612,23 @@ public readonly struct Result<TValue>
     public static Result<TValue> Success(TValue value) => new(value);
     
     /// <summary>
-    ///      Constructs <see cref="Result{TValue}"/> from an <see cref="IError"/> in the Failure state.
+    ///      Constructs <see cref="Result{TValue}"/> from an <see cref="Error"/> in the Failure state.
     /// </summary>
     /// <param name="error">The error to construct the <see cref="Result{TValue}"/> type from.</param>
     /// <returns>The <see cref="Result{TValue}"/> type in the Failure state.</returns>
-    public static Result<TValue> Failure(IError error) => new(error);
+    public static Result<TValue> Failure(Error error) => new(error);
+    
+    /// <summary>
+    ///      Implicitly constructs <see cref="Result{TValue}"/> from a <typeparamref name="TValue"/> in the Success state.
+    /// </summary>
+    /// <param name="value">The value to construct the <see cref="Result{TValue}"/> type from.</param>
+    /// <returns>The <see cref="Result{TValue}"/> type in the Success state.</returns>
+    public static implicit operator Result<TValue>(TValue value) => Success(value);
+    
+    /// <summary>
+    ///      Implicitly constructs <see cref="Result{TValue}"/> from an <see cref="Error"/> in the Failure state.
+    /// </summary>
+    /// <param name="error">The error to construct the <see cref="Result{TValue}"/> type from.</param>
+    /// <returns>The <see cref="Result{TValue}"/> type in the Failure state.</returns>
+    public static implicit operator Result<TValue>(Error error) => Failure(error);
 }

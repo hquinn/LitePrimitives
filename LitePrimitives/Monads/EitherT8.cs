@@ -125,6 +125,46 @@ public readonly struct Either<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, 
     public bool IsLast => _state == EitherState.Last;
 
     /// <summary>
+    ///    Returns the underlying value of the union. Will return null if not in the First state.
+    /// </summary>
+    public TFirst? FirstValue => _first; 
+
+    /// <summary>
+    ///    Returns the underlying value of the union. Will return null if not in the Second state.
+    /// </summary>
+    public TSecond? SecondValue => _second; 
+
+    /// <summary>
+    ///    Returns the underlying value of the union. Will return null if not in the Third state.
+    /// </summary>
+    public TThird? ThirdValue => _third; 
+
+    /// <summary>
+    ///    Returns the underlying value of the union. Will return null if not in the Fourth state.
+    /// </summary>
+    public TFourth? FourthValue => _fourth; 
+
+    /// <summary>
+    ///    Returns the underlying value of the union. Will return null if not in the Fifth state.
+    /// </summary>
+    public TFifth? FifthValue => _fifth; 
+
+    /// <summary>
+    ///    Returns the underlying value of the union. Will return null if not in the Sixth state.
+    /// </summary>
+    public TSixth? SixthValue => _sixth; 
+
+    /// <summary>
+    ///    Returns the underlying value of the union. Will return null if not in the Seventh state.
+    /// </summary>
+    public TSeventh? SeventhValue => _seventh; 
+
+    /// <summary>
+    ///    Returns the underlying value of the union. Will return null if not in the Last state.
+    /// </summary>
+    public TLast? LastValue => _last; 
+
+    /// <summary>
     ///     Outputs the following:
     ///     - <paramref name="first"/> if in the First state.
     ///     - <paramref name="second"/> if in the Second state.
@@ -1955,4 +1995,60 @@ public readonly struct Either<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, 
     {
         return new Either<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TLast>(last);
     }
+
+    /// <summary>
+    ///      Implicitly constructs <see cref="Either{TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TLast}"/> from a <typeparamref name="TFirst"/> in the First state.
+    /// </summary>
+    /// <param name="first">The value to construct the <see cref="Either{TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TLast}"/> type from.</param>
+    /// <returns>The <see cref="Either{TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TLast}"/> type in the First state.</returns>
+    public static implicit operator Either<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TLast>(TFirst first) => First(first);
+
+    /// <summary>
+    ///      Implicitly constructs <see cref="Either{TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TLast}"/> from a <typeparamref name="TSecond"/> in the Second state.
+    /// </summary>
+    /// <param name="second">The value to construct the <see cref="Either{TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TLast}"/> type from.</param>
+    /// <returns>The <see cref="Either{TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TLast}"/> type in the Second state.</returns>
+    public static implicit operator Either<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TLast>(TSecond second) => Second(second);
+
+    /// <summary>
+    ///      Implicitly constructs <see cref="Either{TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TLast}"/> from a <typeparamref name="TThird"/> in the Third state.
+    /// </summary>
+    /// <param name="third">The value to construct the <see cref="Either{TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TLast}"/> type from.</param>
+    /// <returns>The <see cref="Either{TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TLast}"/> type in the Third state.</returns>
+    public static implicit operator Either<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TLast>(TThird third) => Third(third);
+
+    /// <summary>
+    ///      Implicitly constructs <see cref="Either{TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TLast}"/> from a <typeparamref name="TFourth"/> in the Fourth state.
+    /// </summary>
+    /// <param name="fourth">The value to construct the <see cref="Either{TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TLast}"/> type from.</param>
+    /// <returns>The <see cref="Either{TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TLast}"/> type in the Fourth state.</returns>
+    public static implicit operator Either<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TLast>(TFourth fourth) => Fourth(fourth);
+
+    /// <summary>
+    ///      Implicitly constructs <see cref="Either{TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TLast}"/> from a <typeparamref name="TFifth"/> in the Fifth state.
+    /// </summary>
+    /// <param name="fifth">The value to construct the <see cref="Either{TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TLast}"/> type from.</param>
+    /// <returns>The <see cref="Either{TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TLast}"/> type in the Fifth state.</returns>
+    public static implicit operator Either<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TLast>(TFifth fifth) => Fifth(fifth);
+
+    /// <summary>
+    ///      Implicitly constructs <see cref="Either{TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TLast}"/> from a <typeparamref name="TSixth"/> in the Sixth state.
+    /// </summary>
+    /// <param name="sixth">The value to construct the <see cref="Either{TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TLast}"/> type from.</param>
+    /// <returns>The <see cref="Either{TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TLast}"/> type in the Sixth state.</returns>
+    public static implicit operator Either<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TLast>(TSixth sixth) => Sixth(sixth);
+
+    /// <summary>
+    ///      Implicitly constructs <see cref="Either{TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TLast}"/> from a <typeparamref name="TSeventh"/> in the Seventh state.
+    /// </summary>
+    /// <param name="seventh">The value to construct the <see cref="Either{TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TLast}"/> type from.</param>
+    /// <returns>The <see cref="Either{TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TLast}"/> type in the Seventh state.</returns>
+    public static implicit operator Either<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TLast>(TSeventh seventh) => Seventh(seventh);
+
+    /// <summary>
+    ///      Implicitly constructs <see cref="Either{TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TLast}"/> from a <typeparamref name="TLast"/> in the Last state.
+    /// </summary>
+    /// <param name="last">The value to construct the <see cref="Either{TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TLast}"/> type from.</param>
+    /// <returns>The <see cref="Either{TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TLast}"/> type in the Last state.</returns>
+    public static implicit operator Either<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TLast>(TLast last) => Last(last);
 }

@@ -55,6 +55,21 @@ public readonly struct Either<TFirst, TSecond, TLast>
     public bool IsLast => _state == EitherState.Last;
 
     /// <summary>
+    ///    Returns the underlying value of the union. Will return null if not in the First state.
+    /// </summary>
+    public TFirst? FirstValue => _first; 
+
+    /// <summary>
+    ///    Returns the underlying value of the union. Will return null if not in the Second state.
+    /// </summary>
+    public TSecond? SecondValue => _second; 
+
+    /// <summary>
+    ///    Returns the underlying value of the union. Will return null if not in the Last state.
+    /// </summary>
+    public TLast? LastValue => _last; 
+
+    /// <summary>
     ///     Outputs the following:
     ///     - <paramref name="first"/> if in the First state.
     ///     - <paramref name="second"/> if in the Second state.
@@ -735,4 +750,25 @@ public readonly struct Either<TFirst, TSecond, TLast>
     {
         return new Either<TFirst, TSecond, TLast>(last);
     }
+
+    /// <summary>
+    ///      Implicitly constructs <see cref="Either{TFirst, TSecond, TLast}"/> from a <typeparamref name="TFirst"/> in the First state.
+    /// </summary>
+    /// <param name="first">The value to construct the <see cref="Either{TFirst, TSecond, TLast}"/> type from.</param>
+    /// <returns>The <see cref="Either{TFirst, TSecond, TLast}"/> type in the First state.</returns>
+    public static implicit operator Either<TFirst, TSecond, TLast>(TFirst first) => First(first);
+
+    /// <summary>
+    ///      Implicitly constructs <see cref="Either{TFirst, TSecond, TLast}"/> from a <typeparamref name="TSecond"/> in the Second state.
+    /// </summary>
+    /// <param name="second">The value to construct the <see cref="Either{TFirst, TSecond, TLast}"/> type from.</param>
+    /// <returns>The <see cref="Either{TFirst, TSecond, TLast}"/> type in the Second state.</returns>
+    public static implicit operator Either<TFirst, TSecond, TLast>(TSecond second) => Second(second);
+
+    /// <summary>
+    ///      Implicitly constructs <see cref="Either{TFirst, TSecond, TLast}"/> from a <typeparamref name="TLast"/> in the Last state.
+    /// </summary>
+    /// <param name="last">The value to construct the <see cref="Either{TFirst, TSecond, TLast}"/> type from.</param>
+    /// <returns>The <see cref="Either{TFirst, TSecond, TLast}"/> type in the Last state.</returns>
+    public static implicit operator Either<TFirst, TSecond, TLast>(TLast last) => Last(last);
 }

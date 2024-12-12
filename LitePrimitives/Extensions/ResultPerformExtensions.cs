@@ -16,7 +16,7 @@ public static class ResultPerformExtensions
     public static async Task<Result<TValue>> PerformAsync<TValue>(
         this Task<Result<TValue>> input,
         Action<TValue>? success = null,
-        Action<IError>? failure = null)
+        Action<Error>? failure = null)
     {
         var result = await input;
         
@@ -35,7 +35,7 @@ public static class ResultPerformExtensions
     public static async Task<Result<TValue>> PerformAsync<TValue>(
         this Task<Result<TValue>> input,
         Func<TValue, Unit>? success = null,
-        Func<IError, Unit>? failure = null)
+        Func<Error, Unit>? failure = null)
     {
         var result = await input;
         
@@ -54,7 +54,7 @@ public static class ResultPerformExtensions
     public static async Task<Result<TValue>> PerformAsync<TValue>(
         this Task<Result<TValue>> input,
         Func<TValue, Task>? success = null,
-        Func<IError, Task>? failure = null)
+        Func<Error, Task>? failure = null)
     {
         var result = await input;
         
@@ -73,7 +73,7 @@ public static class ResultPerformExtensions
     public static async Task<Result<TValue>> PerformAsync<TValue>(
         this Task<Result<TValue>> input,
         Action<TValue>? success = null,
-        Func<IError, Task>? failure = null)
+        Func<Error, Task>? failure = null)
     {
         var result = await input;
         
@@ -92,7 +92,7 @@ public static class ResultPerformExtensions
     public static async Task<Result<TValue>> PerformAsync<TValue>(
         this Task<Result<TValue>> input,
         Func<TValue, Task>? success = null,
-        Action<IError>? failure = null)
+        Action<Error>? failure = null)
     {
         var result = await input;
         
@@ -111,7 +111,7 @@ public static class ResultPerformExtensions
     public static async Task<Result<TValue>> PerformAsync<TValue>(
         this Task<Result<TValue>> input,
         Func<TValue, Task<Unit>>? success = null,
-        Func<IError, Task<Unit>>? failure = null)
+        Func<Error, Task<Unit>>? failure = null)
     {
         var result = await input;
         
@@ -130,7 +130,7 @@ public static class ResultPerformExtensions
     public static async Task<Result<TValue>> PerformAsync<TValue>(
         this Task<Result<TValue>> input,
         Func<TValue, Unit>? success = null,
-        Func<IError, Task<Unit>>? failure = null)
+        Func<Error, Task<Unit>>? failure = null)
     {
         var result = await input;
         
@@ -149,7 +149,7 @@ public static class ResultPerformExtensions
     public static async Task<Result<TValue>> PerformAsync<TValue>(
         this Task<Result<TValue>> input,
         Func<TValue, Task<Unit>>? success = null,
-        Func<IError, Unit>? failure = null)
+        Func<Error, Unit>? failure = null)
     {
         var result = await input;
         

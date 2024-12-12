@@ -19,7 +19,7 @@ public static class ResultSequenceExtensions
         {
             if (result.IsFailure)
             {
-                return Result<IEnumerable<T>>.Failure(result.Error!);
+                return Result<IEnumerable<T>>.Failure(result.Error!.Value);
             }
             
             list.Add(result.Value!);

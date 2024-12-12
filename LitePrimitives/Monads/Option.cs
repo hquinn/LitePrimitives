@@ -599,4 +599,12 @@ public readonly struct Option<TValue>
     /// </summary>
     /// <returns>The <see cref="Option{TValue}"/> type in the None state.</returns>
     public static Option<TValue> None() => new();
+    
+    /// <summary>
+    ///     Implicitly constructs <see cref="Option{TValue}"/> from a <typeparamref name="TValue"/> in the Some state
+    ///     or None state if value is null.
+    /// </summary>
+    /// <param name="value">The value to construct the <see cref="Option{TValue}"/> type from.</param>
+    /// <returns>The <see cref="Option{TValue}"/> type in the Some state or None state if value is null.</returns>
+    public static implicit operator Option<TValue>(TValue? value) => value is not null ? Some(value) : None();
 }

@@ -79,7 +79,7 @@ public static class ResultOnStateExtensions
     /// <returns>The <paramref name="input"/> after possibly performing the <paramref name="action"/>.</returns>
     public static async Task<Result<TValue>> OnFailureAsync<TValue>(
         this Task<Result<TValue>> input,
-        Func<IError, Task> action)
+        Func<Error, Task> action)
     {
         var result = await input;
         await result.OnFailureAsync(action);
@@ -95,7 +95,7 @@ public static class ResultOnStateExtensions
     /// <returns>The <paramref name="input"/> after possibly performing the <paramref name="action"/>.</returns>
     public static async Task<Result<TValue>> OnFailureAsync<TValue>(
         this Task<Result<TValue>> input,
-        Func<IError, Task<Unit>> action)
+        Func<Error, Task<Unit>> action)
     {
         var result = await input;
         await result.OnFailureAsync(action);
@@ -111,7 +111,7 @@ public static class ResultOnStateExtensions
     /// <returns>The <paramref name="input"/> after possibly performing the <paramref name="action"/>.</returns>
     public static async Task<Result<TValue>> OnFailureAsync<TValue>(
         this Task<Result<TValue>> input,
-        Action<IError> action)
+        Action<Error> action)
     {
         var result = await input;
         result.OnFailure(action);
@@ -127,7 +127,7 @@ public static class ResultOnStateExtensions
     /// <returns>The <paramref name="input"/> after possibly performing the <paramref name="action"/>.</returns>
     public static async Task<Result<TValue>> OnFailureAsync<TValue>(
         this Task<Result<TValue>> input,
-        Func<IError, Unit> action)
+        Func<Error, Unit> action)
     {
         var result = await input;
         result.OnFailure(action);

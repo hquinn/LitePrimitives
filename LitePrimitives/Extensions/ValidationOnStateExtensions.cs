@@ -79,7 +79,7 @@ public static class ValidationOnStateExtensions
     /// <returns>The <paramref name="input"/> after possibly performing the <paramref name="action"/>.</returns>
     public static async Task<Validation<TValue>> OnFailureAsync<TValue>(
         this Task<Validation<TValue>> input,
-        Func<IError[], Task> action)
+        Func<Error[], Task> action)
     {
         var validation = await input;
         await validation.OnFailureAsync(action);
@@ -95,7 +95,7 @@ public static class ValidationOnStateExtensions
     /// <returns>The <paramref name="input"/> after possibly performing the <paramref name="action"/>.</returns>
     public static async Task<Validation<TValue>> OnFailureAsync<TValue>(
         this Task<Validation<TValue>> input,
-        Func<IError[], Task<Unit>> action)
+        Func<Error[], Task<Unit>> action)
     {
         var validation = await input;
         await validation.OnFailureAsync(action);
@@ -111,7 +111,7 @@ public static class ValidationOnStateExtensions
     /// <returns>The <paramref name="input"/> after possibly performing the <paramref name="action"/>.</returns>
     public static async Task<Validation<TValue>> OnFailureAsync<TValue>(
         this Task<Validation<TValue>> input,
-        Action<IError[]> action)
+        Action<Error[]> action)
     {
         var validation = await input;
         validation.OnFailure(action);
@@ -127,7 +127,7 @@ public static class ValidationOnStateExtensions
     /// <returns>The <paramref name="input"/> after possibly performing the <paramref name="action"/>.</returns>
     public static async Task<Validation<TValue>> OnFailureAsync<TValue>(
         this Task<Validation<TValue>> input,
-        Func<IError[], Unit> action)
+        Func<Error[], Unit> action)
     {
         var validation = await input;
         validation.OnFailure(action);
