@@ -12,7 +12,7 @@ public readonly struct Error
         string code,
         string message,
         ErrorType errorType,
-        ReadOnlyDictionary<string, object>? metadata)
+        ReadOnlyDictionary<string, object?>? metadata)
     {
         Code = code;
         Message = message;
@@ -39,7 +39,7 @@ public readonly struct Error
     ///     Additional contextual information about the error.
     ///     This dictionary may be null or empty if no extra data is associated with the error.
     /// </summary>
-    public IReadOnlyDictionary<string, object>? Metadata { get; }
+    public IDictionary<string, object?>? Metadata { get; }
 
     /// <summary>
     ///     Creates a new <see cref="Error"/> instance without metadata.
@@ -71,11 +71,11 @@ public readonly struct Error
         string code,
         string message,
         ErrorType errorType,
-        IDictionary<string, object> metadata)
+        IDictionary<string, object?>? metadata)
     {
         var readOnlyMetadata = metadata == null 
             ? null 
-            : new ReadOnlyDictionary<string, object>(metadata);
+            : new ReadOnlyDictionary<string, object?>(metadata);
         return new Error(code, message, errorType, readOnlyMetadata);
     }
 
@@ -95,7 +95,7 @@ public readonly struct Error
     public static Error Failure(
         string code,
         string message,
-        IDictionary<string, object> metadata)
+        IDictionary<string, object?> metadata)
     {
         return Create(code, message, ErrorType.Failure, metadata);
     }
@@ -116,7 +116,7 @@ public readonly struct Error
     public static Error Validation(
         string code,
         string message,
-        IDictionary<string, object> metadata)
+        IDictionary<string, object?> metadata)
     {
         return Create(code, message, ErrorType.Validation, metadata);
     }
@@ -137,7 +137,7 @@ public readonly struct Error
     public static Error BadRequest(
         string code,
         string message,
-        IDictionary<string, object> metadata)
+        IDictionary<string, object?> metadata)
     {
         return Create(code, message, ErrorType.BadRequest, metadata);
     }
@@ -158,7 +158,7 @@ public readonly struct Error
     public static Error NotFound(
         string code,
         string message,
-        IDictionary<string, object> metadata)
+        IDictionary<string, object?> metadata)
     {
         return Create(code, message, ErrorType.NotFound, metadata);
     }
@@ -179,7 +179,7 @@ public readonly struct Error
     public static Error Conflict(
         string code,
         string message,
-        IDictionary<string, object> metadata)
+        IDictionary<string, object?> metadata)
     {
         return Create(code, message, ErrorType.Conflict, metadata);
     }
@@ -200,7 +200,7 @@ public readonly struct Error
     public static Error Unauthorized(
         string code,
         string message,
-        IDictionary<string, object> metadata)
+        IDictionary<string, object?> metadata)
     {
         return Create(code, message, ErrorType.Unauthorized, metadata);
     }
@@ -221,7 +221,7 @@ public readonly struct Error
     public static Error Forbidden(
         string code,
         string message,
-        IDictionary<string, object> metadata)
+        IDictionary<string, object?> metadata)
     {
         return Create(code, message, ErrorType.Forbidden, metadata);
     }
@@ -242,7 +242,7 @@ public readonly struct Error
     public static Error ServiceUnavailable(
         string code,
         string message,
-        IDictionary<string, object> metadata)
+        IDictionary<string, object?> metadata)
     {
         return Create(code, message, ErrorType.ServiceUnavailable, metadata);
     }
@@ -263,7 +263,7 @@ public readonly struct Error
     public static Error Timeout(
         string code,
         string message,
-        IDictionary<string, object> metadata)
+        IDictionary<string, object?> metadata)
     {
         return Create(code, message, ErrorType.Timeout, metadata);
     }
@@ -284,7 +284,7 @@ public readonly struct Error
     public static Error IoError(
         string code,
         string message,
-        IDictionary<string, object> metadata)
+        IDictionary<string, object?> metadata)
     {
         return Create(code, message, ErrorType.IoError, metadata);
     }
@@ -305,7 +305,7 @@ public readonly struct Error
     public static Error Deprecated(
         string code,
         string message,
-        IDictionary<string, object> metadata)
+        IDictionary<string, object?> metadata)
     {
         return Create(code, message, ErrorType.Deprecated, metadata);
     }
