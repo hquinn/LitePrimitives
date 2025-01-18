@@ -602,6 +602,36 @@ public readonly struct Validation<TValue>
             ValidationState.Failure => await fallback(),
             _ => throw new InvalidOperationException("Invalid state.")
         };
+    }    
+    
+    /// <summary>
+    ///     Converts a <see cref="Validation{TValue}"/> to a <see cref="Option{TValue}"/>.
+    /// </summary>
+    /// <param name="validation">The result to convert.</param>
+    /// <typeparam name="T">The type of the Validation and Option.</typeparam>
+    /// <returns><see cref="Option{TValue}"/></returns>
+    public static Option<T> ToOption<T>(Validation<T> validation)
+    {
+        return validation._state switch
+        {
+            ValidationState.Success => validation.Value,
+            _ => Option<T>.None()
+        };
+    }
+
+    /// <summary>
+    ///     Converts a <see cref="Validation{TValue}"/> to a <see cref="Result{TValue}"/>.
+    /// </summary>
+    /// <param name="validation">The result to convert.</param>
+    /// <typeparam name="T">The type of the Validation and Validation.</typeparam>
+    /// <returns><see cref="Result{TValue}"/></returns>
+    public static Result<T> ToResult<T>(Validation<T> validation)
+    {
+        return validation._state switch
+        {
+            ValidationState.Success => validation.Value!,
+            _ => Error.Aggregate(validation.Errors!)
+        };
     }
     
     /// <summary>

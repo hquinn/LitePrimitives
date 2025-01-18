@@ -30,6 +30,15 @@ public readonly struct Result<TValue>
     }
 
     /// <summary>
+    ///     Default constructor. Do not use!
+    /// </summary>
+    public Result()
+    {
+        _error = LitePrimitives.Error.Failure("InvalidState", "Result created in an invalid state.");
+        _state = ResultState.Failure;
+    }
+
+    /// <summary>
     ///     Returns true if the <see cref="Result{TValue}"/> is in the Success state.
     /// </summary>
     public bool IsSuccess => _state == ResultState.Success;
@@ -601,6 +610,36 @@ public readonly struct Result<TValue>
             ResultState.Success => this,
             ResultState.Failure => await fallback(),
             _ => throw new InvalidOperationException("Invalid state.")
+        };
+    }
+
+    /// <summary>
+    ///     Converts a <see cref="Result{TValue}"/> to a <see cref="Option{TValue}"/>.
+    /// </summary>
+    /// <param name="result">The result to convert.</param>
+    /// <typeparam name="T">The type of the Result and Option.</typeparam>
+    /// <returns><see cref="Option{TValue}"/></returns>
+    public static Option<T> ToOption<T>(Result<T> result)
+    {
+        return result._state switch
+        {
+            ResultState.Success => result.Value,
+            _ => Option<T>.None()
+        };
+    }
+
+    /// <summary>
+    ///     Converts a <see cref="Result{TValue}"/> to a <see cref="Validation{TValue}"/>.
+    /// </summary>
+    /// <param name="result">The result to convert.</param>
+    /// <typeparam name="T">The type of the Result and Validation.</typeparam>
+    /// <returns><see cref="Validation{TValue}"/></returns>
+    public static Validation<T> ToValidation<T>(Result<T> result)
+    {
+        return result._state switch
+        {
+            ResultState.Success => result.Value!,
+            _ => new[] { result.Error!.Value }
         };
     }
     

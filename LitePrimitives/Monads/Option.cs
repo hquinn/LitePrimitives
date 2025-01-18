@@ -588,6 +588,36 @@ public readonly struct Option<TValue>
     }
 
     /// <summary>
+    ///     Converts an <see cref="Option{TValue}"/> to a <see cref="Result{TValue}"/>.
+    /// </summary>
+    /// <param name="option">The option to convert.</param>
+    /// <typeparam name="T">The type of the Option and Result.</typeparam>
+    /// <returns><see cref="Result{TValue}"/></returns>
+    public static Result<T> ToResult<T>(Option<T> option)
+    {
+        return option._state switch
+        {
+            OptionState.Some => option.Value!,
+            _ => Error.IsNone()
+        };
+    }
+
+    /// <summary>
+    ///     Converts an <see cref="Option{TValue}"/> to a <see cref="Validation{TValue}"/>.
+    /// </summary>
+    /// <param name="option">The option to convert.</param>
+    /// <typeparam name="T">The type of the Option and Validation.</typeparam>
+    /// <returns><see cref="Validation{TValue}"/></returns>
+    public static Validation<T> ToValidation<T>(Option<T> option)
+    {
+        return option._state switch
+        {
+            OptionState.Some => option.Value!,
+            _ => new [] { Error.IsNone() }
+        };
+    }
+
+    /// <summary>
     ///     Constructs <see cref="Option{TValue}"/> from a <typeparamref name="TValue"/> in the Some state.
     /// </summary>
     /// <param name="value">The value to construct the <see cref="Option{TValue}"/> type from.</param>

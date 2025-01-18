@@ -59,5 +59,10 @@ public enum ErrorType
     /// <summary>
     ///     Indicates the use of a deprecated feature or endpoint.
     /// </summary>
-    Deprecated = 12
+    Deprecated = 12,
+    
+    /// <summary>
+    ///     Indicates that the error contains many errors.
+    /// </summary>
+    Aggregate = 13
 }

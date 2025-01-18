@@ -80,6 +80,14 @@ public readonly struct Error
     }
 
     /// <summary>
+    ///     Creates a Failure error for the context when <see cref="Option{TValue}"/> is None.
+    /// </summary>
+    public static Error IsNone()
+    {
+        return Create("IsNone", "The Option is None", ErrorType.Failure);
+    }
+
+    /// <summary>
     ///     Creates a Failure error without metadata.
     /// </summary>
     public static Error Failure(
@@ -308,5 +316,25 @@ public readonly struct Error
         IDictionary<string, object?> metadata)
     {
         return Create(code, message, ErrorType.Deprecated, metadata);
+    }
+
+    /// <summary>
+    ///     Creates an Aggregate error with metadata.
+    /// </summary>
+    public static Error Aggregate(IEnumerable<Error> errors)
+    {
+        var metaData = new Dictionary<string, object?>();
+
+        var counter = 1;
+        foreach (var error in errors)
+        {
+            metaData.Add($"Error {counter++}", error);
+        }
+        
+        return Create(
+            "AggregateError", 
+            $"This error has aggregated {metaData.Count} other errors.", 
+            ErrorType.Aggregate, 
+            metaData);
     }
 }
