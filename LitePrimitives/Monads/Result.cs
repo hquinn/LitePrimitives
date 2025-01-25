@@ -4,6 +4,32 @@ using LitePrimitives.InternalStates;
 namespace LitePrimitives;
 
 /// <summary>
+///     Static class to help instantiate <see cref="Result{TValue}"/>
+/// </summary>
+public static class Result
+{
+    /// <summary>
+    ///      Constructs <see cref="Result{TValue}"/> from a <typeparamref name="TValue"/> in the Success state.
+    /// </summary>
+    /// <param name="value">The value to construct the <see cref="Result{TValue}"/> type from.</param>
+    /// <returns>The <see cref="Result{TValue}"/> type in the Success state.</returns>
+    public static Result<TValue> Success<TValue>(TValue value)
+    {
+        return Result<TValue>.Success(value);
+    }
+
+    /// <summary>
+    ///      Constructs <see cref="Result{TValue}"/> from an <see cref="Error"/> in the Failure state.
+    /// </summary>
+    /// <param name="error">The error to construct the <see cref="Result{TValue}"/> type from.</param>
+    /// <returns>The <see cref="Result{TValue}"/> type in the Failure state.</returns>
+    public static Result<TValue> Failure<TValue>(Error error)
+    {
+        return Result<TValue>.Failure(error);
+    }
+}
+
+/// <summary>
 ///     Represents a value of one of two possible types (a disjointed union).
 ///     This type can encapsulate either:
 ///     - <typeparamref name="TValue"/> in the Success state.

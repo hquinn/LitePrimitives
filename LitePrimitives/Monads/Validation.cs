@@ -4,6 +4,42 @@ using LitePrimitives.InternalStates;
 namespace LitePrimitives;
 
 /// <summary>
+///     Static class to help instantiate <see cref="Validation{TValue}"/>
+/// </summary>
+public static class Validation
+{
+    /// <summary>
+    ///      Constructs <see cref="Validation{TValue}"/> from a <typeparamref name="TValue"/> in the Success state.
+    /// </summary>
+    /// <param name="value">The value to construct the <see cref="Validation{TValue}"/> type from.</param>
+    /// <returns>The <see cref="Validation{TValue}"/> type in the Success state.</returns>
+    public static Validation<TValue> Success<TValue>(TValue value)
+    {
+        return Validation<TValue>.Success(value);
+    }
+
+    /// <summary>
+    ///      Constructs <see cref="Validation{TValue}"/> from an <see cref="Error"/> in the Failure state.
+    /// </summary>
+    /// <param name="errors">The errors to construct the <see cref="Validation{TValue}"/> type from.</param>
+    /// <returns>The <see cref="Validation{TValue}"/> type in the Failure state.</returns>
+    public static Validation<TValue> Failure<TValue>(Error[] errors)
+    {
+        return Validation<TValue>.Failure(errors);
+    }
+
+    /// <summary>
+    ///      Constructs <see cref="Validation{TValue}"/> from an <see cref="Error"/> in the Failure state.
+    /// </summary>
+    /// <param name="errors">The errors to construct the <see cref="Validation{TValue}"/> type from.</param>
+    /// <returns>The <see cref="Validation{TValue}"/> type in the Failure state.</returns>
+    public static Validation<TValue> Failure<TValue>(List<Error> errors)
+    {
+        return Validation<TValue>.Failure(errors);
+    }
+}
+
+/// <summary>
 ///     Represents a value of one of two possible types (a disjointed union).
 ///     This type can encapsulate either:
 ///     - <typeparamref name="TValue"/> in the Success state.

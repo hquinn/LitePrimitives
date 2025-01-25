@@ -4,6 +4,31 @@ using LitePrimitives.InternalStates;
 namespace LitePrimitives;
 
 /// <summary>
+///     Static class to help instantiate <see cref="Option{TValue}"/>
+/// </summary>
+public static class Option
+{
+    /// <summary>
+    ///     Constructs <see cref="Option{TValue}"/> from a <typeparamref name="TValue"/> in the Some state.
+    /// </summary>
+    /// <param name="value">The value to construct the <see cref="Option{TValue}"/> type from.</param>
+    /// <returns>The <see cref="Option{TValue}"/> type in the Some state.</returns>
+    public static Option<TValue> Some<TValue>(TValue value)
+    {
+        return Option<TValue>.Some(value);
+    }
+
+    /// <summary>
+    ///     Constructs <see cref="Option{TValue}"/> in the None state.
+    /// </summary>
+    /// <returns>The <see cref="Option{TValue}"/> type in the None state.</returns>
+    public static Option<TValue> None<TValue>()
+    {
+        return Option<TValue>.None();
+    }
+}
+
+/// <summary>
 ///     Represents an optional value. This type can encapsulate either a value of type <typeparamref name="TValue"/>
 ///     when in the Some state, or indicate the absence of a value in the None state. 
 /// </summary>
