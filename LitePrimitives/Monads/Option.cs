@@ -590,30 +590,1028 @@ public readonly struct Option<TValue>
     /// <summary>
     ///     Converts an <see cref="Option{TValue}"/> to a <see cref="Result{TValue}"/>.
     /// </summary>
-    /// <param name="option">The option to convert.</param>
-    /// <typeparam name="T">The type of the Option and Result.</typeparam>
     /// <returns><see cref="Result{TValue}"/></returns>
-    public static Result<T> ToResult<T>(Option<T> option)
+    public Result<TValue> ToResult()
     {
-        return option._state switch
+        return _state switch
         {
-            OptionState.Some => option.Value!,
+            OptionState.Some => Value!,
             _ => Error.IsNone()
+        };
+    }
+
+    /// <summary>
+    ///     Converts an <see cref="Option{TValue}"/> to a <see cref="Result{TValue}"/>.
+    /// </summary>
+    /// <param name="error">The error to produce when <see cref="Result{TValue}"/> is in the Failure state</param>
+    /// <returns><see cref="Result{TValue}"/></returns>
+    public Result<TValue> ToResult(Error error)
+    {
+        return _state switch
+        {
+            OptionState.Some => Value!,
+            _ => error
+        };
+    }
+
+    /// <summary>
+    ///     Converts an <see cref="Option{TValue}"/> to a <see cref="Result{TValue}"/>.
+    /// </summary>
+    /// <param name="error">The error to produce when <see cref="Result{TValue}"/> is in the Failure state</param>
+    /// <returns><see cref="Result{TValue}"/></returns>
+    public Result<TValue> ToResult(Func<Error> error)
+    {
+        return _state switch
+        {
+            OptionState.Some => Value!,
+            _ => error()
+        };
+    }
+
+    /// <summary>
+    ///     Converts an <see cref="Option{TValue}"/> to a <see cref="Result{TValue}"/>.
+    /// </summary>
+    /// <param name="error">The error to produce when <see cref="Result{TValue}"/> is in the Failure state</param>
+    /// <param name="firstParam">First parameter of the error func</param>
+    /// <typeparam name="TFirstParam">The type of the first parameter</typeparam>
+    /// <returns><see cref="Result{TValue}"/></returns>
+    public Result<TValue> ToResult<TFirstParam>(Func<TFirstParam, Error> error, TFirstParam firstParam)
+    {
+        return _state switch
+        {
+            OptionState.Some => Value!,
+            _ => error(firstParam)
+        };
+    }
+
+    /// <summary>
+    ///     Converts an <see cref="Option{TValue}"/> to a <see cref="Result{TValue}"/>.
+    /// </summary>
+    /// <param name="error">The error to produce when <see cref="Result{TValue}"/> is in the Failure state</param>
+    /// <param name="firstParam">First parameter of the error func</param>
+    /// <param name="secondParam">Second parameter of the error func</param>
+    /// <typeparam name="TFirstParam">The type of the first parameter</typeparam>
+    /// <typeparam name="TSecondParam">The type of the second parameter</typeparam>
+    /// <returns><see cref="Result{TValue}"/></returns>
+    public Result<TValue> ToResult<TFirstParam, TSecondParam>(
+        Func<TFirstParam, TSecondParam, Error> error, 
+        TFirstParam firstParam,
+        TSecondParam secondParam)
+    {
+        return _state switch
+        {
+            OptionState.Some => Value!,
+            _ => error(firstParam, secondParam)
+        };
+    }
+
+    /// <summary>
+    ///     Converts an <see cref="Option{TValue}"/> to a <see cref="Result{TValue}"/>.
+    /// </summary>
+    /// <param name="error">The error to produce when <see cref="Result{TValue}"/> is in the Failure state</param>
+    /// <param name="firstParam">First parameter of the error func</param>
+    /// <param name="secondParam">Second parameter of the error func</param>
+    /// <param name="thirdParam">Third parameter of the error func</param>
+    /// <typeparam name="TFirstParam">The type of the first parameter</typeparam>
+    /// <typeparam name="TSecondParam">The type of the second parameter</typeparam>
+    /// <typeparam name="TThirdParam">The type of the third parameter</typeparam>
+    /// <returns><see cref="Result{TValue}"/></returns>
+    public Result<TValue> ToResult<TFirstParam, TSecondParam, TThirdParam>(
+        Func<TFirstParam, TSecondParam, TThirdParam, Error> error, 
+        TFirstParam firstParam,
+        TSecondParam secondParam,
+        TThirdParam thirdParam)
+    {
+        return _state switch
+        {
+            OptionState.Some => Value!,
+            _ => error(firstParam, secondParam, thirdParam)
+        };
+    }
+
+    /// <summary>
+    ///     Converts an <see cref="Option{TValue}"/> to a <see cref="Result{TValue}"/>.
+    /// </summary>
+    /// <param name="error">The error to produce when <see cref="Result{TValue}"/> is in the Failure state</param>
+    /// <param name="firstParam">First parameter of the error func</param>
+    /// <param name="secondParam">Second parameter of the error func</param>
+    /// <param name="thirdParam">Third parameter of the error func</param>
+    /// <param name="fourthParam">Fourth parameter of the error func</param>
+    /// <typeparam name="TFirstParam">The type of the first parameter</typeparam>
+    /// <typeparam name="TSecondParam">The type of the second parameter</typeparam>
+    /// <typeparam name="TThirdParam">The type of the third parameter</typeparam>
+    /// <typeparam name="TFourthParam">The type of the fourth parameter</typeparam>
+    /// <returns><see cref="Result{TValue}"/></returns>
+    public Result<TValue> ToResult<TFirstParam, TSecondParam, TThirdParam, TFourthParam>(
+        Func<TFirstParam, TSecondParam, TThirdParam, TFourthParam, Error> error, 
+        TFirstParam firstParam,
+        TSecondParam secondParam,
+        TThirdParam thirdParam,
+        TFourthParam fourthParam)
+    {
+        return _state switch
+        {
+            OptionState.Some => Value!,
+            _ => error(firstParam, secondParam, thirdParam, fourthParam)
+        };
+    }
+
+    /// <summary>
+    ///     Converts an <see cref="Option{TValue}"/> to a <see cref="Result{TValue}"/>.
+    /// </summary>
+    /// <param name="error">The error to produce when <see cref="Result{TValue}"/> is in the Failure state</param>
+    /// <param name="firstParam">First parameter of the error func</param>
+    /// <param name="secondParam">Second parameter of the error func</param>
+    /// <param name="thirdParam">Third parameter of the error func</param>
+    /// <param name="fourthParam">Fourth parameter of the error func</param>
+    /// <param name="fifthParam">Fifth parameter of the error func</param>
+    /// <typeparam name="TFirstParam">The type of the first parameter</typeparam>
+    /// <typeparam name="TSecondParam">The type of the second parameter</typeparam>
+    /// <typeparam name="TThirdParam">The type of the third parameter</typeparam>
+    /// <typeparam name="TFourthParam">The type of the fourth parameter</typeparam>
+    /// <typeparam name="TFifthParam">The type of the fifth parameter</typeparam>
+    /// <returns><see cref="Result{TValue}"/></returns>
+    public Result<TValue> ToResult<TFirstParam, TSecondParam, TThirdParam, TFourthParam, TFifthParam>(
+        Func<TFirstParam, TSecondParam, TThirdParam, TFourthParam, TFifthParam, Error> error, 
+        TFirstParam firstParam,
+        TSecondParam secondParam,
+        TThirdParam thirdParam,
+        TFourthParam fourthParam,
+        TFifthParam fifthParam)
+    {
+        return _state switch
+        {
+            OptionState.Some => Value!,
+            _ => error(firstParam, secondParam, thirdParam, fourthParam, fifthParam)
+        };
+    }
+
+    /// <summary>
+    ///     Converts an <see cref="Option{TValue}"/> to a <see cref="Result{TValue}"/>.
+    /// </summary>
+    /// <param name="error">The error to produce when <see cref="Result{TValue}"/> is in the Failure state</param>
+    /// <param name="firstParam">First parameter of the error func</param>
+    /// <param name="secondParam">Second parameter of the error func</param>
+    /// <param name="thirdParam">Third parameter of the error func</param>
+    /// <param name="fourthParam">Fourth parameter of the error func</param>
+    /// <param name="fifthParam">Fifth parameter of the error func</param>
+    /// <param name="sixthParam">Sixth parameter of the error func</param>
+    /// <typeparam name="TFirstParam">The type of the first parameter</typeparam>
+    /// <typeparam name="TSecondParam">The type of the second parameter</typeparam>
+    /// <typeparam name="TThirdParam">The type of the third parameter</typeparam>
+    /// <typeparam name="TFourthParam">The type of the fourth parameter</typeparam>
+    /// <typeparam name="TFifthParam">The type of the fifth parameter</typeparam>
+    /// <typeparam name="TSixthParam">The type of the sixth parameter</typeparam>
+    /// <returns><see cref="Result{TValue}"/></returns>
+    public Result<TValue> ToResult<TFirstParam, TSecondParam, TThirdParam, TFourthParam, TFifthParam, TSixthParam>(
+        Func<TFirstParam, TSecondParam, TThirdParam, TFourthParam, TFifthParam, TSixthParam, Error> error, 
+        TFirstParam firstParam,
+        TSecondParam secondParam,
+        TThirdParam thirdParam,
+        TFourthParam fourthParam,
+        TFifthParam fifthParam,
+        TSixthParam sixthParam)
+    {
+        return _state switch
+        {
+            OptionState.Some => Value!,
+            _ => error(firstParam, secondParam, thirdParam, fourthParam, fifthParam, sixthParam)
+        };
+    }
+
+    /// <summary>
+    ///     Converts an <see cref="Option{TValue}"/> to a <see cref="Result{TValue}"/>.
+    /// </summary>
+    /// <param name="error">The error to produce when <see cref="Result{TValue}"/> is in the Failure state</param>
+    /// <param name="firstParam">First parameter of the error func</param>
+    /// <param name="secondParam">Second parameter of the error func</param>
+    /// <param name="thirdParam">Third parameter of the error func</param>
+    /// <param name="fourthParam">Fourth parameter of the error func</param>
+    /// <param name="fifthParam">Fifth parameter of the error func</param>
+    /// <param name="sixthParam">Sixth parameter of the error func</param>
+    /// <param name="seventhParam">Seventh parameter of the error func</param>
+    /// <typeparam name="TFirstParam">The type of the first parameter</typeparam>
+    /// <typeparam name="TSecondParam">The type of the second parameter</typeparam>
+    /// <typeparam name="TThirdParam">The type of the third parameter</typeparam>
+    /// <typeparam name="TFourthParam">The type of the fourth parameter</typeparam>
+    /// <typeparam name="TFifthParam">The type of the fifth parameter</typeparam>
+    /// <typeparam name="TSixthParam">The type of the sixth parameter</typeparam>
+    /// <typeparam name="TSeventhParam">The type of the seventh parameter</typeparam>
+    /// <returns><see cref="Result{TValue}"/></returns>
+    public Result<TValue> ToResult<TFirstParam, TSecondParam, TThirdParam, TFourthParam, TFifthParam, TSixthParam, TSeventhParam>(
+        Func<TFirstParam, TSecondParam, TThirdParam, TFourthParam, TFifthParam, TSixthParam, TSeventhParam, Error> error, 
+        TFirstParam firstParam,
+        TSecondParam secondParam,
+        TThirdParam thirdParam,
+        TFourthParam fourthParam,
+        TFifthParam fifthParam,
+        TSixthParam sixthParam,
+        TSeventhParam seventhParam)
+    {
+        return _state switch
+        {
+            OptionState.Some => Value!,
+            _ => error(firstParam, secondParam, thirdParam, fourthParam, fifthParam, sixthParam, seventhParam)
+        };
+    }
+
+    /// <summary>
+    ///     Converts an <see cref="Option{TValue}"/> to a <see cref="Result{TValue}"/>.
+    /// </summary>
+    /// <param name="error">The error to produce when <see cref="Result{TValue}"/> is in the Failure state</param>
+    /// <param name="firstParam">First parameter of the error func</param>
+    /// <param name="secondParam">Second parameter of the error func</param>
+    /// <param name="thirdParam">Third parameter of the error func</param>
+    /// <param name="fourthParam">Fourth parameter of the error func</param>
+    /// <param name="fifthParam">Fifth parameter of the error func</param>
+    /// <param name="sixthParam">Sixth parameter of the error func</param>
+    /// <param name="seventhParam">Seventh parameter of the error func</param>
+    /// <param name="eighthParam">Eighth parameter of the error func</param>
+    /// <typeparam name="TFirstParam">The type of the first parameter</typeparam>
+    /// <typeparam name="TSecondParam">The type of the second parameter</typeparam>
+    /// <typeparam name="TThirdParam">The type of the third parameter</typeparam>
+    /// <typeparam name="TFourthParam">The type of the fourth parameter</typeparam>
+    /// <typeparam name="TFifthParam">The type of the fifth parameter</typeparam>
+    /// <typeparam name="TSixthParam">The type of the sixth parameter</typeparam>
+    /// <typeparam name="TSeventhParam">The type of the seventh parameter</typeparam>
+    /// <typeparam name="TEighthParam">The type of the eighth parameter</typeparam>
+    /// <returns><see cref="Result{TValue}"/></returns>
+    public Result<TValue> ToResult<TFirstParam, TSecondParam, TThirdParam, TFourthParam, TFifthParam, TSixthParam, TSeventhParam, TEighthParam>(
+        Func<TFirstParam, TSecondParam, TThirdParam, TFourthParam, TFifthParam, TSixthParam, TSeventhParam, TEighthParam, Error> error, 
+        TFirstParam firstParam,
+        TSecondParam secondParam,
+        TThirdParam thirdParam,
+        TFourthParam fourthParam,
+        TFifthParam fifthParam,
+        TSixthParam sixthParam,
+        TSeventhParam seventhParam,
+        TEighthParam eighthParam)
+    {
+        return _state switch
+        {
+            OptionState.Some => Value!,
+            _ => error(firstParam, secondParam, thirdParam, fourthParam, fifthParam, sixthParam, seventhParam, eighthParam)
+        };
+    }
+
+    /// <summary>
+    ///     Converts an <see cref="Option{TValue}"/> to a <see cref="Result{TValue}"/>.
+    /// </summary>
+    /// <param name="result">The result to produce when <see cref="Result{TValue}"/> is in the Failure state</param>
+    /// <returns><see cref="Result{TValue}"/></returns>
+    public Result<TValue> ToResult(Func<Result<TValue>> result)
+    {
+        return _state switch
+        {
+            OptionState.Some => Value!,
+            _ => result()
+        };
+    }
+
+    /// <summary>
+    ///     Converts an <see cref="Option{TValue}"/> to a <see cref="Result{TValue}"/>.
+    /// </summary>
+    /// <param name="result">The result to produce when <see cref="Result{TValue}"/> is in the Failure state</param>
+    /// <param name="firstParam">First parameter of the result func</param>
+    /// <typeparam name="TFirstParam">The type of the first parameter</typeparam>
+    /// <returns><see cref="Result{TValue}"/></returns>
+    public Result<TValue> ToResult<TFirstParam>(Func<TFirstParam, Result<TValue>> result, TFirstParam firstParam)
+    {
+        return _state switch
+        {
+            OptionState.Some => Value!,
+            _ => result(firstParam)
+        };
+    }
+
+    /// <summary>
+    ///     Converts an <see cref="Option{TValue}"/> to a <see cref="Result{TValue}"/>.
+    /// </summary>
+    /// <param name="result">The result to produce when <see cref="Result{TValue}"/> is in the Failure state</param>
+    /// <param name="firstParam">First parameter of the result func</param>
+    /// <param name="secondParam">Second parameter of the result func</param>
+    /// <typeparam name="TFirstParam">The type of the first parameter</typeparam>
+    /// <typeparam name="TSecondParam">The type of the second parameter</typeparam>
+    /// <returns><see cref="Result{TValue}"/></returns>
+    public Result<TValue> ToResult<TFirstParam, TSecondParam>(
+        Func<TFirstParam, TSecondParam, Result<TValue>> result, 
+        TFirstParam firstParam,
+        TSecondParam secondParam)
+    {
+        return _state switch
+        {
+            OptionState.Some => Value!,
+            _ => result(firstParam, secondParam)
+        };
+    }
+
+    /// <summary>
+    ///     Converts an <see cref="Option{TValue}"/> to a <see cref="Result{TValue}"/>.
+    /// </summary>
+    /// <param name="result">The result to produce when <see cref="Result{TValue}"/> is in the Failure state</param>
+    /// <param name="firstParam">First parameter of the result func</param>
+    /// <param name="secondParam">Second parameter of the result func</param>
+    /// <param name="thirdParam">Third parameter of the result func</param>
+    /// <typeparam name="TFirstParam">The type of the first parameter</typeparam>
+    /// <typeparam name="TSecondParam">The type of the second parameter</typeparam>
+    /// <typeparam name="TThirdParam">The type of the third parameter</typeparam>
+    /// <returns><see cref="Result{TValue}"/></returns>
+    public Result<TValue> ToResult<TFirstParam, TSecondParam, TThirdParam>(
+        Func<TFirstParam, TSecondParam, TThirdParam, Result<TValue>> result, 
+        TFirstParam firstParam,
+        TSecondParam secondParam,
+        TThirdParam thirdParam)
+    {
+        return _state switch
+        {
+            OptionState.Some => Value!,
+            _ => result(firstParam, secondParam, thirdParam)
+        };
+    }
+
+    /// <summary>
+    ///     Converts an <see cref="Option{TValue}"/> to a <see cref="Result{TValue}"/>.
+    /// </summary>
+    /// <param name="result">The result to produce when <see cref="Result{TValue}"/> is in the Failure state</param>
+    /// <param name="firstParam">First parameter of the result func</param>
+    /// <param name="secondParam">Second parameter of the result func</param>
+    /// <param name="thirdParam">Third parameter of the result func</param>
+    /// <param name="fourthParam">Fourth parameter of the result func</param>
+    /// <typeparam name="TFirstParam">The type of the first parameter</typeparam>
+    /// <typeparam name="TSecondParam">The type of the second parameter</typeparam>
+    /// <typeparam name="TThirdParam">The type of the third parameter</typeparam>
+    /// <typeparam name="TFourthParam">The type of the fourth parameter</typeparam>
+    /// <returns><see cref="Result{TValue}"/></returns>
+    public Result<TValue> ToResult<TFirstParam, TSecondParam, TThirdParam, TFourthParam>(
+        Func<TFirstParam, TSecondParam, TThirdParam, TFourthParam, Result<TValue>> result, 
+        TFirstParam firstParam,
+        TSecondParam secondParam,
+        TThirdParam thirdParam,
+        TFourthParam fourthParam)
+    {
+        return _state switch
+        {
+            OptionState.Some => Value!,
+            _ => result(firstParam, secondParam, thirdParam, fourthParam)
+        };
+    }
+
+    /// <summary>
+    ///     Converts an <see cref="Option{TValue}"/> to a <see cref="Result{TValue}"/>.
+    /// </summary>
+    /// <param name="result">The result to produce when <see cref="Result{TValue}"/> is in the Failure state</param>
+    /// <param name="firstParam">First parameter of the result func</param>
+    /// <param name="secondParam">Second parameter of the result func</param>
+    /// <param name="thirdParam">Third parameter of the result func</param>
+    /// <param name="fourthParam">Fourth parameter of the result func</param>
+    /// <param name="fifthParam">Fifth parameter of the result func</param>
+    /// <typeparam name="TFirstParam">The type of the first parameter</typeparam>
+    /// <typeparam name="TSecondParam">The type of the second parameter</typeparam>
+    /// <typeparam name="TThirdParam">The type of the third parameter</typeparam>
+    /// <typeparam name="TFourthParam">The type of the fourth parameter</typeparam>
+    /// <typeparam name="TFifthParam">The type of the fifth parameter</typeparam>
+    /// <returns><see cref="Result{TValue}"/></returns>
+    public Result<TValue> ToResult<TFirstParam, TSecondParam, TThirdParam, TFourthParam, TFifthParam>(
+        Func<TFirstParam, TSecondParam, TThirdParam, TFourthParam, TFifthParam, Result<TValue>> result, 
+        TFirstParam firstParam,
+        TSecondParam secondParam,
+        TThirdParam thirdParam,
+        TFourthParam fourthParam,
+        TFifthParam fifthParam)
+    {
+        return _state switch
+        {
+            OptionState.Some => Value!,
+            _ => result(firstParam, secondParam, thirdParam, fourthParam, fifthParam)
+        };
+    }
+
+    /// <summary>
+    ///     Converts an <see cref="Option{TValue}"/> to a <see cref="Result{TValue}"/>.
+    /// </summary>
+    /// <param name="result">The result to produce when <see cref="Result{TValue}"/> is in the Failure state</param>
+    /// <param name="firstParam">First parameter of the result func</param>
+    /// <param name="secondParam">Second parameter of the result func</param>
+    /// <param name="thirdParam">Third parameter of the result func</param>
+    /// <param name="fourthParam">Fourth parameter of the result func</param>
+    /// <param name="fifthParam">Fifth parameter of the result func</param>
+    /// <param name="sixthParam">Sixth parameter of the result func</param>
+    /// <typeparam name="TFirstParam">The type of the first parameter</typeparam>
+    /// <typeparam name="TSecondParam">The type of the second parameter</typeparam>
+    /// <typeparam name="TThirdParam">The type of the third parameter</typeparam>
+    /// <typeparam name="TFourthParam">The type of the fourth parameter</typeparam>
+    /// <typeparam name="TFifthParam">The type of the fifth parameter</typeparam>
+    /// <typeparam name="TSixthParam">The type of the sixth parameter</typeparam>
+    /// <returns><see cref="Result{TValue}"/></returns>
+    public Result<TValue> ToResult<TFirstParam, TSecondParam, TThirdParam, TFourthParam, TFifthParam, TSixthParam>(
+        Func<TFirstParam, TSecondParam, TThirdParam, TFourthParam, TFifthParam, TSixthParam, Result<TValue>> result, 
+        TFirstParam firstParam,
+        TSecondParam secondParam,
+        TThirdParam thirdParam,
+        TFourthParam fourthParam,
+        TFifthParam fifthParam,
+        TSixthParam sixthParam)
+    {
+        return _state switch
+        {
+            OptionState.Some => Value!,
+            _ => result(firstParam, secondParam, thirdParam, fourthParam, fifthParam, sixthParam)
+        };
+    }
+
+    /// <summary>
+    ///     Converts an <see cref="Option{TValue}"/> to a <see cref="Result{TValue}"/>.
+    /// </summary>
+    /// <param name="result">The result to produce when <see cref="Result{TValue}"/> is in the Failure state</param>
+    /// <param name="firstParam">First parameter of the result func</param>
+    /// <param name="secondParam">Second parameter of the result func</param>
+    /// <param name="thirdParam">Third parameter of the result func</param>
+    /// <param name="fourthParam">Fourth parameter of the result func</param>
+    /// <param name="fifthParam">Fifth parameter of the result func</param>
+    /// <param name="sixthParam">Sixth parameter of the result func</param>
+    /// <param name="seventhParam">Seventh parameter of the result func</param>
+    /// <typeparam name="TFirstParam">The type of the first parameter</typeparam>
+    /// <typeparam name="TSecondParam">The type of the second parameter</typeparam>
+    /// <typeparam name="TThirdParam">The type of the third parameter</typeparam>
+    /// <typeparam name="TFourthParam">The type of the fourth parameter</typeparam>
+    /// <typeparam name="TFifthParam">The type of the fifth parameter</typeparam>
+    /// <typeparam name="TSixthParam">The type of the sixth parameter</typeparam>
+    /// <typeparam name="TSeventhParam">The type of the seventh parameter</typeparam>
+    /// <returns><see cref="Result{TValue}"/></returns>
+    public Result<TValue> ToResult<TFirstParam, TSecondParam, TThirdParam, TFourthParam, TFifthParam, TSixthParam, TSeventhParam>(
+        Func<TFirstParam, TSecondParam, TThirdParam, TFourthParam, TFifthParam, TSixthParam, TSeventhParam, Result<TValue>> result, 
+        TFirstParam firstParam,
+        TSecondParam secondParam,
+        TThirdParam thirdParam,
+        TFourthParam fourthParam,
+        TFifthParam fifthParam,
+        TSixthParam sixthParam,
+        TSeventhParam seventhParam)
+    {
+        return _state switch
+        {
+            OptionState.Some => Value!,
+            _ => result(firstParam, secondParam, thirdParam, fourthParam, fifthParam, sixthParam, seventhParam)
+        };
+    }
+
+    /// <summary>
+    ///     Converts an <see cref="Option{TValue}"/> to a <see cref="Result{TValue}"/>.
+    /// </summary>
+    /// <param name="result">The result to produce when <see cref="Result{TValue}"/> is in the Failure state</param>
+    /// <param name="firstParam">First parameter of the result func</param>
+    /// <param name="secondParam">Second parameter of the result func</param>
+    /// <param name="thirdParam">Third parameter of the result func</param>
+    /// <param name="fourthParam">Fourth parameter of the result func</param>
+    /// <param name="fifthParam">Fifth parameter of the result func</param>
+    /// <param name="sixthParam">Sixth parameter of the result func</param>
+    /// <param name="seventhParam">Seventh parameter of the result func</param>
+    /// <param name="eighthParam">Eighth parameter of the result func</param>
+    /// <typeparam name="TFirstParam">The type of the first parameter</typeparam>
+    /// <typeparam name="TSecondParam">The type of the second parameter</typeparam>
+    /// <typeparam name="TThirdParam">The type of the third parameter</typeparam>
+    /// <typeparam name="TFourthParam">The type of the fourth parameter</typeparam>
+    /// <typeparam name="TFifthParam">The type of the fifth parameter</typeparam>
+    /// <typeparam name="TSixthParam">The type of the sixth parameter</typeparam>
+    /// <typeparam name="TSeventhParam">The type of the seventh parameter</typeparam>
+    /// <typeparam name="TEighthParam">The type of the eighth parameter</typeparam>
+    /// <returns><see cref="Result{TValue}"/></returns>
+    public Result<TValue> ToResult<TFirstParam, TSecondParam, TThirdParam, TFourthParam, TFifthParam, TSixthParam, TSeventhParam, TEighthParam>(
+        Func<TFirstParam, TSecondParam, TThirdParam, TFourthParam, TFifthParam, TSixthParam, TSeventhParam, TEighthParam, Result<TValue>> result, 
+        TFirstParam firstParam,
+        TSecondParam secondParam,
+        TThirdParam thirdParam,
+        TFourthParam fourthParam,
+        TFifthParam fifthParam,
+        TSixthParam sixthParam,
+        TSeventhParam seventhParam,
+        TEighthParam eighthParam)
+    {
+        return _state switch
+        {
+            OptionState.Some => Value!,
+            _ => result(firstParam, secondParam, thirdParam, fourthParam, fifthParam, sixthParam, seventhParam, eighthParam)
         };
     }
 
     /// <summary>
     ///     Converts an <see cref="Option{TValue}"/> to a <see cref="Validation{TValue}"/>.
     /// </summary>
-    /// <param name="option">The option to convert.</param>
-    /// <typeparam name="T">The type of the Option and Validation.</typeparam>
     /// <returns><see cref="Validation{TValue}"/></returns>
-    public static Validation<T> ToValidation<T>(Option<T> option)
+    public Validation<TValue> ToValidation()
     {
-        return option._state switch
+        return _state switch
         {
-            OptionState.Some => option.Value!,
+            OptionState.Some => Value!,
             _ => new [] { Error.IsNone() }
+        };
+    }
+
+    /// <summary>
+    ///     Converts an <see cref="Option{TValue}"/> to a <see cref="Validation{TValue}"/>.
+    /// </summary>
+    /// <param name="error">The error to produce when <see cref="Validation{TValue}"/> is in the Failure state</param>
+    /// <returns><see cref="Validation{TValue}"/></returns>
+    public Validation<TValue> ToValidation(Error[] error)
+    {
+        return _state switch
+        {
+            OptionState.Some => Value!,
+            _ => error
+        };
+    }
+
+    /// <summary>
+    ///     Converts an <see cref="Option{TValue}"/> to a <see cref="Validation{TValue}"/>.
+    /// </summary>
+    /// <param name="error">The error to produce when <see cref="Validation{TValue}"/> is in the Failure state</param>
+    /// <returns><see cref="Validation{TValue}"/></returns>
+    public Validation<TValue> ToValidation(List<Error> error)
+    {
+        return _state switch
+        {
+            OptionState.Some => Value!,
+            _ => error
+        };
+    }
+
+    /// <summary>
+    ///     Converts an <see cref="Option{TValue}"/> to a <see cref="Validation{TValue}"/>.
+    /// </summary>
+    /// <param name="error">The error to produce when <see cref="Validation{TValue}"/> is in the Failure state</param>
+    /// <returns><see cref="Validation{TValue}"/></returns>
+    public Validation<TValue> ToValidation(Func<List<Error>> error)
+    {
+        return _state switch
+        {
+            OptionState.Some => Value!,
+            _ => error()
+        };
+    }
+
+    /// <summary>
+    ///     Converts an <see cref="Option{TValue}"/> to a <see cref="Validation{TValue}"/>.
+    /// </summary>
+    /// <param name="error">The error to produce when <see cref="Validation{TValue}"/> is in the Failure state</param>
+    /// <param name="firstParam">First parameter of the error func</param>
+    /// <typeparam name="TFirstParam">The type of the first parameter</typeparam>
+    /// <returns><see cref="Validation{TValue}"/></returns>
+    public Validation<TValue> ToValidation<TFirstParam>(Func<TFirstParam, List<Error>> error, TFirstParam firstParam)
+    {
+        return _state switch
+        {
+            OptionState.Some => Value!,
+            _ => error(firstParam)
+        };
+    }
+
+    /// <summary>
+    ///     Converts an <see cref="Option{TValue}"/> to a <see cref="Validation{TValue}"/>.
+    /// </summary>
+    /// <param name="error">The error to produce when <see cref="Validation{TValue}"/> is in the Failure state</param>
+    /// <param name="firstParam">First parameter of the error func</param>
+    /// <param name="secondParam">Second parameter of the error func</param>
+    /// <typeparam name="TFirstParam">The type of the first parameter</typeparam>
+    /// <typeparam name="TSecondParam">The type of the second parameter</typeparam>
+    /// <returns><see cref="Validation{TValue}"/></returns>
+    public Validation<TValue> ToValidation<TFirstParam, TSecondParam>(
+        Func<TFirstParam, TSecondParam, List<Error>> error, 
+        TFirstParam firstParam,
+        TSecondParam secondParam)
+    {
+        return _state switch
+        {
+            OptionState.Some => Value!,
+            _ => error(firstParam, secondParam)
+        };
+    }
+
+    /// <summary>
+    ///     Converts an <see cref="Option{TValue}"/> to a <see cref="Validation{TValue}"/>.
+    /// </summary>
+    /// <param name="error">The error to produce when <see cref="Validation{TValue}"/> is in the Failure state</param>
+    /// <param name="firstParam">First parameter of the error func</param>
+    /// <param name="secondParam">Second parameter of the error func</param>
+    /// <param name="thirdParam">Third parameter of the error func</param>
+    /// <typeparam name="TFirstParam">The type of the first parameter</typeparam>
+    /// <typeparam name="TSecondParam">The type of the second parameter</typeparam>
+    /// <typeparam name="TThirdParam">The type of the third parameter</typeparam>
+    /// <returns><see cref="Validation{TValue}"/></returns>
+    public Validation<TValue> ToValidation<TFirstParam, TSecondParam, TThirdParam>(
+        Func<TFirstParam, TSecondParam, TThirdParam, List<Error>> error, 
+        TFirstParam firstParam,
+        TSecondParam secondParam,
+        TThirdParam thirdParam)
+    {
+        return _state switch
+        {
+            OptionState.Some => Value!,
+            _ => error(firstParam, secondParam, thirdParam)
+        };
+    }
+
+    /// <summary>
+    ///     Converts an <see cref="Option{TValue}"/> to a <see cref="Validation{TValue}"/>.
+    /// </summary>
+    /// <param name="error">The error to produce when <see cref="Validation{TValue}"/> is in the Failure state</param>
+    /// <param name="firstParam">First parameter of the error func</param>
+    /// <param name="secondParam">Second parameter of the error func</param>
+    /// <param name="thirdParam">Third parameter of the error func</param>
+    /// <param name="fourthParam">Fourth parameter of the error func</param>
+    /// <typeparam name="TFirstParam">The type of the first parameter</typeparam>
+    /// <typeparam name="TSecondParam">The type of the second parameter</typeparam>
+    /// <typeparam name="TThirdParam">The type of the third parameter</typeparam>
+    /// <typeparam name="TFourthParam">The type of the fourth parameter</typeparam>
+    /// <returns><see cref="Validation{TValue}"/></returns>
+    public Validation<TValue> ToValidation<TFirstParam, TSecondParam, TThirdParam, TFourthParam>(
+        Func<TFirstParam, TSecondParam, TThirdParam, TFourthParam, List<Error>> error, 
+        TFirstParam firstParam,
+        TSecondParam secondParam,
+        TThirdParam thirdParam,
+        TFourthParam fourthParam)
+    {
+        return _state switch
+        {
+            OptionState.Some => Value!,
+            _ => error(firstParam, secondParam, thirdParam, fourthParam)
+        };
+    }
+
+    /// <summary>
+    ///     Converts an <see cref="Option{TValue}"/> to a <see cref="Validation{TValue}"/>.
+    /// </summary>
+    /// <param name="error">The error to produce when <see cref="Validation{TValue}"/> is in the Failure state</param>
+    /// <param name="firstParam">First parameter of the error func</param>
+    /// <param name="secondParam">Second parameter of the error func</param>
+    /// <param name="thirdParam">Third parameter of the error func</param>
+    /// <param name="fourthParam">Fourth parameter of the error func</param>
+    /// <param name="fifthParam">Fifth parameter of the error func</param>
+    /// <typeparam name="TFirstParam">The type of the first parameter</typeparam>
+    /// <typeparam name="TSecondParam">The type of the second parameter</typeparam>
+    /// <typeparam name="TThirdParam">The type of the third parameter</typeparam>
+    /// <typeparam name="TFourthParam">The type of the fourth parameter</typeparam>
+    /// <typeparam name="TFifthParam">The type of the fifth parameter</typeparam>
+    /// <returns><see cref="Validation{TValue}"/></returns>
+    public Validation<TValue> ToValidation<TFirstParam, TSecondParam, TThirdParam, TFourthParam, TFifthParam>(
+        Func<TFirstParam, TSecondParam, TThirdParam, TFourthParam, TFifthParam, List<Error>> error, 
+        TFirstParam firstParam,
+        TSecondParam secondParam,
+        TThirdParam thirdParam,
+        TFourthParam fourthParam,
+        TFifthParam fifthParam)
+    {
+        return _state switch
+        {
+            OptionState.Some => Value!,
+            _ => error(firstParam, secondParam, thirdParam, fourthParam, fifthParam)
+        };
+    }
+
+    /// <summary>
+    ///     Converts an <see cref="Option{TValue}"/> to a <see cref="Validation{TValue}"/>.
+    /// </summary>
+    /// <param name="error">The error to produce when <see cref="Validation{TValue}"/> is in the Failure state</param>
+    /// <param name="firstParam">First parameter of the error func</param>
+    /// <param name="secondParam">Second parameter of the error func</param>
+    /// <param name="thirdParam">Third parameter of the error func</param>
+    /// <param name="fourthParam">Fourth parameter of the error func</param>
+    /// <param name="fifthParam">Fifth parameter of the error func</param>
+    /// <param name="sixthParam">Sixth parameter of the error func</param>
+    /// <typeparam name="TFirstParam">The type of the first parameter</typeparam>
+    /// <typeparam name="TSecondParam">The type of the second parameter</typeparam>
+    /// <typeparam name="TThirdParam">The type of the third parameter</typeparam>
+    /// <typeparam name="TFourthParam">The type of the fourth parameter</typeparam>
+    /// <typeparam name="TFifthParam">The type of the fifth parameter</typeparam>
+    /// <typeparam name="TSixthParam">The type of the sixth parameter</typeparam>
+    /// <returns><see cref="Validation{TValue}"/></returns>
+    public Validation<TValue> ToValidation<TFirstParam, TSecondParam, TThirdParam, TFourthParam, TFifthParam, TSixthParam>(
+        Func<TFirstParam, TSecondParam, TThirdParam, TFourthParam, TFifthParam, TSixthParam, List<Error>> error, 
+        TFirstParam firstParam,
+        TSecondParam secondParam,
+        TThirdParam thirdParam,
+        TFourthParam fourthParam,
+        TFifthParam fifthParam,
+        TSixthParam sixthParam)
+    {
+        return _state switch
+        {
+            OptionState.Some => Value!,
+            _ => error(firstParam, secondParam, thirdParam, fourthParam, fifthParam, sixthParam)
+        };
+    }
+
+    /// <summary>
+    ///     Converts an <see cref="Option{TValue}"/> to a <see cref="Validation{TValue}"/>.
+    /// </summary>
+    /// <param name="error">The error to produce when <see cref="Validation{TValue}"/> is in the Failure state</param>
+    /// <param name="firstParam">First parameter of the error func</param>
+    /// <param name="secondParam">Second parameter of the error func</param>
+    /// <param name="thirdParam">Third parameter of the error func</param>
+    /// <param name="fourthParam">Fourth parameter of the error func</param>
+    /// <param name="fifthParam">Fifth parameter of the error func</param>
+    /// <param name="sixthParam">Sixth parameter of the error func</param>
+    /// <param name="seventhParam">Seventh parameter of the error func</param>
+    /// <typeparam name="TFirstParam">The type of the first parameter</typeparam>
+    /// <typeparam name="TSecondParam">The type of the second parameter</typeparam>
+    /// <typeparam name="TThirdParam">The type of the third parameter</typeparam>
+    /// <typeparam name="TFourthParam">The type of the fourth parameter</typeparam>
+    /// <typeparam name="TFifthParam">The type of the fifth parameter</typeparam>
+    /// <typeparam name="TSixthParam">The type of the sixth parameter</typeparam>
+    /// <typeparam name="TSeventhParam">The type of the seventh parameter</typeparam>
+    /// <returns><see cref="Validation{TValue}"/></returns>
+    public Validation<TValue> ToValidation<TFirstParam, TSecondParam, TThirdParam, TFourthParam, TFifthParam, TSixthParam, TSeventhParam>(
+        Func<TFirstParam, TSecondParam, TThirdParam, TFourthParam, TFifthParam, TSixthParam, TSeventhParam, List<Error>> error, 
+        TFirstParam firstParam,
+        TSecondParam secondParam,
+        TThirdParam thirdParam,
+        TFourthParam fourthParam,
+        TFifthParam fifthParam,
+        TSixthParam sixthParam,
+        TSeventhParam seventhParam)
+    {
+        return _state switch
+        {
+            OptionState.Some => Value!,
+            _ => error(firstParam, secondParam, thirdParam, fourthParam, fifthParam, sixthParam, seventhParam)
+        };
+    }
+
+    /// <summary>
+    ///     Converts an <see cref="Option{TValue}"/> to a <see cref="Validation{TValue}"/>.
+    /// </summary>
+    /// <param name="error">The error to produce when <see cref="Validation{TValue}"/> is in the Failure state</param>
+    /// <param name="firstParam">First parameter of the error func</param>
+    /// <param name="secondParam">Second parameter of the error func</param>
+    /// <param name="thirdParam">Third parameter of the error func</param>
+    /// <param name="fourthParam">Fourth parameter of the error func</param>
+    /// <param name="fifthParam">Fifth parameter of the error func</param>
+    /// <param name="sixthParam">Sixth parameter of the error func</param>
+    /// <param name="seventhParam">Seventh parameter of the error func</param>
+    /// <param name="eighthParam">Eighth parameter of the error func</param>
+    /// <typeparam name="TFirstParam">The type of the first parameter</typeparam>
+    /// <typeparam name="TSecondParam">The type of the second parameter</typeparam>
+    /// <typeparam name="TThirdParam">The type of the third parameter</typeparam>
+    /// <typeparam name="TFourthParam">The type of the fourth parameter</typeparam>
+    /// <typeparam name="TFifthParam">The type of the fifth parameter</typeparam>
+    /// <typeparam name="TSixthParam">The type of the sixth parameter</typeparam>
+    /// <typeparam name="TSeventhParam">The type of the seventh parameter</typeparam>
+    /// <typeparam name="TEighthParam">The type of the eighth parameter</typeparam>
+    /// <returns><see cref="Validation{TValue}"/></returns>
+    public Validation<TValue> ToValidation<TFirstParam, TSecondParam, TThirdParam, TFourthParam, TFifthParam, TSixthParam, TSeventhParam, TEighthParam>(
+        Func<TFirstParam, TSecondParam, TThirdParam, TFourthParam, TFifthParam, TSixthParam, TSeventhParam, TEighthParam, List<Error>> error, 
+        TFirstParam firstParam,
+        TSecondParam secondParam,
+        TThirdParam thirdParam,
+        TFourthParam fourthParam,
+        TFifthParam fifthParam,
+        TSixthParam sixthParam,
+        TSeventhParam seventhParam,
+        TEighthParam eighthParam)
+    {
+        return _state switch
+        {
+            OptionState.Some => Value!,
+            _ => error(firstParam, secondParam, thirdParam, fourthParam, fifthParam, sixthParam, seventhParam, eighthParam)
+        };
+    }
+
+    /// <summary>
+    ///     Converts an <see cref="Option{TValue}"/> to a <see cref="Validation{TValue}"/>.
+    /// </summary>
+    /// <param name="validation">The validation to produce when <see cref="Validation{TValue}"/> is in the Failure state</param>
+    /// <returns><see cref="Validation{TValue}"/></returns>
+    public Validation<TValue> ToValidation(Func<Validation<TValue>> validation)
+    {
+        return _state switch
+        {
+            OptionState.Some => Value!,
+            _ => validation()
+        };
+    }
+
+    /// <summary>
+    ///     Converts an <see cref="Option{TValue}"/> to a <see cref="Validation{TValue}"/>.
+    /// </summary>
+    /// <param name="validation">The validation to produce when <see cref="Validation{TValue}"/> is in the Failure state</param>
+    /// <param name="firstParam">First parameter of the validation func</param>
+    /// <typeparam name="TFirstParam">The type of the first parameter</typeparam>
+    /// <returns><see cref="Validation{TValue}"/></returns>
+    public Validation<TValue> ToValidation<TFirstParam>(Func<TFirstParam, Validation<TValue>> validation, TFirstParam firstParam)
+    {
+        return _state switch
+        {
+            OptionState.Some => Value!,
+            _ => validation(firstParam)
+        };
+    }
+
+    /// <summary>
+    ///     Converts an <see cref="Option{TValue}"/> to a <see cref="Validation{TValue}"/>.
+    /// </summary>
+    /// <param name="validation">The validation to produce when <see cref="Validation{TValue}"/> is in the Failure state</param>
+    /// <param name="firstParam">First parameter of the validation func</param>
+    /// <param name="secondParam">Second parameter of the validation func</param>
+    /// <typeparam name="TFirstParam">The type of the first parameter</typeparam>
+    /// <typeparam name="TSecondParam">The type of the second parameter</typeparam>
+    /// <returns><see cref="Validation{TValue}"/></returns>
+    public Validation<TValue> ToValidation<TFirstParam, TSecondParam>(
+        Func<TFirstParam, TSecondParam, Validation<TValue>> validation, 
+        TFirstParam firstParam,
+        TSecondParam secondParam)
+    {
+        return _state switch
+        {
+            OptionState.Some => Value!,
+            _ => validation(firstParam, secondParam)
+        };
+    }
+
+    /// <summary>
+    ///     Converts an <see cref="Option{TValue}"/> to a <see cref="Validation{TValue}"/>.
+    /// </summary>
+    /// <param name="validation">The validation to produce when <see cref="Validation{TValue}"/> is in the Failure state</param>
+    /// <param name="firstParam">First parameter of the validation func</param>
+    /// <param name="secondParam">Second parameter of the validation func</param>
+    /// <param name="thirdParam">Third parameter of the validation func</param>
+    /// <typeparam name="TFirstParam">The type of the first parameter</typeparam>
+    /// <typeparam name="TSecondParam">The type of the second parameter</typeparam>
+    /// <typeparam name="TThirdParam">The type of the third parameter</typeparam>
+    /// <returns><see cref="Validation{TValue}"/></returns>
+    public Validation<TValue> ToValidation<TFirstParam, TSecondParam, TThirdParam>(
+        Func<TFirstParam, TSecondParam, TThirdParam, Validation<TValue>> validation, 
+        TFirstParam firstParam,
+        TSecondParam secondParam,
+        TThirdParam thirdParam)
+    {
+        return _state switch
+        {
+            OptionState.Some => Value!,
+            _ => validation(firstParam, secondParam, thirdParam)
+        };
+    }
+
+    /// <summary>
+    ///     Converts an <see cref="Option{TValue}"/> to a <see cref="Validation{TValue}"/>.
+    /// </summary>
+    /// <param name="validation">The validation to produce when <see cref="Validation{TValue}"/> is in the Failure state</param>
+    /// <param name="firstParam">First parameter of the validation func</param>
+    /// <param name="secondParam">Second parameter of the validation func</param>
+    /// <param name="thirdParam">Third parameter of the validation func</param>
+    /// <param name="fourthParam">Fourth parameter of the validation func</param>
+    /// <typeparam name="TFirstParam">The type of the first parameter</typeparam>
+    /// <typeparam name="TSecondParam">The type of the second parameter</typeparam>
+    /// <typeparam name="TThirdParam">The type of the third parameter</typeparam>
+    /// <typeparam name="TFourthParam">The type of the fourth parameter</typeparam>
+    /// <returns><see cref="Validation{TValue}"/></returns>
+    public Validation<TValue> ToValidation<TFirstParam, TSecondParam, TThirdParam, TFourthParam>(
+        Func<TFirstParam, TSecondParam, TThirdParam, TFourthParam, Validation<TValue>> validation, 
+        TFirstParam firstParam,
+        TSecondParam secondParam,
+        TThirdParam thirdParam,
+        TFourthParam fourthParam)
+    {
+        return _state switch
+        {
+            OptionState.Some => Value!,
+            _ => validation(firstParam, secondParam, thirdParam, fourthParam)
+        };
+    }
+
+    /// <summary>
+    ///     Converts an <see cref="Option{TValue}"/> to a <see cref="Validation{TValue}"/>.
+    /// </summary>
+    /// <param name="validation">The validation to produce when <see cref="Validation{TValue}"/> is in the Failure state</param>
+    /// <param name="firstParam">First parameter of the validation func</param>
+    /// <param name="secondParam">Second parameter of the validation func</param>
+    /// <param name="thirdParam">Third parameter of the validation func</param>
+    /// <param name="fourthParam">Fourth parameter of the validation func</param>
+    /// <param name="fifthParam">Fifth parameter of the validation func</param>
+    /// <typeparam name="TFirstParam">The type of the first parameter</typeparam>
+    /// <typeparam name="TSecondParam">The type of the second parameter</typeparam>
+    /// <typeparam name="TThirdParam">The type of the third parameter</typeparam>
+    /// <typeparam name="TFourthParam">The type of the fourth parameter</typeparam>
+    /// <typeparam name="TFifthParam">The type of the fifth parameter</typeparam>
+    /// <returns><see cref="Validation{TValue}"/></returns>
+    public Validation<TValue> ToValidation<TFirstParam, TSecondParam, TThirdParam, TFourthParam, TFifthParam>(
+        Func<TFirstParam, TSecondParam, TThirdParam, TFourthParam, TFifthParam, Validation<TValue>> validation, 
+        TFirstParam firstParam,
+        TSecondParam secondParam,
+        TThirdParam thirdParam,
+        TFourthParam fourthParam,
+        TFifthParam fifthParam)
+    {
+        return _state switch
+        {
+            OptionState.Some => Value!,
+            _ => validation(firstParam, secondParam, thirdParam, fourthParam, fifthParam)
+        };
+    }
+
+    /// <summary>
+    ///     Converts an <see cref="Option{TValue}"/> to a <see cref="Validation{TValue}"/>.
+    /// </summary>
+    /// <param name="validation">The validation to produce when <see cref="Validation{TValue}"/> is in the Failure state</param>
+    /// <param name="firstParam">First parameter of the validation func</param>
+    /// <param name="secondParam">Second parameter of the validation func</param>
+    /// <param name="thirdParam">Third parameter of the validation func</param>
+    /// <param name="fourthParam">Fourth parameter of the validation func</param>
+    /// <param name="fifthParam">Fifth parameter of the validation func</param>
+    /// <param name="sixthParam">Sixth parameter of the validation func</param>
+    /// <typeparam name="TFirstParam">The type of the first parameter</typeparam>
+    /// <typeparam name="TSecondParam">The type of the second parameter</typeparam>
+    /// <typeparam name="TThirdParam">The type of the third parameter</typeparam>
+    /// <typeparam name="TFourthParam">The type of the fourth parameter</typeparam>
+    /// <typeparam name="TFifthParam">The type of the fifth parameter</typeparam>
+    /// <typeparam name="TSixthParam">The type of the sixth parameter</typeparam>
+    /// <returns><see cref="Validation{TValue}"/></returns>
+    public Validation<TValue> ToValidation<TFirstParam, TSecondParam, TThirdParam, TFourthParam, TFifthParam, TSixthParam>(
+        Func<TFirstParam, TSecondParam, TThirdParam, TFourthParam, TFifthParam, TSixthParam, Validation<TValue>> validation, 
+        TFirstParam firstParam,
+        TSecondParam secondParam,
+        TThirdParam thirdParam,
+        TFourthParam fourthParam,
+        TFifthParam fifthParam,
+        TSixthParam sixthParam)
+    {
+        return _state switch
+        {
+            OptionState.Some => Value!,
+            _ => validation(firstParam, secondParam, thirdParam, fourthParam, fifthParam, sixthParam)
+        };
+    }
+
+    /// <summary>
+    ///     Converts an <see cref="Option{TValue}"/> to a <see cref="Validation{TValue}"/>.
+    /// </summary>
+    /// <param name="validation">The validation to produce when <see cref="Validation{TValue}"/> is in the Failure state</param>
+    /// <param name="firstParam">First parameter of the validation func</param>
+    /// <param name="secondParam">Second parameter of the validation func</param>
+    /// <param name="thirdParam">Third parameter of the validation func</param>
+    /// <param name="fourthParam">Fourth parameter of the validation func</param>
+    /// <param name="fifthParam">Fifth parameter of the validation func</param>
+    /// <param name="sixthParam">Sixth parameter of the validation func</param>
+    /// <param name="seventhParam">Seventh parameter of the validation func</param>
+    /// <typeparam name="TFirstParam">The type of the first parameter</typeparam>
+    /// <typeparam name="TSecondParam">The type of the second parameter</typeparam>
+    /// <typeparam name="TThirdParam">The type of the third parameter</typeparam>
+    /// <typeparam name="TFourthParam">The type of the fourth parameter</typeparam>
+    /// <typeparam name="TFifthParam">The type of the fifth parameter</typeparam>
+    /// <typeparam name="TSixthParam">The type of the sixth parameter</typeparam>
+    /// <typeparam name="TSeventhParam">The type of the seventh parameter</typeparam>
+    /// <returns><see cref="Validation{TValue}"/></returns>
+    public Validation<TValue> ToValidation<TFirstParam, TSecondParam, TThirdParam, TFourthParam, TFifthParam, TSixthParam, TSeventhParam>(
+        Func<TFirstParam, TSecondParam, TThirdParam, TFourthParam, TFifthParam, TSixthParam, TSeventhParam, Validation<TValue>> validation, 
+        TFirstParam firstParam,
+        TSecondParam secondParam,
+        TThirdParam thirdParam,
+        TFourthParam fourthParam,
+        TFifthParam fifthParam,
+        TSixthParam sixthParam,
+        TSeventhParam seventhParam)
+    {
+        return _state switch
+        {
+            OptionState.Some => Value!,
+            _ => validation(firstParam, secondParam, thirdParam, fourthParam, fifthParam, sixthParam, seventhParam)
+        };
+    }
+
+    /// <summary>
+    ///     Converts an <see cref="Option{TValue}"/> to a <see cref="Validation{TValue}"/>.
+    /// </summary>
+    /// <param name="validation">The validation to produce when <see cref="Validation{TValue}"/> is in the Failure state</param>
+    /// <param name="firstParam">First parameter of the validation func</param>
+    /// <param name="secondParam">Second parameter of the validation func</param>
+    /// <param name="thirdParam">Third parameter of the validation func</param>
+    /// <param name="fourthParam">Fourth parameter of the validation func</param>
+    /// <param name="fifthParam">Fifth parameter of the validation func</param>
+    /// <param name="sixthParam">Sixth parameter of the validation func</param>
+    /// <param name="seventhParam">Seventh parameter of the validation func</param>
+    /// <param name="eighthParam">Eighth parameter of the validation func</param>
+    /// <typeparam name="TFirstParam">The type of the first parameter</typeparam>
+    /// <typeparam name="TSecondParam">The type of the second parameter</typeparam>
+    /// <typeparam name="TThirdParam">The type of the third parameter</typeparam>
+    /// <typeparam name="TFourthParam">The type of the fourth parameter</typeparam>
+    /// <typeparam name="TFifthParam">The type of the fifth parameter</typeparam>
+    /// <typeparam name="TSixthParam">The type of the sixth parameter</typeparam>
+    /// <typeparam name="TSeventhParam">The type of the seventh parameter</typeparam>
+    /// <typeparam name="TEighthParam">The type of the eighth parameter</typeparam>
+    /// <returns><see cref="Validation{TValue}"/></returns>
+    public Validation<TValue> ToValidation<TFirstParam, TSecondParam, TThirdParam, TFourthParam, TFifthParam, TSixthParam, TSeventhParam, TEighthParam>(
+        Func<TFirstParam, TSecondParam, TThirdParam, TFourthParam, TFifthParam, TSixthParam, TSeventhParam, TEighthParam, Validation<TValue>> validation, 
+        TFirstParam firstParam,
+        TSecondParam secondParam,
+        TThirdParam thirdParam,
+        TFourthParam fourthParam,
+        TFifthParam fifthParam,
+        TSixthParam sixthParam,
+        TSeventhParam seventhParam,
+        TEighthParam eighthParam)
+    {
+        return _state switch
+        {
+            OptionState.Some => Value!,
+            _ => validation(firstParam, secondParam, thirdParam, fourthParam, fifthParam, sixthParam, seventhParam, eighthParam)
         };
     }
 
